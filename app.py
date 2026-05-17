@@ -141,39 +141,7 @@ if st.button('🍽 Recommend Foods'):
 
                     <h3 style="margin-top:15px;">{food}</h3>
 
-                </div>
                 """,
                 unsafe_allow_html=True
             )
-
-    recommendations = recommend(selected_food_name)
-
-    st.write("")
-    st.markdown(
-        "<h2 style='color:white;'>Recommended Foods For You 😍</h2>",
-        unsafe_allow_html=True
-    )
-
-    cols = st.columns(5)
-
-    # Sample food images
-    image_url = f"https://source.unsplash.com/300x300/?{food_name}"
-    st.image(image_url)
-
-    for idx, food in enumerate(recommendations):
-
-        with cols[idx]:
-
-            st.markdown(
-                f"""
-                <div class="food-card">
-
-                    <img class="food-img"
-                    src="{image_url[idx]}">
-
-                    <h3 style="margin-top:15px;">{food}</h3>
-
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
+        
