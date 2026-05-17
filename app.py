@@ -1,21 +1,74 @@
 import streamlit as st
 import pandas as pd
 import pickle
+import requests
 
-# Page config
+# ---------------- PAGE CONFIG ----------------
 st.set_page_config(
     page_title="FoodieFinder",
-    page_icon="🍩",
+    page_icon="🍕",
     layout="wide"
 )
 
-# Load data
+# ---------------- LOAD DATA ----------------
 food_dict = pickle.load(open('food_dict.pkl', 'rb'))
 foodie = pd.DataFrame(food_dict)
 
 similarity = pickle.load(open('similarity.pkl', 'rb'))
 
-# Recommendation function
+# ---------------- CUSTOM CSS ----------------
+st.markdown("""
+<style>
+
+.main {
+    background: linear-gradient(to right, #141e30, #243b55);
+}
+
+h1 {
+    font-family: 'Arial';
+}
+
+.food-card {
+    background-color: #1f2937;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    transition: 0.3s;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
+}
+
+.food-card:hover {
+    transform: scale(1.05);
+    background-color: #374151;
+}
+
+.food-img {
+    border-radius: 15px;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.stButton>button {
+    background-color: #ff4b4b;
+    color: white;
+    border-radius: 10px;
+    height: 50px;
+    width: 200px;
+    font-size: 18px;
+    border: none;
+}
+
+.stButton>button:hover {
+    background-color: #ff1e1e;
+    color: white;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+# ---------------- RECOMMEND FUNCTION ----------------
 def recommend(food_name):
 
     food_idx = foodie[foodie['name'] == food_name].index[0]
@@ -31,52 +84,95 @@ def recommend(food_name):
     recommended_food = []
 
     for i in food_list:
-        recommended_food.append(
-            foodie.iloc[i[0]]['name']
-        )
+        recommended_food.append(foodie.iloc[i[0]]['name'])
 
     return recommended_food
 
-
-# Title
+# ---------------- TITLE ----------------
 st.markdown(
-    "<h1 style='text-align:center; color:#ff4b4b;'>🍕Food Recommender System</h1>",
+    """
+    <h1 style='text-align:center; color:#ff4b4b;'>
+    🍔 FoodieFinder 🍟
+    </h1>
+    """,
     unsafe_allow_html=True
 )
 
-st.write("### Discover food similar to your favorites 🍿")
+st.markdown(
+    "<h4 style='text-align:center; color:white;'>Find foods similar to your favorites 😋</h4>",
+    unsafe_allow_html=True
+)
 
+st.write("")
 
-# Select Box
+# ---------------- SELECT BOX ----------------
 selected_food_name = st.selectbox(
-    "Choose a food",
+    "🍕 Choose Your Favorite Food",
     foodie['name'].values
 )
 
+st.write("")
 
-# Recommendation Button
-if st.button('Recommend'):
+# ---------------- BUTTON ----------------
+if st.button('🍽 Recommend Foods'):
 
     recommendations = recommend(selected_food_name)
 
-    st.write("## Recommended Food")
+    st.markdown(
+        "<h2 style='color:white;'>Recommended Foods For You 😍</h2>",
+        unsafe_allow_html=True
+    )
 
     cols = st.columns(5)
 
     for idx, food in enumerate(recommendations):
 
+        # generate image for each food
+        image_url = f"https://source.unsplash.com/300x300/?{food}"
+
         with cols[idx]:
+
             st.markdown(
                 f"""
-                <div style="
-                    background-color:#262730;
-                    padding:20px;
-                    border-radius:15px;
-                    text-align:center;
-                    color:white;
-                    height:150px;
-                ">
-                    <h4>{food}</h4>
+                <div class="food-card">
+
+                    <img class="food-img"
+                    src="{image_url}">
+
+                    <h3 style="margin-top:15px;">{food}</h3>
+
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+
+    recommendations = recommend(selected_food_name)
+
+    st.write("")
+    st.markdown(
+        "<h2 style='color:white;'>Recommended Foods For You 😍</h2>",
+        unsafe_allow_html=True
+    )
+
+    cols = st.columns(5)
+
+    # Sample food images
+    image_url = f"https://source.unsplash.com/300x300/?{food_name}"
+    st.image(image_url)
+
+    for idx, food in enumerate(recommendations):
+
+        with cols[idx]:
+
+            st.markdown(
+                f"""
+                <div class="food-card">
+
+                    <img class="food-img"
+                    src="{image_url[idx]}">
+
+                    <h3 style="margin-top:15px;">{food}</h3>
+
                 </div>
                 """,
                 unsafe_allow_html=True
