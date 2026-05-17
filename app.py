@@ -16,16 +16,31 @@ foodie = pd.DataFrame(food_dict)
 
 similarity = pickle.load(open('similarity.pkl', 'rb'))
 
+# ---------------- FOOD IMAGE API (TMDB STYLE) ----------------
+@st.cache_data
+def get_food_image(food_name):
+
+    try:
+        # Wikipedia API (acts like TMDB poster lookup)
+        url = f"https://en.wikipedia.org/api/rest_v1/page/summary/{food_name}"
+        response = requests.get(url, timeout=5)
+        data = response.json()
+
+        if "thumbnail" in data:
+            return data["thumbnail"]["source"]
+
+    except:
+        pass
+
+    # fallback (always works)
+    return f"https://picsum.photos/seed/{food_name}/300/300"
+
 # ---------------- CUSTOM CSS ----------------
 st.markdown("""
 <style>
 
 .main {
     background: linear-gradient(to right, #141e30, #243b55);
-}
-
-h1 {
-    font-family: 'Arial';
 }
 
 .food-card {
@@ -36,6 +51,7 @@ h1 {
     color: white;
     transition: 0.3s;
     box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
+    height: 100%;
 }
 
 .food-card:hover {
@@ -62,7 +78,6 @@ h1 {
 
 .stButton>button:hover {
     background-color: #ff1e1e;
-    color: white;
 }
 
 </style>
@@ -81,20 +96,11 @@ def recommend(food_name):
         key=lambda x: x[1]
     )[1:6]
 
-    recommended_food = []
-
-    for i in food_list:
-        recommended_food.append(foodie.iloc[i[0]]['name'])
-
-    return recommended_food
+    return [foodie.iloc[i[0]]['name'] for i in food_list]
 
 # ---------------- TITLE ----------------
 st.markdown(
-    """
-    <h1 style='text-align:center; color:#ff4b4b;'>
-    🍔 FoodieFinder 🍟
-    </h1>
-    """,
+    "<h1 style='text-align:center; color:#ff4b4b;'>🍔 FoodieFinder 🍟</h1>",
     unsafe_allow_html=True
 )
 
@@ -127,8 +133,7 @@ if st.button('🍽 Recommend Foods'):
 
     for idx, food in enumerate(recommendations):
 
-        # generate image for each food
-        image_url = f"https://source.unsplash.com/300x300/?{food}"
+        image_url = get_food_image(food)
 
         with cols[idx]:
 
@@ -136,12 +141,15 @@ if st.button('🍽 Recommend Foods'):
                 f"""
                 <div class="food-card">
 
-                    <img class="food-img"
-                    src="{image_url}">
+                    <img class="food-img" src="{image_url}">
 
                     <h3 style="margin-top:15px;">{food}</h3>
 
+                    <p style="color:gray; font-size:12px;">
+                        TMDB-style recommendation engine 🍴
+                    </p>
+
+                </div>
                 """,
                 unsafe_allow_html=True
             )
-        
