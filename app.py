@@ -16,9 +16,9 @@ foodie = pd.DataFrame(food_dict)
 similarity = pickle.load(open('similarity.pkl', 'rb'))
 
 # Recommendation function
-def recommend(food):
+def recommend(food_name):
 
-    food_idx = food[food['name'] == food].index[0]
+    food_idx = foodie[foodie['name'] == food_name].index[0]
 
     dist = similarity[food_idx]
 
@@ -32,7 +32,7 @@ def recommend(food):
 
     for i in food_list:
         recommended_food.append(
-            food.iloc[i[0]].title
+            foodie.iloc[i[0]]['name']
         )
 
     return recommended_food
@@ -63,7 +63,7 @@ if st.button('Recommend'):
 
     cols = st.columns(5)
 
-    for idx, movie in enumerate(recommendations):
+    for idx, food in enumerate(recommendations):
 
         with cols[idx]:
             st.markdown(
@@ -76,7 +76,7 @@ if st.button('Recommend'):
                     color:white;
                     height:150px;
                 ">
-                    <h4>{movie}</h4>
+                    <h4>{food}</h4>
                 </div>
                 """,
                 unsafe_allow_html=True
