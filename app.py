@@ -120,6 +120,7 @@ selected_food_name = st.selectbox(
 st.write("")
 
 # ---------------- BUTTON ----------------
+
 if st.button('🍽 Recommend Foods'):
 
     recommendations = recommend(selected_food_name)
@@ -137,18 +138,23 @@ if st.button('🍽 Recommend Foods'):
 
         with cols[idx]:
 
+            # ✅ SAFE IMAGE (NO HTML BUGS)
+            st.image(image_url, use_container_width=True)
+
             st.markdown(
                 f"""
-                <div class="food-card">
-
-                    <img class="food-img" src="{image_url}">
-
-                    <h3 style="margin-top:15px;">{food}</h3>
-
+                <div style="
+                    background-color:#1f2937;
+                    padding:15px;
+                    border-radius:15px;
+                    text-align:center;
+                    color:white;
+                    margin-top:-10px;
+                ">
+                    <h3 style="margin:0;">{food}</h3>
                     <p style="color:gray; font-size:12px;">
                         TMDB-style recommendation engine 🍴
                     </p>
-
                 </div>
                 """,
                 unsafe_allow_html=True
