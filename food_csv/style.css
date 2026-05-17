@@ -1,0 +1,191 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg,#ffecd2,#fcb69f);
+    min-height:100vh;
+}
+
+/* Navbar */
+
+.navbar{
+    width:100%;
+    padding:20px 40px;
+    background:rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 4px 20px rgba(0,0,0,0.1);
+}
+
+.logo{
+    font-size:32px;
+    font-weight:700;
+    color:#ff4b2b;
+}
+
+.nav-links{
+    display:flex;
+    gap:20px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#333;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    color:#ff4b2b;
+}
+
+/* Main Container */
+
+.container{
+    width:90%;
+    margin:auto;
+    text-align:center;
+    margin-top:60px;
+}
+
+.container h1{
+    font-size:55px;
+    color:#222;
+    margin-bottom:15px;
+}
+
+.container p{
+    color:#555;
+    margin-bottom:40px;
+    font-size:18px;
+}
+
+/* Search Box */
+
+.search-box{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-bottom:50px;
+}
+
+.search-box input{
+    width:400px;
+    padding:15px 20px;
+    border:none;
+    border-radius:50px;
+    outline:none;
+    font-size:16px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.1);
+}
+
+.search-box button{
+    padding:15px 30px;
+    border:none;
+    border-radius:50px;
+    background:linear-gradient(135deg,#ff512f,#dd2476);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 4px 20px rgba(0,0,0,0.2);
+}
+
+.search-box button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* Food Cards */
+
+.card-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+    margin-top:40px;
+}
+
+.card{
+    background:white;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+    transition:0.4s;
+    position:relative;
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.03);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+}
+
+.card-content h3{
+    font-size:24px;
+    margin-bottom:10px;
+    color:#222;
+}
+
+.card-content p{
+    color:#666;
+    font-size:14px;
+}
+
+/* Fun Tags */
+
+.tag{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:20px;
+    background:#ffe0d3;
+    color:#ff4b2b;
+    font-size:13px;
+    margin-top:10px;
+}
+
+/* Footer */
+
+.footer{
+    margin-top:80px;
+    padding:25px;
+    text-align:center;
+    background:rgba(255,255,255,0.2);
+    backdrop-filter:blur(10px);
+    color:#333;
+    font-weight:500;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .container h1{
+        font-size:38px;
+    }
+
+    .search-box{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .search-box input{
+        width:90%;
+    }
+}
