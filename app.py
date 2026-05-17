@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import pickle
-import requests
+from food_img import FOOD_IMAGE_MAP
 
 # ---------------- PAGE CONFIG ----------------
 st.set_page_config(
@@ -16,24 +16,29 @@ foodie = pd.DataFrame(food_dict)
 
 similarity = pickle.load(open('similarity.pkl', 'rb'))
 
-# ---------------- FOOD IMAGE API (TMDB STYLE) ----------------
+# ---------------- IMAGE FUNCTION (TMDB STYLE) ----------------
 @st.cache_data
 def get_food_image(food_name):
 
-    try:
-        # Wikipedia API (acts like TMDB poster lookup)
-        url = f"https://en.wikipedia.org/api/rest_v1/page/summary/{food_name}"
-        response = requests.get(url, timeout=5)
-        data = response.json()
+    return FOOD_IMAGE_MAP.get(
+        food_name,
+        f"https://picsum.photos/seed/{food_name}/300/300"
+    )
 
-        if "thumbnail" in data:
-            return data["thumbnail"]["source"]
+# ---------------- RECOMMEND FUNCTION ----------------
+def recommend(food_name):
 
-    except:
-        pass
+    food_idx = foodie[foodie['name'] == food_name].index[0]
 
-    # fallback (always works)
-    return f"https://picsum.photos/seed/{food_name}/300/300"
+    dist = similarity[food_idx]
+
+    food_list = sorted(
+        list(enumerate(dist)),
+        reverse=True,
+        key=lambda x: x[1]
+    )[1:6]
+
+    return [foodie.iloc[i[0]]['name'] for i in food_list]
 
 # ---------------- CUSTOM CSS ----------------
 st.markdown("""
@@ -45,25 +50,17 @@ st.markdown("""
 
 .food-card {
     background-color: #1f2937;
-    padding: 20px;
-    border-radius: 20px;
+    padding: 15px;
+    border-radius: 15px;
     text-align: center;
     color: white;
     transition: 0.3s;
     box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
-    height: 100%;
 }
 
 .food-card:hover {
     transform: scale(1.05);
     background-color: #374151;
-}
-
-.food-img {
-    border-radius: 15px;
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
 }
 
 .stButton>button {
@@ -82,21 +79,6 @@ st.markdown("""
 
 </style>
 """, unsafe_allow_html=True)
-
-# ---------------- RECOMMEND FUNCTION ----------------
-def recommend(food_name):
-
-    food_idx = foodie[foodie['name'] == food_name].index[0]
-
-    dist = similarity[food_idx]
-
-    food_list = sorted(
-        list(enumerate(dist)),
-        reverse=True,
-        key=lambda x: x[1]
-    )[1:6]
-
-    return [foodie.iloc[i[0]]['name'] for i in food_list]
 
 # ---------------- TITLE ----------------
 st.markdown(
@@ -120,7 +102,6 @@ selected_food_name = st.selectbox(
 st.write("")
 
 # ---------------- BUTTON ----------------
-
 if st.button('🍽 Recommend Foods'):
 
     recommendations = recommend(selected_food_name)
@@ -138,20 +119,12 @@ if st.button('🍽 Recommend Foods'):
 
         with cols[idx]:
 
-            # ✅ SAFE IMAGE (NO HTML BUGS)
             st.image(image_url, use_container_width=True)
 
             st.markdown(
                 f"""
-                <div style="
-                    background-color:#1f2937;
-                    padding:15px;
-                    border-radius:15px;
-                    text-align:center;
-                    color:white;
-                    margin-top:-10px;
-                ">
-                    <h3 style="margin:0;">{food}</h3>
+                <div class="food-card">
+                    <h3>{food}</h3>
                     <p style="color:gray; font-size:12px;">
                         TMDB-style recommendation engine 🍴
                     </p>
