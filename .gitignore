@@ -1,3 +1,5 @@
 __pycache__/
 *.pyc
-prepo.ipynb
+*.ipynb
+static/
+templates/
