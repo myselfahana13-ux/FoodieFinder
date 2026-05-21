@@ -132,3 +132,15 @@ if st.button('🍽 Recommend Foods'):
                 """,
                 unsafe_allow_html=True
             )
+
+
+from flask import Flask, render_template
+
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+@app.route('/recommend', methods=['POST'])
+def recommend():
+    # your logic
+    return render_template('result.html', recommendations=results)
