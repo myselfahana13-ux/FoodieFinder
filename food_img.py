@@ -67,26 +67,21 @@ FOOD_IMAGE_MAP = {
     "Double ka meetha": "https://www.shutterstock.com/image-photo/tasty-healthy-double-ka-meeta-600nw-2136529687.jpg",
     "Dum aloo": "https://sinfullyspicy.com/wp-content/uploads/2024/01/1200-by-1200-images-3.jpg",
     "Dudhi halwa": "https://ministryofcurry.com/wp-content/uploads/2021/05/Dudhi-Halwa-6.jpg",
-    "Fara"
-Farsi Puri
-Gajar ka halwa
-Galho
-Gatta curry
-Gavvalu
-Gheela Pitha
-Ghevar
-Ghooghra
-Goja
-Gud papdi
-Gulab jamun
-Halvasan
-Hando Guri
-Handwo
-Haq Maas": "",
-    "": "",
-    "": "",
-    "": "",
-    "": "",
-    "": "",
-    "": "",
+    "Fara": "",
+    "Farsi Puri": "",
+    "Gajar ka halwa": "",
+    "Galho": "",
+    "Gatta curry": "",
+    "Gavvalu": "",
+    "Gheela Pitha": "",
+    "Ghevar": "",
+    "Ghooghra": "",
+    "Goja": "",
+    "Gud papdi": "",
+    "Gulab jamun": "",
+    "Halvasan": "",
+    "Hando Guri": "",
+    "Handwo": "",
+    "Haq Maas": "",
+   
 }
