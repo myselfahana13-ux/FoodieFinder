@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import pickle
 import os
+import requests
 from food_img import FOOD_IMAGE_MAP
 
 # ---------------- PAGE CONFIG ----------------
@@ -19,9 +20,10 @@ def load_data():
     food_dict = pickle.load(open(os.path.join(base_dir, 'models', 'food_dict.pkl'), 'rb'))
     similarity = pickle.load(open(os.path.join(base_dir, 'models', 'similarity.pkl'), 'rb'))
     foodie = pd.DataFrame(food_dict)
-    return foodie, similarity
+    recipes_df = pd.read_csv(os.path.join(base_dir, 'Food_data', 'new_df.csv'))
+    return foodie, similarity, recipes_df
 
-foodie, similarity = load_data()
+foodie, similarity, recipes_df = load_data()
 
 # ---------------- IMAGE FUNCTION ----------------
 @st.cache_data
@@ -40,7 +42,56 @@ def recommend(food_name):
         reverse=True,
         key=lambda x: x[1]
     )[1:6]
-    return [foodie.iloc[i[0]]['name'] for i in food_list]
+    results = []
+    for i in food_list:
+        name = foodie.iloc[i[0]]['name']
+        row = recipes_df[recipes_df['name'] == name]
+        ingredients = row.iloc[0]['ingredients'] if not row.empty and 'ingredients' in row.columns else "Not available"
+        cook_time = row.iloc[0]['cook_time'] if not row.empty and 'cook_time' in row.columns else "Not available"
+        results.append({
+            'name': name,
+            'ingredients': ingredients,
+            'cook_time': cook_time
+        })
+    return results
+
+# ---------------- AI RECIPE FUNCTION ----------------
+def get_ai_recipe(food_name, ingredients):
+    try:
+        response = requests.post(
+            "https://api.anthropic.com/v1/messages",
+            headers={"Content-Type": "application/json"},
+            json={
+                "model": "claude-sonnet-4-20250514",
+                "max_tokens": 1000,
+                "messages": [{
+                    "role": "user",
+                    "content": f"""Give me a simple home recipe for {food_name}.
+Ingredients available: {ingredients}
+Format your response exactly like this:
+🍳 RECIPE: {food_name}
+⏱ Time: [time]
+👥 Serves: [number]
+
+📝 INGREDIENTS:
+- [ingredient 1]
+- [ingredient 2]
+
+👨‍🍳 STEPS:
+1. [step 1]
+2. [step 2]
+3. [step 3]
+
+💡 TIP: [one quick tip]
+
+Keep it short, simple and friendly!"""
+                }]
+            }
+        )
+        data = response.json()
+        return data['content'][0]['text']
+    except Exception as e:
+        return f"Could not generate recipe: {e}"
 
 # ---------------- CUSTOM CSS ----------------
 st.markdown("""
@@ -51,7 +102,6 @@ st.markdown("""
 footer {visibility: hidden;}
 header {visibility: hidden;}
 
-/* Darker warm background */
 .stApp {
     background-color: #E8D5B0;
     background-image:
@@ -61,7 +111,6 @@ header {visibility: hidden;}
     overflow-x: hidden;
 }
 
-/* Floating Indian food emojis */
 .floating-foods {
     position: fixed;
     top: 0; left: 0;
@@ -73,13 +122,11 @@ header {visibility: hidden;}
 
 .food-float {
     position: absolute;
-    font-size: 52px;
     animation: wave 4s ease-in-out infinite;
     opacity: 0.55;
     filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.15));
 }
 
-/* Each emoji at different positions and wave timings */
 .f1  { top: 5%;  left: 2%;   animation-delay: 0s;    font-size: 58px; }
 .f2  { top: 18%; left: 91%;  animation-delay: 0.5s;  font-size: 50px; }
 .f3  { top: 35%; left: 3%;   animation-delay: 1s;    font-size: 46px; }
@@ -101,13 +148,6 @@ header {visibility: hidden;}
     100% { transform: translateX(0px) rotate(0deg); }
 }
 
-/* Main content above floating emojis */
-.main-content {
-    position: relative;
-    z-index: 1;
-}
-
-/* Selectbox label */
 .stSelectbox label {
     color: #5C3D2E !important;
     font-size: 16px !important;
@@ -115,7 +155,6 @@ header {visibility: hidden;}
     font-family: 'Nunito', sans-serif !important;
 }
 
-/* Selectbox */
 .stSelectbox > div > div {
     background-color: #FFF3E0 !important;
     border: 2px solid #C4956A !important;
@@ -124,7 +163,6 @@ header {visibility: hidden;}
     font-family: 'Nunito', sans-serif !important;
 }
 
-/* Food result card */
 .food-card {
     background: linear-gradient(145deg, #FFF8F0, #FDEFD8);
     border: 1.5px solid #D4B896;
@@ -137,8 +175,7 @@ header {visibility: hidden;}
     margin-top: 10px;
 }
 .food-card:hover {
-    transform: scale(1.05) translateY(-4px);
-    background: linear-gradient(145deg, #FDEFD8, #F5DFB8);
+    transform: scale(1.03) translateY(-3px);
     box-shadow: 0px 10px 24px rgba(92, 61, 46, 0.2);
 }
 .food-card h3 {
@@ -149,7 +186,37 @@ header {visibility: hidden;}
     margin: 0; padding: 0;
 }
 
-/* Recommend button */
+.info-pill {
+    display: inline-block;
+    background: #F5DEB3;
+    color: #5C3D2E;
+    border-radius: 99px;
+    padding: 3px 10px;
+    font-size: 11px;
+    font-family: 'Nunito', sans-serif;
+    margin-top: 6px;
+    border: 1px solid #D4B896;
+}
+
+.restaurant-btn {
+    display: block;
+    background: linear-gradient(135deg, #2E7D32, #388E3C);
+    color: white !important;
+    text-decoration: none !important;
+    border-radius: 10px;
+    padding: 7px 14px;
+    font-size: 12px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 8px;
+    transition: 0.2s;
+}
+.restaurant-btn:hover {
+    background: linear-gradient(135deg, #1B5E20, #2E7D32);
+    transform: translateY(-1px);
+}
+
 .stButton > button {
     background: linear-gradient(135deg, #7C4A2D, #5C3D2E);
     color: #FFF8F0;
@@ -163,7 +230,6 @@ header {visibility: hidden;}
     display: block;
     margin: 0 auto;
     transition: 0.25s ease;
-    letter-spacing: 0.03em;
 }
 .stButton > button:hover {
     background: linear-gradient(135deg, #5C3D2E, #3B2A1A);
@@ -173,13 +239,23 @@ header {visibility: hidden;}
     box-shadow: 0 8px 20px rgba(92, 61, 46, 0.35);
 }
 
-/* Image style */
 .stImage img {
     border-radius: 16px !important;
     border: 2px solid #D4B896 !important;
 }
 
-/* Divider */
+.recipe-box {
+    background: #FFF8F0;
+    border: 1.5px solid #D4B896;
+    border-radius: 14px;
+    padding: 16px;
+    font-family: 'Nunito', sans-serif;
+    color: #3B2A1A;
+    font-size: 14px;
+    line-height: 1.7;
+    white-space: pre-wrap;
+}
+
 hr {
     border: none;
     border-top: 1.5px solid #C4A882;
@@ -189,7 +265,6 @@ hr {
 }
 </style>
 
-<!-- Floating Indian food & sweets emojis -->
 <div class="floating-foods">
     <div class="food-float f1">🍛</div>
     <div class="food-float f2">🧆</div>
@@ -211,13 +286,10 @@ st.markdown(
     "<h1 style='text-align:center; color:#3B1F0E; font-family:Playfair Display,serif; font-size:56px; margin-top:30px; letter-spacing:-1px; position:relative; z-index:1;'>🍽 FoodieFinder</h1>",
     unsafe_allow_html=True
 )
-
-# Ghibli style subtitle using Satisfy font
 st.markdown(
     "<p style='text-align:center; color:#7A4F2E; font-family:Satisfy,cursive; font-size:24px; margin-top:4px; position:relative; z-index:1;'>Because choosing food should be delicious.</p>",
     unsafe_allow_html=True
 )
-
 st.markdown("<hr>", unsafe_allow_html=True)
 st.write("")
 
@@ -243,31 +315,58 @@ if recommend_clicked:
 
         st.write("")
         st.markdown(
-            "<h2 style='color:#3B1F0E; text-align:center; font-family:Playfair Display,serif; margin-top:20px; position:relative; z-index:1;'>Recommended for you 🌿</h2>",
+            "<h2 style='color:#3B1F0E; text-align:center; font-family:Playfair Display,serif; margin-top:20px;'>Recommended for you 🌿</h2>",
             unsafe_allow_html=True
         )
         st.markdown(
-            f"<p style='text-align:center; color:#9A7B5E; font-size:15px; font-family:Nunito,sans-serif; position:relative; z-index:1;'>Because you liked <strong>{selected_food_name}</strong></p>",
+            f"<p style='text-align:center; color:#9A7B5E; font-size:15px; font-family:Nunito,sans-serif;'>Because you liked <strong>{selected_food_name}</strong></p>",
             unsafe_allow_html=True
         )
         st.write("")
 
         cols = st.columns(5)
-        for idx, food in enumerate(recommendations):
+        for idx, food_data in enumerate(recommendations):
+            food      = food_data['name']
+            ingr      = food_data['ingredients']
+            cook_time = food_data['cook_time']
             image_url = get_food_image(food)
+
+            # Google Maps nearest restaurant link
+            maps_url = f"https://www.google.com/maps/search/{food.replace(' ', '+')}+restaurant+near+me"
+
             with cols[idx]:
                 st.image(image_url, use_container_width=True)
-                st.markdown(
-                    f"""
-                    <div class="food-card">
-                        <h3>{food}</h3>
-                        <p style="color:#9A7B5E; font-size:12px; margin-top:6px; font-family:'Nunito',sans-serif;">
-                            Similar to {selected_food_name} 🍴
-                        </p>
-                    </div>
-                    """,
-                    unsafe_allow_html=True
-                )
+
+                st.markdown(f"""
+                <div class="food-card">
+                    <h3>{food}</h3>
+                    <span class="info-pill">⏱ {cook_time}</span>
+                    <p style="color:#9A7B5E; font-size:11px; margin-top:8px;">
+                        🧂 {ingr[:60]}{'...' if len(str(ingr)) > 60 else ''}
+                    </p>
+                    <a href="{maps_url}" target="_blank" class="restaurant-btn">
+                        📍 Find Restaurant
+                    </a>
+                </div>
+                """, unsafe_allow_html=True)
+
+                # AI Recipe expander
+                with st.expander(f"📖 Get AI Recipe"):
+                    if st.button(f"Generate Recipe for {food}", key=f"recipe_{idx}"):
+                        with st.spinner("🍳 Cooking up a recipe..."):
+                            recipe = get_ai_recipe(food, ingr)
+                            st.markdown(
+                                f"<div class='recipe-box'>{recipe}</div>",
+                                unsafe_allow_html=True
+                            )
+
+        # Bottom emoji decoration
+        st.write("")
+        st.markdown("""
+        <div style='text-align:center; font-size:28px; margin-top:10px; letter-spacing:6px; opacity:0.5;'>
+            🥘 &nbsp; 🍱 &nbsp; 🥗 &nbsp; 🍲 &nbsp; 🧆
+        </div>
+        """, unsafe_allow_html=True)
 
     except Exception as e:
         st.error(f"Something went wrong: {e}. Please try another food.")
@@ -275,7 +374,7 @@ if recommend_clicked:
 # ---------------- FOOTER ----------------
 st.write("")
 st.markdown("""
-<p style='text-align:center; color:#B8906A; font-size:13px; font-family:Satisfy,cursive; margin-top:50px; position:relative; z-index:1;'>
+<p style='text-align:center; color:#B8906A; font-size:13px; font-family:Satisfy,cursive; margin-top:50px;'>
     Made with 🤍 · FoodieFinder © 2025
 </p>
 """, unsafe_allow_html=True)
