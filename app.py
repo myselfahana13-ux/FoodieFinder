@@ -11,7 +11,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# ---------------- LOAD DATA (fixed paths) ----------------
+# ---------------- LOAD DATA ----------------
 base_dir = os.path.dirname(os.path.abspath(__file__))
 
 @st.cache_resource
@@ -45,94 +45,212 @@ def recommend(food_name):
 # ---------------- CUSTOM CSS ----------------
 st.markdown("""
 <style>
-/* Hide Streamlit default header/footer */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Nunito:wght@300;400;600;700&family=Satisfy&display=swap');
+
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
 header {visibility: hidden;}
 
-/* Page background */
+/* Darker warm background */
 .stApp {
-    background: linear-gradient(135deg, #141e30 0%, #243b55 100%);
+    background-color: #E8D5B0;
+    background-image:
+        radial-gradient(circle at 15% 25%, #DFC49A 0%, transparent 45%),
+        radial-gradient(circle at 85% 75%, #D4AF85 0%, transparent 45%);
+    font-family: 'Nunito', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Floating Indian food emojis */
+.floating-foods {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.food-float {
+    position: absolute;
+    font-size: 52px;
+    animation: wave 4s ease-in-out infinite;
+    opacity: 0.55;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.15));
+}
+
+/* Each emoji at different positions and wave timings */
+.f1  { top: 5%;  left: 2%;   animation-delay: 0s;    font-size: 58px; }
+.f2  { top: 18%; left: 91%;  animation-delay: 0.5s;  font-size: 50px; }
+.f3  { top: 35%; left: 3%;   animation-delay: 1s;    font-size: 46px; }
+.f4  { top: 50%; left: 93%;  animation-delay: 1.5s;  font-size: 54px; }
+.f5  { top: 68%; left: 1%;   animation-delay: 2s;    font-size: 48px; }
+.f6  { top: 80%; left: 90%;  animation-delay: 2.5s;  font-size: 52px; }
+.f7  { top: 90%; left: 8%;   animation-delay: 0.8s;  font-size: 44px; }
+.f8  { top: 8%;  left: 85%;  animation-delay: 1.2s;  font-size: 56px; }
+.f9  { top: 60%; left: 6%;   animation-delay: 1.8s;  font-size: 50px; }
+.f10 { top: 42%; left: 88%;  animation-delay: 0.3s;  font-size: 46px; }
+.f11 { top: 75%; left: 45%;  animation-delay: 2.2s;  font-size: 42px; opacity: 0.3; }
+.f12 { top: 12%; left: 48%;  animation-delay: 1.6s;  font-size: 40px; opacity: 0.25; }
+
+@keyframes wave {
+    0%   { transform: translateX(0px) rotate(0deg); }
+    25%  { transform: translateX(12px) rotate(3deg); }
+    50%  { transform: translateX(0px) rotate(0deg); }
+    75%  { transform: translateX(-12px) rotate(-3deg); }
+    100% { transform: translateX(0px) rotate(0deg); }
+}
+
+/* Main content above floating emojis */
+.main-content {
+    position: relative;
+    z-index: 1;
 }
 
 /* Selectbox label */
 .stSelectbox label {
-    color: white !important;
+    color: #5C3D2E !important;
     font-size: 16px !important;
+    font-weight: 600 !important;
+    font-family: 'Nunito', sans-serif !important;
 }
 
-/* Food card */
+/* Selectbox */
+.stSelectbox > div > div {
+    background-color: #FFF3E0 !important;
+    border: 2px solid #C4956A !important;
+    border-radius: 14px !important;
+    color: #3B2A1A !important;
+    font-family: 'Nunito', sans-serif !important;
+}
+
+/* Food result card */
 .food-card {
-    background-color: #1f2937;
-    padding: 15px;
-    border-radius: 15px;
+    background: linear-gradient(145deg, #FFF8F0, #FDEFD8);
+    border: 1.5px solid #D4B896;
+    padding: 14px;
+    border-radius: 18px;
     text-align: center;
-    color: white;
-    transition: 0.3s;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
+    color: #3B2A1A;
+    transition: 0.3s ease;
+    box-shadow: 0px 4px 14px rgba(92, 61, 46, 0.12);
     margin-top: 10px;
 }
 .food-card:hover {
-    transform: scale(1.05);
-    background-color: #374151;
+    transform: scale(1.05) translateY(-4px);
+    background: linear-gradient(145deg, #FDEFD8, #F5DFB8);
+    box-shadow: 0px 10px 24px rgba(92, 61, 46, 0.2);
 }
 .food-card h3 {
     font-size: 14px;
-    margin: 0;
-    padding: 0;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    color: #3B2A1A;
+    margin: 0; padding: 0;
 }
 
 /* Recommend button */
 .stButton > button {
-    background-color: #ff4b4b;
-    color: white;
-    border-radius: 10px;
-    height: 50px;
-    width: 200px;
-    font-size: 18px;
+    background: linear-gradient(135deg, #7C4A2D, #5C3D2E);
+    color: #FFF8F0;
+    border-radius: 14px;
+    height: 52px;
+    width: 230px;
+    font-size: 16px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
     border: none;
     display: block;
     margin: 0 auto;
+    transition: 0.25s ease;
+    letter-spacing: 0.03em;
 }
 .stButton > button:hover {
-    background-color: #ff1e1e;
-    color: white;
+    background: linear-gradient(135deg, #5C3D2E, #3B2A1A);
+    color: #FFF8F0;
     border: none;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(92, 61, 46, 0.35);
+}
+
+/* Image style */
+.stImage img {
+    border-radius: 16px !important;
+    border: 2px solid #D4B896 !important;
+}
+
+/* Divider */
+hr {
+    border: none;
+    border-top: 1.5px solid #C4A882;
+    margin: 16px auto;
+    width: 50%;
+    opacity: 0.6;
 }
 </style>
+
+<!-- Floating Indian food & sweets emojis -->
+<div class="floating-foods">
+    <div class="food-float f1">🍛</div>
+    <div class="food-float f2">🧆</div>
+    <div class="food-float f3">🫓</div>
+    <div class="food-float f4">🍮</div>
+    <div class="food-float f5">🥘</div>
+    <div class="food-float f6">🍯</div>
+    <div class="food-float f7">🫕</div>
+    <div class="food-float f8">🍡</div>
+    <div class="food-float f9">🥞</div>
+    <div class="food-float f10">🍲</div>
+    <div class="food-float f11">🧇</div>
+    <div class="food-float f12">🍜</div>
+</div>
 """, unsafe_allow_html=True)
 
 # ---------------- TITLE ----------------
 st.markdown(
-    "<h1 style='text-align:center; color:#ff4b4b;'>🍔 FoodieFinder 🍟</h1>",
+    "<h1 style='text-align:center; color:#3B1F0E; font-family:Playfair Display,serif; font-size:56px; margin-top:30px; letter-spacing:-1px; position:relative; z-index:1;'>🍽 FoodieFinder</h1>",
     unsafe_allow_html=True
 )
+
+# Ghibli style subtitle using Satisfy font
 st.markdown(
-    "<h4 style='text-align:center; color:white;'>Find foods similar to your favorites 😋</h4>",
+    "<p style='text-align:center; color:#7A4F2E; font-family:Satisfy,cursive; font-size:24px; margin-top:4px; position:relative; z-index:1;'>Because choosing food should be delicious.</p>",
     unsafe_allow_html=True
 )
+
+st.markdown("<hr>", unsafe_allow_html=True)
 st.write("")
 
 # ---------------- SELECT BOX ----------------
-selected_food_name = st.selectbox(
-    "🍕 Choose Your Favorite Food",
-    foodie['name'].values
-)
+col_l, col_m, col_r = st.columns([1, 2, 1])
+with col_m:
+    selected_food_name = st.selectbox(
+        "🍕 What are you craving today?",
+        foodie['name'].values
+    )
+
 st.write("")
 
-# ---------------- BUTTON + RESULTS ----------------
+# ---------------- BUTTON ----------------
 col1, col2, col3 = st.columns([1, 1, 1])
 with col2:
-    recommend_clicked = st.button('🍽 Recommend Foods')
+    recommend_clicked = st.button('✨ Find Similar Foods')
 
+# ---------------- RESULTS ----------------
 if recommend_clicked:
     try:
         recommendations = recommend(selected_food_name)
 
+        st.write("")
         st.markdown(
-            "<h2 style='color:white; text-align:center; margin-top:30px;'>Recommended Foods For You 😍</h2>",
+            "<h2 style='color:#3B1F0E; text-align:center; font-family:Playfair Display,serif; margin-top:20px; position:relative; z-index:1;'>Recommended for you 🌿</h2>",
             unsafe_allow_html=True
         )
+        st.markdown(
+            f"<p style='text-align:center; color:#9A7B5E; font-size:15px; font-family:Nunito,sans-serif; position:relative; z-index:1;'>Because you liked <strong>{selected_food_name}</strong></p>",
+            unsafe_allow_html=True
+        )
+        st.write("")
 
         cols = st.columns(5)
         for idx, food in enumerate(recommendations):
@@ -143,7 +261,7 @@ if recommend_clicked:
                     f"""
                     <div class="food-card">
                         <h3>{food}</h3>
-                        <p style="color:#9ca3af; font-size:12px; margin-top:6px;">
+                        <p style="color:#9A7B5E; font-size:12px; margin-top:6px; font-family:'Nunito',sans-serif;">
                             Similar to {selected_food_name} 🍴
                         </p>
                     </div>
@@ -153,3 +271,11 @@ if recommend_clicked:
 
     except Exception as e:
         st.error(f"Something went wrong: {e}. Please try another food.")
+
+# ---------------- FOOTER ----------------
+st.write("")
+st.markdown("""
+<p style='text-align:center; color:#B8906A; font-size:13px; font-family:Satisfy,cursive; margin-top:50px; position:relative; z-index:1;'>
+    Made with 🤍 · FoodieFinder © 2025
+</p>
+""", unsafe_allow_html=True)
