@@ -57,13 +57,20 @@ FOOD_FACTS = [
 # ---------------- IMAGE FUNCTION ----------------
 @st.cache_data
 def get_food_image(food_name):
-    row = recipes_df[recipes_df['name'] == food_name]
-    if not row.empty and 'img_url' in row.columns:
-        url = row.iloc[0]['img_url']
-        if pd.notna(url) and str(url).startswith('http'):
-            return url
-    return FOOD_IMAGE_MAP.get(food_name, f"https://picsum.photos/seed/{food_name}/300/300")
-
+    try:
+        row = recipes_df[recipes_df['name'] == food_name]
+        if not row.empty and 'img_url' in row.columns:
+            url = str(row.iloc[0]['img_url']).strip()
+            if url and url != 'nan' and url.startswith('http'):
+                return url
+        # try FOOD_IMAGE_MAP next
+        if food_name in FOOD_IMAGE_MAP:
+            return FOOD_IMAGE_MAP[food_name]
+        # safe fallback using food name as seed
+        safe_name = food_name.replace(' ', '_')
+        return f"https://picsum.photos/seed/{safe_name}/300/300"
+    except:
+        return f"https://picsum.photos/seed/food/300/300"
 # ---------------- RECOMMEND FUNCTION ----------------
 def recommend(food_name):
     food_idx  = foodie[foodie['name'] == food_name].index[0]

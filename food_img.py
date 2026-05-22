@@ -1,5 +1,4 @@
 FOOD_IMAGE_MAP = {
-    ""
     "Aloo gobi": "https://static01.nyt.com/images/2023/12/21/multimedia/ND-Aloo-Gobi-gkwc/ND-Aloo-Gobi-gkwc-threeByTwoLargeAt2X.jpg",
     "Aloo matar": "https://www.cubesnjuliennes.com/wp-content/uploads/2020/07/Punjabi-Aloo-Matar-Recipe.jpg",
     "Aloo methi": "https://www.cookwithmanali.com/wp-content/uploads/2019/04/Aloo-Methi-500x375.jpg",
@@ -83,5 +82,4 @@ FOOD_IMAGE_MAP = {
     "Hando Guri": "",
     "Handwo": "",
     "Haq Maas": "",
-   
 }
