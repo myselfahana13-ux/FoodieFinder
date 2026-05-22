@@ -52,21 +52,6 @@ FOOD_FACTS = [
     "🍲 Rajma-Chawal became popular in North India only in the 20th century.",
     "🥗 Chaat is believed to have originated in the royal kitchens of Mughal emperors.",
     "🍛 There are over 30 regional varieties of curry across India.",
-    "🍕 Pizza was once delivered to space! Astronauts got a pizza delivery in 2001.",
-    "🍌 Bananas are technically berries, but strawberries aren’t! 🤯",
-    "🍯 Honey never spoils — archaeologists found edible honey in ancient tombs!",
-    "🌶️ Chili peppers can make your brain release “happy chemicals” called endorphins.",
-    "🍍 Pineapple contains an enzyme that can “eat” protein… which means it slightly eats your tongue while you eat it 😅",
-    "🥔 The potato was the first vegetable grown in space 🚀",
-    "🍫 Dark chocolate comes from cacao beans, which grow on trees 🌳",
-    "🥒 Cucumbers are about 95% water 💧",
-    "🦞 Lobsters were once considered “poor people food” in the past 😲",
-    "🍎 Apples float in water because they are 25% air!",
-    "🍿 Popcorn can jump up to 3 feet high when it pops 🎉",
-    "🧀 Some cheeses are aged longer than most pets live 🐶",
-    "🍉 Watermelons are both a fruit and a vegetable!",
-    "☕ Coffee beans are actually fruit seeds 🍒",
-    "🍓 There are about 200 tiny seeds on the outside of a strawberry 🍓✨",
 ]
 
 # ---------------- IMAGE FUNCTION ----------------
@@ -230,7 +215,7 @@ cl, cm, cr = st.columns([1, 3, 1])
 with cm:
     st.markdown(f"""
     <div class="fotd-card">
-        <div style="font-size:48px">🎯</div>
+        <div style="font-size:48px">🌟</div>
         <div>
             <p style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;opacity:0.7;margin:0;">Food of the Day</p>
             <h3>{fotd}</h3>
