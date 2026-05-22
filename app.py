@@ -230,7 +230,7 @@ cl, cm, cr = st.columns([1, 3, 1])
 with cm:
     st.markdown(f"""
     <div class="fotd-card">
-        <div style="font-size:48px">🌟</div>
+        <div style="font-size:48px">🎯</div>
         <div>
             <p style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;opacity:0.7;margin:0;">Food of the Day</p>
             <h3>{fotd}</h3>
