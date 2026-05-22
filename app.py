@@ -290,10 +290,6 @@ st.write("")
 # ================================================================
 cl, cm, cr = st.columns([1, 2, 1])
 with cm:
-    search_query = st.text_input("🔍 Search for a food...", placeholder="e.g. Biryani, Gulab Jamun, Dosa")
-    if search_query:
-        matched = [f for f in food_options if search_query.lower() in f.lower()]
-        food_options = matched if matched else food_options
     selected_food_name = st.selectbox("🍕 What are you craving today?", food_options)
 
 st.write("")
