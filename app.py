@@ -57,12 +57,10 @@ FOOD_FACTS = [
 # ---------------- IMAGE FUNCTION ----------------
 @st.cache_data
 def get_food_image(food_name):
-    row = recipes_df[recipes_df['name'] == food_name]
-    if not row.empty and 'img_url' in row.columns:
-        url = row.iloc[0]['img_url']
-        if pd.notna(url) and str(url).startswith('http'):
-            return url
-    return FOOD_IMAGE_MAP.get(food_name, f"https://picsum.photos/seed/{food_name}/300/300")
+    if food_name in FOOD_IMAGE_MAP:
+        return FOOD_IMAGE_MAP[food_name]
+    safe_name = food_name.replace(' ', '_')
+    return f"https://picsum.photos/seed/{safe_name}/300/300"
 
 # ---------------- RECOMMEND FUNCTION ----------------
 def recommend(food_name):
@@ -336,7 +334,10 @@ if recommend_clicked:
             ingr_short = ingr[:55] + "..." if len(ingr) > 55 else ingr
 
             with cols[idx]:
-                st.image(image_url, use_container_width=True)
+                try:
+                    st.image(image_url, use_container_width=True)
+                except:
+                    st.image(f"https://picsum.photos/seed/{idx}/300/300", use_container_width=True)
 
                 # ✅ Clean card — no comments inside HTML string
                 st.markdown(f"""
