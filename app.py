@@ -20,7 +20,8 @@ def load_data():
     food_dict = pickle.load(open(os.path.join(base_dir, 'models', 'food_dict.pkl'), 'rb'))
     similarity = pickle.load(open(os.path.join(base_dir, 'models', 'similarity.pkl'), 'rb'))
     foodie = pd.DataFrame(food_dict)
-    recipes_df = pd.read_csv(os.path.join(base_dir, 'Food_data', 'new_df.csv'))
+    # ✅ FIXED PATH
+    recipes_df = pd.read_csv(os.path.join(base_dir, 'Food_data', 'food_csv', 'new_df.csv'))
     return foodie, similarity, recipes_df
 
 foodie, similarity, recipes_df = load_data()
@@ -28,6 +29,12 @@ foodie, similarity, recipes_df = load_data()
 # ---------------- IMAGE FUNCTION ----------------
 @st.cache_data
 def get_food_image(food_name):
+    # ✅ First try img_url from CSV, then FOOD_IMAGE_MAP, then fallback
+    row = recipes_df[recipes_df['name'] == food_name]
+    if not row.empty and 'img_url' in row.columns:
+        url = row.iloc[0]['img_url']
+        if pd.notna(url) and str(url).startswith('http'):
+            return url
     return FOOD_IMAGE_MAP.get(
         food_name,
         f"https://picsum.photos/seed/{food_name}/300/300"
@@ -47,20 +54,25 @@ def recommend(food_name):
         name = foodie.iloc[i[0]]['name']
         row = recipes_df[recipes_df['name'] == name]
         ingredients = row.iloc[0]['ingredients'] if not row.empty and 'ingredients' in row.columns else "Not available"
-        cook_time = row.iloc[0]['cook_time'] if not row.empty and 'cook_time' in row.columns else "Not available"
+        cook_time   = row.iloc[0]['cook_time']   if not row.empty and 'cook_time'   in row.columns else "Not available"
         results.append({
-            'name': name,
+            'name':        name,
             'ingredients': ingredients,
-            'cook_time': cook_time
+            'cook_time':   cook_time
         })
     return results
 
 # ---------------- AI RECIPE FUNCTION ----------------
 def get_ai_recipe(food_name, ingredients):
     try:
+        api_key = os.environ.get("ANTHROPIC_API_KEY", "")
         response = requests.post(
             "https://api.anthropic.com/v1/messages",
-            headers={"Content-Type": "application/json"},
+            headers={
+                "Content-Type":    "application/json",
+                "x-api-key":       api_key,          # ✅ FIXED: API key header added
+                "anthropic-version": "2023-06-01"    # ✅ FIXED: required version header
+            },
             json={
                 "model": "claude-sonnet-4-20250514",
                 "max_tokens": 1000,
@@ -331,7 +343,6 @@ if recommend_clicked:
             cook_time = food_data['cook_time']
             image_url = get_food_image(food)
 
-            # Google Maps nearest restaurant link
             maps_url = f"https://www.google.com/maps/search/{food.replace(' ', '+')}+restaurant+near+me"
 
             with cols[idx]:
@@ -342,7 +353,7 @@ if recommend_clicked:
                     <h3>{food}</h3>
                     <span class="info-pill">⏱ {cook_time}</span>
                     <p style="color:#9A7B5E; font-size:11px; margin-top:8px;">
-                        🧂 {ingr[:60]}{'...' if len(str(ingr)) > 60 else ''}
+                        🧂 {str(ingr)[:60]}{'...' if len(str(ingr)) > 60 else ''}
                     </p>
                     <a href="{maps_url}" target="_blank" class="restaurant-btn">
                         📍 Find Restaurant
@@ -350,8 +361,7 @@ if recommend_clicked:
                 </div>
                 """, unsafe_allow_html=True)
 
-                # AI Recipe expander
-                with st.expander(f"📖 Get AI Recipe"):
+                with st.expander("📖 Get AI Recipe"):
                     if st.button(f"Generate Recipe for {food}", key=f"recipe_{idx}"):
                         with st.spinner("🍳 Cooking up a recipe..."):
                             recipe = get_ai_recipe(food, ingr)
@@ -360,7 +370,6 @@ if recommend_clicked:
                                 unsafe_allow_html=True
                             )
 
-        # Bottom emoji decoration
         st.write("")
         st.markdown("""
         <div style='text-align:center; font-size:28px; margin-top:10px; letter-spacing:6px; opacity:0.5;'>
