@@ -62,9 +62,31 @@ FOOD_IMAGE_MAP = {
     "Dharwad pedha": "https://thumbs.dreamstime.com/b/dharwad-peda-brown-quick-milk-based-dessert-made-janamashtami-festival-offered-to-lord-krishna-as-prasad-104030051.jpg",
     "Dhokla": "https://i.pinimg.com/736x/76/2b/c7/762bc7aaf3b97d3eadbc27c309714fab.jpg",
     "Dhondas": "https://pbs.twimg.com/media/FsygjXGWcAAtakg.jpg",
-    "Doodhpak": "https://i.ytimg.com/vi/0xDzYXiSZH4/maxresdefault.jpg",
+    "Doodhpak": "https://www.funfoodfrolic.com/wp-content/uploads/2024/08/Doodh-Pak-6.jpg",
     "Dosa": "https://thumbs.dreamstime.com/b/south-indian-breakfast-idli-dosa-chutney-indian-breakfast-lentil-rice-pancake-also-known-as-dosa-dumplings-known-as-idli-158574513.jpg",
     "Double ka meetha": "https://www.shutterstock.com/image-photo/tasty-healthy-double-ka-meeta-600nw-2136529687.jpg",
     "Dum aloo": "https://sinfullyspicy.com/wp-content/uploads/2024/01/1200-by-1200-images-3.jpg",
     "Dudhi halwa": "https://ministryofcurry.com/wp-content/uploads/2021/05/Dudhi-Halwa-6.jpg",
+    "Fara"
+Farsi Puri
+Gajar ka halwa
+Galho
+Gatta curry
+Gavvalu
+Gheela Pitha
+Ghevar
+Ghooghra
+Goja
+Gud papdi
+Gulab jamun
+Halvasan
+Hando Guri
+Handwo
+Haq Maas": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
 }
