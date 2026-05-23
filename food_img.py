@@ -77,10 +77,18 @@ FOOD_IMAGE_OVERRIDES = {
 
 
 def _placeholder(food_name: str) -> str:
-    """Consistent food-seeded placeholder — never random."""
-    safe = food_name.strip().replace(" ", "-").lower()
-    return f"https://picsum.photos/seed/indianfood_{safe}/300/300"
-
+    """SVG placeholder — clean food card, never a random photo."""
+    import urllib.parse
+    label = food_name.strip()[:22]
+    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300">
+      <rect width="300" height="300" rx="16" fill="#F5DEB3"/>
+      <text x="150" y="120" font-size="72" text-anchor="middle">🍽️</text>
+      <text x="150" y="185" font-size="20" text-anchor="middle"
+            font-family="sans-serif" fill="#7C4A2D" font-weight="bold">{label}</text>
+      <text x="150" y="215" font-size="13" text-anchor="middle"
+            font-family="sans-serif" fill="#9A7B5E">Indian Dish</text>
+    </svg>'''
+    return f"data:image/svg+xml,{urllib.parse.quote(svg)}"
 
 def _fetch_wikimedia(food_name: str) -> str | None:
     """Wikipedia page image — no API key needed, food-accurate."""
