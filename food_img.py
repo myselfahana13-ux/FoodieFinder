@@ -1,181 +1,85 @@
-"""
-food_img.py — Smart Food Image Fetcher for FoodieFinder
-========================================================
-Fetches ACCURATE food images using:
-  1. Hardcoded overrides — 100% accurate for common Indian foods
-  2. Wikimedia Commons   — no key needed, food-accurate
-  3. Spoonacular API     — food-specific (free: 150 calls/day)
-  4. Unsplash API        — high quality (free, needs key)
-  5. Consistent placeholder — never random
-
-Get free Spoonacular key: https://spoonacular.com/food-api
-Get free Unsplash key:    https://unsplash.com/developers
-"""
-
-import requests
-
-# ── In-memory cache (per session) ───────────────────────────────
-_image_cache: dict = {}
-
-# ── API Keys (optional — app works without them via Wikimedia) ───
-SPOONACULAR_API_KEY = "YOUR_SPOONACULAR_KEY"
-UNSPLASH_ACCESS_KEY = "YOUR_UNSPLASH_KEY"
-
-# ── Hardcoded overrides — guaranteed correct images ─────────────
-FOOD_IMAGE_OVERRIDES = {
-    # Desserts
-    "Balu shahi":       "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Balushahi.jpg/300px-Balushahi.jpg",
-    "Gulab jamun":      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Gulab_jamun_%28after_cooking%29.jpg/300px-Gulab_jamun_%28after_cooking%29.jpg",
-    "Jalebi":           "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Jalebi.jpg/300px-Jalebi.jpg",
-    "Rasgulla":         "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Rasagola.jpg/300px-Rasagola.jpg",
-    "Kheer":            "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Kheer.jpg/300px-Kheer.jpg",
-    "Gajar ka halwa":   "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Gajar-Halwa.jpg/300px-Gajar-Halwa.jpg",
-    "Laddu":            "https://upload.wikimedia.org/wikipedia/commons/thumb/3/thirty-three/Motichoor_Ke_Laddu.jpg/300px-Motichoor_Ke_Laddu.jpg",
-    "Modak":            "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Modak_Photo.jpg/300px-Modak_Photo.jpg",
-    "Mysore pak":       "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Mysorepak.jpg/300px-Mysorepak.jpg",
-    "Halwa":            "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Gajar-Halwa.jpg/300px-Gajar-Halwa.jpg",
-    # South Indian
-    "Dosa":             "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Plain-Dosa.jpg/300px-Plain-Dosa.jpg",
-    "Masala Dosa":      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Masala_Dosa.jpg/300px-Masala_Dosa.jpg",
-    "Idli":             "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Idli_Sambar.jpg/300px-Idli_Sambar.jpg",
-    "Vada":             "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Medhu_Vadai.jpg/300px-Medhu_Vadai.jpg",
-    "Uttapam":          "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Uttapam.jpg/300px-Uttapam.jpg",
-    "Upma":             "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Upma.jpg/300px-Upma.jpg",
-    "Pongal":           "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Pongal_Festival.jpg/300px-Pongal_Festival.jpg",
-    "Sambhar":          "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Sambar_in_a_bowl.jpg/300px-Sambar_in_a_bowl.jpg",
-    # Rice & Biryani
-    "Biryani":          "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Delhi_Biryani.jpg/300px-Delhi_Biryani.jpg",
-    "Chicken Biryani":  "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Delhi_Biryani.jpg/300px-Delhi_Biryani.jpg",
-    "Pulao":            "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Matar_pulao.jpg/300px-Matar_pulao.jpg",
-    "Khichdi":          "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Khichdi.jpg/300px-Khichdi.jpg",
-    # Breads
-    "Naan":             "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Naan_Indian_bread.jpg/300px-Naan_Indian_bread.jpg",
-    "Chapati":          "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Chapati.jpg/300px-Chapati.jpg",
-    "Paratha":          "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Aloo_paratha.jpg/300px-Aloo_paratha.jpg",
-    "Puri":             "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Puri_with_bhaji.jpg/300px-Puri_with_bhaji.jpg",
-    "Bhatura":          "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Chole_Bhature.jpg/300px-Chole_Bhature.jpg",
-    # Curries & Mains
-    "Butter chicken":   "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Butter_Chicken.jpg/300px-Butter_Chicken.jpg",
-    "Dal makhani ":     "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Dal_makhani.jpg/300px-Dal_makhani.jpg",
-    "Dal tadka":        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Dal_tadka.jpg/300px-Dal_tadka.jpg",
-    "Chana masala":     "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Chana_masala.jpg/300px-Chana_masala.jpg",
-    "Rajma chaval":     "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Rajma-Chawal.jpg/300px-Rajma-Chawal.jpg",
-    "Paneer tikka":     "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Paneer_tikka.jpg/300px-Paneer_tikka.jpg",
-    "Palak paneer":     "https://upload.wikimedia.org/wikipedia/commons/thumb/4/forty/Palak_Paneer.jpg/300px-Palak_Paneer.jpg",
-    # Snacks & Street Food
-    "Samosa":           "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Samosachutney.jpg/300px-Samosachutney.jpg",
-    "Pav Bhaji":        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Pav_bhaji_in_Mumbai.jpg/300px-Pav_bhaji_in_Mumbai.jpg",
-    "Chole bhature":    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Chole_Bhature.jpg/300px-Chole_Bhature.jpg",
-    "Aloo tikki":       "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Aloo_tikki.jpg/300px-Aloo_tikki.jpg",
-    "Kachori":          "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Kachori.jpg/300px-Kachori.jpg",
-    "Poha":             "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Poha_Recipe.jpg/300px-Poha_Recipe.jpg",
-    "Bhel puri":        "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Bhel_puri.jpg/300px-Bhel_puri.jpg",
-    # Drinks
-    "Lassi":            "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Lassi_in_a_glass.jpg/300px-Lassi_in_a_glass.jpg",
-    "Chai":             "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Masala_Chai.JPG/300px-Masala_Chai.JPG",
+FOOD_IMAGE_MAP = {
+    "Aloo gobi": "https://static01.nyt.com/images/2023/12/21/multimedia/ND-Aloo-Gobi-gkwc/ND-Aloo-Gobi-gkwc-threeByTwoLargeAt2X.jpg",
+    "Aloo matar": "https://www.cubesnjuliennes.com/wp-content/uploads/2020/07/Punjabi-Aloo-Matar-Recipe.jpg",
+    "Aloo methi": "https://www.cookwithmanali.com/wp-content/uploads/2019/04/Aloo-Methi-500x375.jpg",
+    "Aloo shimla mirch": "https://www.enhanceyourpalate.com/wp-content/uploads/Aloo-Shimla-Mirch-–-Bell-Pepper-Potatoes-Stir-Fry.jpg",
+    "Aloo tikki": "https://www.indianveggiedelight.com/wp-content/uploads/2023/07/aloo-tikki-featured.jpg",
+    "Alu Pitika": "https://www.pepperonpizza.com/wp-content/uploads/2017/12/Aloo-Pitika_F.jpg",
+    "Amti": "https://i.ytimg.com/vi/SOxp38zoCNg/sddefault.jpg",
+    "Anarsa": "https://m.media-amazon.com/images/I/71cxGDKUubL.jpg",
+    "Ariselu": "https://vellankifoods.com/cdn/shop/products/ariselu_ghee.jpg?v=1679896343",
+    "Avial": "https://rakskitchen.net/wp-content/uploads/2010/04/avial-recipe.jpg",
+    "Baingan Fry": "https://i.ytimg.com/vi/DkxNg08THzE/maxresdefault.jpg",
+    "Bajri no rotlo": "https://www.cookclickndevour.com/wp-content/uploads/2017/04/bajra-roti-recipe-g-683x1024.jpg",
+    "Balu shahi": "https://www.cubesnjuliennes.com/wp-content/uploads/2019/03/Halwai-Style-Balushahi-Recipe.jpg",
+    "Bandar laddu": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKdh6fMJ_ZFFtpNGWWfosUv5-cLDOy8JTBjA&s",
+    "Basundi": "https://www.sharmispassions.com/wp-content/uploads/2014/12/basundi4.jpg",
+    "Bebinca": "https://d1mxd7n691o8sz.cloudfront.net/static/recipe/recipe/2023-12/3ec25abc12f7497d813a82f27496d069-8f2d4b9719ba47868c9c92f1b8be5870_thumbna.jpeg",
+    "Bengena Pitika": "https://static.india.com/wp-content/uploads/2024/07/bengana-pitika.jpg",
+    "Bhakri": "https://zanzaneetkitchen.com/wp-content/uploads/2023/02/JowarBhakri.png",
+    "Bhatura": "https://www.indianhealthyrecipes.com/wp-content/uploads/2019/09/bhatura-recipe.jpg",
+    "Bhindi masala": "https://greenbowl2soul.com/wp-content/uploads/2019/05/bhindi-masala.jpg",
+    "Bilahi Maas": "https://i.pinimg.com/564x/6b/f3/f1/6bf3f138a861d60a0292862ec6777828.jpg",
+    "Biryani": "https://t4.ftcdn.net/jpg/18/47/47/21/360_F_1847472123_ea7Lzzy7vaIvNjeXAlEQOOHKK4qZQSkV.jpg",
+    "Bisi bele bath": "https://maayeka.com/wp-content/uploads/2019/12/bisi-bele-bhath.jpg",
+    "Black rice": "https://yupitsvegan.com/wp-content/uploads/2015/12/rice-cooker-black-rice.jpg",
+    "Bombil fry": "https://www.licious.in/blog/wp-content/uploads/2022/08/shutterstock_1865951416.jpg",
+    "Boondi": "https://theflavoursofkitchen.com/wp-content/uploads/2021/10/Sweet-boondi-2-scaled.jpg",
+    "Bora Sawul": "https://images.livemint.com/img/2021/04/14/original/Assamese_Jolpaan_Bihu_Mint_Lounge_1618365587137.jpg",
+    "Brown Rice": "https://thumbs.dreamstime.com/b/cooked-thai-organic-red-jasmine-rice-white-plate-semi-milled-including-fiber-b-vitamins-magnesium-offering-richer-331854133.jpg",
+    "Butter chicken": "https://images.pexels.com/photos/7625056/pexels-photo-7625056.jpeg?cs=srgb&dl=pexels-saveurssecretes-7625056.jpg&fm=jpg",
+    "Chak Hao Kheer": "https://thericechick.com/wp-content/uploads/2022/06/social-chak-hao-kheer.jpg",
+    "Chakali": "https://images.pexels.com/photos/5992272/pexels-photo-5992272.jpeg?cs=srgb&dl=pexels-saveurssecretes-5992272.jpg&fm=jpg",
+    "Cham cham": "https://t3.ftcdn.net/jpg/19/04/59/94/360_F_1904599408_xn1PsINtC3E2Gtc9q2fwTDV4hwnOQ8ql.jpg",
+    "Chana masala": "https://www.kuchpakrahahai.in/wp-content/uploads/2023/02/Vegan-chana-masala.jpg",
+    "Chapati": "https://thumbs.dreamstime.com/b/indian-food-chapati-flat-bread-made-wheat-flour-dough-traditional-popular-cuisine-64427630.jpg", 
+    "Cheera Doi": "https://images.slurrp.com/prod/articles/18fnbzecsc6h.webp?impolicy=slurrp-20210601&width=1200&height=900",
+    "Chevdo": "https://www.shutterstock.com/image-photo/variety-savory-snacks-white-bowl-600nw-2563688811.jpg",
+    "Chhena jalebi": "https://www.shutterstock.com/image-photo/paneer-jalebi-know-chhena-jilapi-260nw-1258952050.jpg",
+    "Chhena kheeri": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Chhena_kheeri.png",
+    "Chhena poda": "https://www.bigbasket.com/media/uploads/recipe/w-l/4570_2_1.jpg",
+    "Chicken razala": "https://www.whiskaffair.com/wp-content/uploads/2018/12/Bengali-Chicken-Rezala-2-3.jpg",
+    "Chicken Tikka": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/FOOD_CATALOG/IMAGES/CMS/2026/4/15/2bf1af73-4862-486e-b816-5f90fb35bb3d_36cd1727-b692-461b-85ac-dccbcc23b3e5.jpg_compressed",
+    "Chicken Tikka masala": "https://www.shutterstock.com/image-photo/chicken-tikka-masala-spices-on-600nw-2700643187.jpg",
+    "Chicken Varuval": "https://www.cubesnjuliennes.com/wp-content/uploads/2018/12/Spicy-Chicken-Fry-Recipe-500x500.jpg",
+    "Chikki": "https://t3.ftcdn.net/jpg/04/71/74/90/360_F_471749003_QqBGZUJm4BIpkDrbfCI02NJtznUhdDrG.jpg",
+    "Chingri Bhape": "https://peekncooksa.blob.core.windows.net/index-recipe/bengali_steamed_prawn.jpg",
+    "Chingri malai curry": "https://i.ytimg.com/vi/SWfWrva091Y/maxresdefault.jpg",
+    "Chole bhature": "https://madhurasrecipe.com/wp-content/uploads/2025/09/MR-Chole-Bhature-featured.jpg",
+    "Chorafali": "https://www.nehascookbook.com/wp-content/uploads/2022/10/Cholafali-WS.jpg",
+    "Churma Ladoo": "https://www.jcookingodyssey.com/wp-content/uploads/2025/08/churma-ladoo.jpg",
+    "Coconut vadi": "https://www.indianhealthyrecipes.com/wp-content/uploads/2019/10/coconut-burfi-recipe.jpg",
+    "Copra paak": "https://thumbs.dreamstime.com/b/kopra-pak-sweet-indian-special-traditional-food-104210891.jpg",
+    "Currivepillai sadam": "https://thumbs.dreamstime.com/b/south-indian-curry-leaves-rice-karuvepilai-sadam-served-kadai-south-indian-curry-leaves-rice-karuvepilai-sadam-served-101428520.jpg",
+    "Daal baati churma": "https://thumbs.dreamstime.com/b/traditional-rustic-food-dal-bati-churma-indian-traditional-vegetarian-meal-dal-bati-churma-served-rajasthan-sliced-onions-219474807.jpg",
+    "Daal Dhokli": "https://www.cookingcarnival.com/wp-content/uploads/2021/07/Dal-Dhokli-7.jpg",
+    "Daal puri": "https://luniamarketing.com/wp-content/uploads/2021/01/Moong-Dal-Puri-img.jpg",
+    "Dahi vada": "https://ministryofcurry.com/wp-content/uploads/2016/08/Dahi-Vada-5.jpg",
+    "Dal makhani": "https://www.sharmispassions.com/wp-content/uploads/2012/05/dal-makhani7-500x500.jpg",
+    "Dal tadka": "https://www.indianhealthyrecipes.com/wp-content/uploads/2021/04/dal-tadka-recipe.jpg",
+    "Dalithoy": "https://bfoodale.com/uploads/2021/12/Dal-Tadka.jpg",
+    "Dharwad pedha": "https://thumbs.dreamstime.com/b/dharwad-peda-brown-quick-milk-based-dessert-made-janamashtami-festival-offered-to-lord-krishna-as-prasad-104030051.jpg",
+    "Dhokla": "https://i.pinimg.com/736x/76/2b/c7/762bc7aaf3b97d3eadbc27c309714fab.jpg",
+    "Dhondas": "https://pbs.twimg.com/media/FsygjXGWcAAtakg.jpg",
+    "Doodhpak": "https://www.funfoodfrolic.com/wp-content/uploads/2024/08/Doodh-Pak-6.jpg",
+    "Dosa": "https://thumbs.dreamstime.com/b/south-indian-breakfast-idli-dosa-chutney-indian-breakfast-lentil-rice-pancake-also-known-as-dosa-dumplings-known-as-idli-158574513.jpg",
+    "Double ka meetha": "https://www.shutterstock.com/image-photo/tasty-healthy-double-ka-meeta-600nw-2136529687.jpg",
+    "Dum aloo": "https://sinfullyspicy.com/wp-content/uploads/2024/01/1200-by-1200-images-3.jpg",
+    "Dudhi halwa": "https://ministryofcurry.com/wp-content/uploads/2021/05/Dudhi-Halwa-6.jpg",
+    "Fara": "",
+    "Farsi Puri": "",
+    "Gajar ka halwa": "",
+    "Galho": "",
+    "Gatta curry": "",
+    "Gavvalu": "",
+    "Gheela Pitha": "",
+    "Ghevar": "",
+    "Ghooghra": "",
+    "Goja": "",
+    "Gud papdi": "",
+    "Gulab jamun": "",
+    "Halvasan": "",
+    "Hando Guri": "",
+    "Handwo": "",
+    "Haq Maas": "",
 }
-
-
-def _placeholder(food_name: str) -> str:
-    """SVG placeholder — clean food card, never a random photo."""
-    import urllib.parse
-    label = food_name.strip()[:22]
-    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300">
-      <rect width="300" height="300" rx="16" fill="#F5DEB3"/>
-      <text x="150" y="120" font-size="72" text-anchor="middle">🍽️</text>
-      <text x="150" y="185" font-size="20" text-anchor="middle"
-            font-family="sans-serif" fill="#7C4A2D" font-weight="bold">{label}</text>
-      <text x="150" y="215" font-size="13" text-anchor="middle"
-            font-family="sans-serif" fill="#9A7B5E">Indian Dish</text>
-    </svg>'''
-    return f"data:image/svg+xml,{urllib.parse.quote(svg)}"
-
-def _fetch_wikimedia(food_name: str) -> str | None:
-    """Wikipedia page image — no API key needed, food-accurate."""
-    try:
-        resp = requests.get(
-            "https://en.wikipedia.org/w/api.php",
-            params={
-                "action":      "query",
-                "titles":      food_name,
-                "prop":        "pageimages",
-                "format":      "json",
-                "pithumbsize": 300,
-            },
-            timeout=5
-        )
-        pages = resp.json().get("query", {}).get("pages", {})
-        for page in pages.values():
-            src = page.get("thumbnail", {}).get("source")
-            if src:
-                return src
-    except Exception:
-        pass
-    return None
-
-
-def _fetch_spoonacular(food_name: str) -> str | None:
-    if SPOONACULAR_API_KEY == "YOUR_SPOONACULAR_KEY":
-        return None
-    try:
-        resp = requests.get(
-            "https://api.spoonacular.com/food/search",
-            params={"query": food_name, "number": 1, "apiKey": SPOONACULAR_API_KEY},
-            timeout=4
-        )
-        for item in resp.json().get("searchResults", []):
-            results = item.get("results", [])
-            if results and results[0].get("image"):
-                return results[0]["image"]
-    except Exception:
-        pass
-    return None
-
-
-def _fetch_unsplash(food_name: str) -> str | None:
-    if UNSPLASH_ACCESS_KEY == "YOUR_UNSPLASH_KEY":
-        return None
-    try:
-        resp = requests.get(
-            "https://api.unsplash.com/search/photos",
-            params={
-                "query":       f"{food_name} indian food dish",
-                "per_page":    1,
-                "orientation": "squarish",
-                "client_id":   UNSPLASH_ACCESS_KEY,
-            },
-            timeout=4
-        )
-        results = resp.json().get("results", [])
-        if results:
-            return results[0]["urls"]["small"]
-    except Exception:
-        pass
-    return None
-
-
-def get_food_image(food_name: str) -> str:
-    """
-    Returns best image URL for a food name.
-    Order: Override → Cache → Wikimedia → Spoonacular → Unsplash → Placeholder
-    """
-    food_name = food_name.strip()
-
-    # 1. Hardcoded overrides — always correct
-    if food_name in FOOD_IMAGE_OVERRIDES:
-        return FOOD_IMAGE_OVERRIDES[food_name]
-
-    # 2. Session cache
-    if food_name in _image_cache:
-        return _image_cache[food_name]
-
-    # 3. Try APIs
-    url = (
-        _fetch_wikimedia(food_name)   or
-        _fetch_spoonacular(food_name) or
-        _fetch_unsplash(food_name)    or
-        _placeholder(food_name)
-    )
-
-    _image_cache[food_name] = url
-    return url
