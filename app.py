@@ -5,7 +5,7 @@ import os
 import requests
 import random
 import datetime
-from food_img import get_food_image  
+from food_img import get_food_image, prewarm_cache
 
 # ---------------- PAGE CONFIG ----------------
 st.set_page_config(
@@ -26,8 +26,6 @@ def load_data():
     return foodie, similarity, recipes_df
 
 foodie, similarity, recipes_df = load_data()
-from food_img import get_food_image, prewarm_cache
-prewarm_cache(foodie['name'].tolist(), show_progress=False)
 
 # ---------------- SESSION STATE ----------------
 if 'recently_viewed' not in st.session_state:
