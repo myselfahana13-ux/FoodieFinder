@@ -55,7 +55,23 @@ FOOD_FACTS = [
 ]
 
 # ---------------- IMAGE FUNCTION ----------------
-
+def get_image(food_name: str) -> str:
+    """
+    Returns the best available image URL for a given food name.
+    Delegates entirely to food_img.py which tries, in order:
+      1. Hardcoded overrides  — guaranteed correct for common Indian foods
+      2. Session cache        — avoids repeated API calls
+      3. Wikimedia Commons    — no API key needed, food-accurate
+      4. Spoonacular API      — food-specific (optional key)
+      5. Unsplash API         — high quality (optional key)
+      6. SVG placeholder      — always works, never a random photo
+    """
+    try:
+        return get_food_image(food_name)
+    except Exception:
+        from food_img import _placeholder
+        return _placeholder(food_name)
+ 
 
 # ---------------- RECOMMEND FUNCTION ----------------
 # Non-veg ingredient keywords
