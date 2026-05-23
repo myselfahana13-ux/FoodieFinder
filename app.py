@@ -82,9 +82,15 @@ DISH_FAMILIES = {
 }
 
 def get_diet(row):
-    """Use existing diet tag if available, else derive from ingredients."""
-    tags = str(row.get('tags', '')).lower()
-    ingr = str(row.get('ingredients', '')).lower()
+    """Works safely with both pandas Series and dict."""
+    try:
+        tags = str(row['tags']).lower()
+    except:
+        tags = ''
+    try:
+        ingr = str(row['ingredients']).lower()
+    except:
+        ingr = ''
     if 'non vegetarian' in tags or 'non-vegetarian' in tags:
         return 'non-veg'
     if 'vegetarian' in tags:
@@ -93,6 +99,18 @@ def get_diet(row):
         if kw in ingr:
             return 'non-veg'
     return 'veg'
+
+DISH_FAMILIES = {
+    'south_indian': ['idli', 'idly', 'dosa', 'uttapam', 'vada', 'upma', 'sambhar', 'pongal', 'appam'],
+    'dal':          ['dal', 'daal', 'lentil', 'chana', 'rajma'],
+    'rice':         ['rice', 'pulao', 'biryani', 'khichdi'],
+    'bread':        ['roti', 'chapati', 'naan', 'paratha', 'puri', 'bhatura', 'kulcha'],
+    'curry':        ['curry', 'masala', 'korma', 'kadai', 'makhni', 'makhani'],
+    'kebab':        ['kebab', 'tikka', 'tandoori', 'seekh'],
+    'dessert':      ['halwa', 'kheer', 'gulab', 'ladoo', 'barfi', 'rasgulla', 'payasam', 'jalebi'],
+    'snack':        ['samosa', 'pakora', 'bhaji', 'chaat', 'tikki', 'papad', 'bhel', 'kachori'],
+    'seafood':      ['fish', 'prawn', 'shrimp', 'crab'],
+}
 
 def get_family(name):
     n = name.lower()
@@ -103,13 +121,13 @@ def get_family(name):
     return 'other'
 
 def recommend(food_name):
-    matches = foodie[foodie['name'] == food_name]
+    matches = foodie[foodie['name'].str.strip().str.lower() == food_name.strip().lower()]
     if matches.empty:
         return []
 
     food_idx    = matches.index[0]
-    food_row    = recipes_df[recipes_df['name'] == food_name]
-    food_diet   = get_diet(food_row.iloc[0] if not food_row.empty else {})
+    food_row    = recipes_df[recipes_df['name'].str.strip() == foodie.iloc[food_idx]['name'].strip()]
+    food_diet   = get_diet(food_row.iloc[0]) if not food_row.empty else 'veg'
     food_family = get_family(food_name)
     dist        = similarity[food_idx]
 
@@ -119,28 +137,28 @@ def recommend(food_name):
             continue
 
         name     = foodie.iloc[idx]['name']
-        row      = recipes_df[recipes_df['name'] == name]
-        cand_row = row.iloc[0] if not row.empty else {}
+        cand_row = recipes_df[recipes_df['name'].str.strip() == name.strip()]
 
-        cand_diet   = get_diet(cand_row)
+        # ✅ Safe diet check — pass iloc[0] only if row exists
+        cand_diet   = get_diet(cand_row.iloc[0]) if not cand_row.empty else 'veg'
         cand_family = get_family(name)
 
-        # ✅ Rule 1: strict diet separation
         if food_diet != cand_diet:
             continue
 
-        # ✅ Rule 2: boost same dish family
         family_bonus = 0.2 if cand_family == food_family else 0.0
         final_score  = round((score + family_bonus) * 100, 1)
 
-        ingredients = cand_row.get('ingredients', 'Not available') if cand_row else 'Not available'
-        cook_time   = cand_row.get('cook_time', 'N/A') if cand_row else 'N/A'
-        tags        = cand_row.get('tags', '') if cand_row else ''
+        ingredients = str(cand_row.iloc[0]['ingredients']) if not cand_row.empty else 'Not available'
+        cook_time   = str(cand_row.iloc[0]['cook_time'])   if not cand_row.empty else 'N/A'
+        tags        = str(cand_row.iloc[0]['tags'])        if not cand_row.empty else ''
 
         candidates.append({
-            'name': name, 'score': final_score,
+            'name':        name.strip(),
+            'score':       final_score,
             'ingredients': ingredients,
-            'cook_time': cook_time, 'tags': tags
+            'cook_time':   cook_time,
+            'tags':        tags
         })
 
     candidates = sorted(candidates, key=lambda x: x['score'], reverse=True)[:5]
