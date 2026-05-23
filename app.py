@@ -5,7 +5,7 @@ import os
 import requests
 import random
 import datetime
-from food_img import get_food_image, FOOD_IMAGE_OVERRIDES as FOOD_IMAGE_MAP
+from food_img import FOOD_IMAGE_MAP
 
 # ---------------- PAGE CONFIG ----------------
 st.set_page_config(
@@ -401,7 +401,7 @@ if recommend_clicked:
             cook_time = food_data['cook_time']
             score     = food_data['score']
             tags      = str(food_data['tags'])
-            image_url = FOOD_IMAGE_MAP.get(food) or get_food_image(food)
+            image_url = FOOD_IMAGE_MAP.get(food, f"https://via.placeholder.com/300x300?text={food.replace(' ', '+')}")
             maps_url  = f"https://www.google.com/maps/search/{food.replace(' ', '+')}+restaurant+near+me"
 
             # build tag pills safely
