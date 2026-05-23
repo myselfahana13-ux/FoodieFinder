@@ -5,7 +5,7 @@ import os
 import requests
 import random
 import datetime
-from food_img import get_food_image, prewarm_cache
+from food_img import get_food_image
 
 # ---------------- PAGE CONFIG ----------------
 st.set_page_config(
