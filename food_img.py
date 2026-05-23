@@ -1,85 +1,124 @@
-FOOD_IMAGE_MAP = {
-    "Aloo gobi": "https://static01.nyt.com/images/2023/12/21/multimedia/ND-Aloo-Gobi-gkwc/ND-Aloo-Gobi-gkwc-threeByTwoLargeAt2X.jpg",
-    "Aloo matar": "https://www.cubesnjuliennes.com/wp-content/uploads/2020/07/Punjabi-Aloo-Matar-Recipe.jpg",
-    "Aloo methi": "https://www.cookwithmanali.com/wp-content/uploads/2019/04/Aloo-Methi-500x375.jpg",
-    "Aloo shimla mirch": "https://www.enhanceyourpalate.com/wp-content/uploads/Aloo-Shimla-Mirch-–-Bell-Pepper-Potatoes-Stir-Fry.jpg",
-    "Aloo tikki": "https://www.indianveggiedelight.com/wp-content/uploads/2023/07/aloo-tikki-featured.jpg",
-    "Alu Pitika": "https://www.pepperonpizza.com/wp-content/uploads/2017/12/Aloo-Pitika_F.jpg",
-    "Amti": "https://i.ytimg.com/vi/SOxp38zoCNg/sddefault.jpg",
-    "Anarsa": "https://m.media-amazon.com/images/I/71cxGDKUubL.jpg",
-    "Ariselu": "https://vellankifoods.com/cdn/shop/products/ariselu_ghee.jpg?v=1679896343",
-    "Avial": "https://rakskitchen.net/wp-content/uploads/2010/04/avial-recipe.jpg",
-    "Baingan Fry": "https://i.ytimg.com/vi/DkxNg08THzE/maxresdefault.jpg",
-    "Bajri no rotlo": "https://www.cookclickndevour.com/wp-content/uploads/2017/04/bajra-roti-recipe-g-683x1024.jpg",
-    "Balu shahi": "https://www.cubesnjuliennes.com/wp-content/uploads/2019/03/Halwai-Style-Balushahi-Recipe.jpg",
-    "Bandar laddu": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKdh6fMJ_ZFFtpNGWWfosUv5-cLDOy8JTBjA&s",
-    "Basundi": "https://www.sharmispassions.com/wp-content/uploads/2014/12/basundi4.jpg",
-    "Bebinca": "https://d1mxd7n691o8sz.cloudfront.net/static/recipe/recipe/2023-12/3ec25abc12f7497d813a82f27496d069-8f2d4b9719ba47868c9c92f1b8be5870_thumbna.jpeg",
-    "Bengena Pitika": "https://static.india.com/wp-content/uploads/2024/07/bengana-pitika.jpg",
-    "Bhakri": "https://zanzaneetkitchen.com/wp-content/uploads/2023/02/JowarBhakri.png",
-    "Bhatura": "https://www.indianhealthyrecipes.com/wp-content/uploads/2019/09/bhatura-recipe.jpg",
-    "Bhindi masala": "https://greenbowl2soul.com/wp-content/uploads/2019/05/bhindi-masala.jpg",
-    "Bilahi Maas": "https://i.pinimg.com/564x/6b/f3/f1/6bf3f138a861d60a0292862ec6777828.jpg",
-    "Biryani": "https://t4.ftcdn.net/jpg/18/47/47/21/360_F_1847472123_ea7Lzzy7vaIvNjeXAlEQOOHKK4qZQSkV.jpg",
-    "Bisi bele bath": "https://maayeka.com/wp-content/uploads/2019/12/bisi-bele-bhath.jpg",
-    "Black rice": "https://yupitsvegan.com/wp-content/uploads/2015/12/rice-cooker-black-rice.jpg",
-    "Bombil fry": "https://www.licious.in/blog/wp-content/uploads/2022/08/shutterstock_1865951416.jpg",
-    "Boondi": "https://theflavoursofkitchen.com/wp-content/uploads/2021/10/Sweet-boondi-2-scaled.jpg",
-    "Bora Sawul": "https://images.livemint.com/img/2021/04/14/original/Assamese_Jolpaan_Bihu_Mint_Lounge_1618365587137.jpg",
-    "Brown Rice": "https://thumbs.dreamstime.com/b/cooked-thai-organic-red-jasmine-rice-white-plate-semi-milled-including-fiber-b-vitamins-magnesium-offering-richer-331854133.jpg",
-    "Butter chicken": "https://images.pexels.com/photos/7625056/pexels-photo-7625056.jpeg?cs=srgb&dl=pexels-saveurssecretes-7625056.jpg&fm=jpg",
-    "Chak Hao Kheer": "https://thericechick.com/wp-content/uploads/2022/06/social-chak-hao-kheer.jpg",
-    "Chakali": "https://images.pexels.com/photos/5992272/pexels-photo-5992272.jpeg?cs=srgb&dl=pexels-saveurssecretes-5992272.jpg&fm=jpg",
-    "Cham cham": "https://t3.ftcdn.net/jpg/19/04/59/94/360_F_1904599408_xn1PsINtC3E2Gtc9q2fwTDV4hwnOQ8ql.jpg",
-    "Chana masala": "https://www.kuchpakrahahai.in/wp-content/uploads/2023/02/Vegan-chana-masala.jpg",
-    "Chapati": "https://thumbs.dreamstime.com/b/indian-food-chapati-flat-bread-made-wheat-flour-dough-traditional-popular-cuisine-64427630.jpg", 
-    "Cheera Doi": "https://images.slurrp.com/prod/articles/18fnbzecsc6h.webp?impolicy=slurrp-20210601&width=1200&height=900",
-    "Chevdo": "https://www.shutterstock.com/image-photo/variety-savory-snacks-white-bowl-600nw-2563688811.jpg",
-    "Chhena jalebi": "https://www.shutterstock.com/image-photo/paneer-jalebi-know-chhena-jilapi-260nw-1258952050.jpg",
-    "Chhena kheeri": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Chhena_kheeri.png",
-    "Chhena poda": "https://www.bigbasket.com/media/uploads/recipe/w-l/4570_2_1.jpg",
-    "Chicken razala": "https://www.whiskaffair.com/wp-content/uploads/2018/12/Bengali-Chicken-Rezala-2-3.jpg",
-    "Chicken Tikka": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/FOOD_CATALOG/IMAGES/CMS/2026/4/15/2bf1af73-4862-486e-b816-5f90fb35bb3d_36cd1727-b692-461b-85ac-dccbcc23b3e5.jpg_compressed",
-    "Chicken Tikka masala": "https://www.shutterstock.com/image-photo/chicken-tikka-masala-spices-on-600nw-2700643187.jpg",
-    "Chicken Varuval": "https://www.cubesnjuliennes.com/wp-content/uploads/2018/12/Spicy-Chicken-Fry-Recipe-500x500.jpg",
-    "Chikki": "https://t3.ftcdn.net/jpg/04/71/74/90/360_F_471749003_QqBGZUJm4BIpkDrbfCI02NJtznUhdDrG.jpg",
-    "Chingri Bhape": "https://peekncooksa.blob.core.windows.net/index-recipe/bengali_steamed_prawn.jpg",
-    "Chingri malai curry": "https://i.ytimg.com/vi/SWfWrva091Y/maxresdefault.jpg",
-    "Chole bhature": "https://madhurasrecipe.com/wp-content/uploads/2025/09/MR-Chole-Bhature-featured.jpg",
-    "Chorafali": "https://www.nehascookbook.com/wp-content/uploads/2022/10/Cholafali-WS.jpg",
-    "Churma Ladoo": "https://www.jcookingodyssey.com/wp-content/uploads/2025/08/churma-ladoo.jpg",
-    "Coconut vadi": "https://www.indianhealthyrecipes.com/wp-content/uploads/2019/10/coconut-burfi-recipe.jpg",
-    "Copra paak": "https://thumbs.dreamstime.com/b/kopra-pak-sweet-indian-special-traditional-food-104210891.jpg",
-    "Currivepillai sadam": "https://thumbs.dreamstime.com/b/south-indian-curry-leaves-rice-karuvepilai-sadam-served-kadai-south-indian-curry-leaves-rice-karuvepilai-sadam-served-101428520.jpg",
-    "Daal baati churma": "https://thumbs.dreamstime.com/b/traditional-rustic-food-dal-bati-churma-indian-traditional-vegetarian-meal-dal-bati-churma-served-rajasthan-sliced-onions-219474807.jpg",
-    "Daal Dhokli": "https://www.cookingcarnival.com/wp-content/uploads/2021/07/Dal-Dhokli-7.jpg",
-    "Daal puri": "https://luniamarketing.com/wp-content/uploads/2021/01/Moong-Dal-Puri-img.jpg",
-    "Dahi vada": "https://ministryofcurry.com/wp-content/uploads/2016/08/Dahi-Vada-5.jpg",
-    "Dal makhani": "https://www.sharmispassions.com/wp-content/uploads/2012/05/dal-makhani7-500x500.jpg",
-    "Dal tadka": "https://www.indianhealthyrecipes.com/wp-content/uploads/2021/04/dal-tadka-recipe.jpg",
-    "Dalithoy": "https://bfoodale.com/uploads/2021/12/Dal-Tadka.jpg",
-    "Dharwad pedha": "https://thumbs.dreamstime.com/b/dharwad-peda-brown-quick-milk-based-dessert-made-janamashtami-festival-offered-to-lord-krishna-as-prasad-104030051.jpg",
-    "Dhokla": "https://i.pinimg.com/736x/76/2b/c7/762bc7aaf3b97d3eadbc27c309714fab.jpg",
-    "Dhondas": "https://pbs.twimg.com/media/FsygjXGWcAAtakg.jpg",
-    "Doodhpak": "https://www.funfoodfrolic.com/wp-content/uploads/2024/08/Doodh-Pak-6.jpg",
-    "Dosa": "https://thumbs.dreamstime.com/b/south-indian-breakfast-idli-dosa-chutney-indian-breakfast-lentil-rice-pancake-also-known-as-dosa-dumplings-known-as-idli-158574513.jpg",
-    "Double ka meetha": "https://www.shutterstock.com/image-photo/tasty-healthy-double-ka-meeta-600nw-2136529687.jpg",
-    "Dum aloo": "https://sinfullyspicy.com/wp-content/uploads/2024/01/1200-by-1200-images-3.jpg",
-    "Dudhi halwa": "https://ministryofcurry.com/wp-content/uploads/2021/05/Dudhi-Halwa-6.jpg",
-    "Fara": "",
-    "Farsi Puri": "",
-    "Gajar ka halwa": "",
-    "Galho": "",
-    "Gatta curry": "",
-    "Gavvalu": "",
-    "Gheela Pitha": "",
-    "Ghevar": "",
-    "Ghooghra": "",
-    "Goja": "",
-    "Gud papdi": "",
-    "Gulab jamun": "",
-    "Halvasan": "",
-    "Hando Guri": "",
-    "Handwo": "",
-    "Haq Maas": "",
-}
+"""
+food_img.py — Auto Food Image Fetcher for FoodieFinder
+=======================================================
+Zero manual work. Fetches images automatically using:
+  1. Unsplash (free, high quality food photos)
+  2. DuckDuckGo image search (fallback)
+  3. Picsum placeholder (final fallback, always works)
+
+Usage in app.py:
+    from food_img import get_food_image
+    image_url = get_food_image("Dosa")
+"""
+
+import requests
+import re
+
+# ── Cache so we don't re-fetch the same food twice per session ──
+_image_cache: dict = {}
+
+# ── Unsplash Access Key ─────────────────────────────────────────
+# Get a FREE key at https://unsplash.com/developers (takes 2 min)
+# Create an app → copy "Access Key" → paste below
+UNSPLASH_ACCESS_KEY = "YOUR_UNSPLASH_ACCESS_KEY"   # 🔑 replace this
+
+# ── Fallback placeholder style ──────────────────────────────────
+# Uses food name as seed so each food gets a consistent image
+def _placeholder(food_name: str) -> str:
+    safe = food_name.strip().replace(" ", "_")
+    return f"https://picsum.photos/seed/{safe}/300/300"
+
+
+# ── Source 1: Unsplash ──────────────────────────────────────────
+def _fetch_unsplash(food_name: str) -> str | None:
+    if UNSPLASH_ACCESS_KEY == "YOUR_UNSPLASH_ACCESS_KEY":
+        return None  # key not set, skip
+    try:
+        query = f"{food_name} indian food"
+        url   = "https://api.unsplash.com/search/photos"
+        resp  = requests.get(url, params={
+            "query":       query,
+            "per_page":    1,
+            "orientation": "squarish",
+            "client_id":   UNSPLASH_ACCESS_KEY,
+        }, timeout=4)
+        data = resp.json()
+        results = data.get("results", [])
+        if results:
+            return results[0]["urls"]["small"]
+    except Exception:
+        pass
+    return None
+
+
+# ── Source 2: DuckDuckGo image search (no API key needed) ───────
+def _fetch_duckduckgo(food_name: str) -> str | None:
+    try:
+        query   = f"{food_name} indian food dish"
+        headers = {"User-Agent": "Mozilla/5.0"}
+        # Step 1: get vqd token
+        resp = requests.get(
+            "https://duckduckgo.com/",
+            params={"q": query},
+            headers=headers,
+            timeout=4
+        )
+        vqd_match = re.search(r'vqd=([\d-]+)', resp.text)
+        if not vqd_match:
+            return None
+        vqd = vqd_match.group(1)
+
+        # Step 2: fetch image results
+        img_resp = requests.get(
+            "https://duckduckgo.com/i.js",
+            params={"l": "us-en", "o": "json", "q": query, "vqd": vqd, "f": ",,,,,"},
+            headers=headers,
+            timeout=4
+        )
+        results = img_resp.json().get("results", [])
+        if results:
+            return results[0].get("image")
+    except Exception:
+        pass
+    return None
+
+
+# ── Main function — use this in app.py ──────────────────────────
+def get_food_image(food_name: str) -> str:
+    """
+    Returns an image URL for a food name.
+    Tries Unsplash → DuckDuckGo → Picsum placeholder.
+    Results are cached in memory for the session.
+    """
+    food_name = food_name.strip()
+
+    # Return from cache if already fetched
+    if food_name in _image_cache:
+        return _image_cache[food_name]
+
+    # Try each source in order
+    url = (
+        _fetch_unsplash(food_name) or
+        _fetch_duckduckgo(food_name) or
+        _placeholder(food_name)
+    )
+
+    _image_cache[food_name] = url
+    return url
+
+
+# ── Optional: pre-warm cache for all foods at startup ───────────
+def prewarm_cache(food_names: list, show_progress: bool = False) -> None:
+    """
+    Call this once at app startup to pre-fetch all images.
+    Speeds up the UI so images don't load lazily.
+
+    Usage in app.py:
+        from food_img import get_food_image, prewarm_cache
+        prewarm_cache(foodie['name'].tolist())
+    """
+    for i, name in enumerate(food_names):
+        if name not in _image_cache:
+            get_food_image(name)
+        if show_progress and i % 20 == 0:
+            print(f"  Pre-warmed {i}/{len(food_names)} images...")

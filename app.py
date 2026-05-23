@@ -5,7 +5,7 @@ import os
 import requests
 import random
 import datetime
-from food_img import FOOD_IMAGE_MAP
+from food_img import get_food_image  
 
 # ---------------- PAGE CONFIG ----------------
 st.set_page_config(
@@ -26,6 +26,8 @@ def load_data():
     return foodie, similarity, recipes_df
 
 foodie, similarity, recipes_df = load_data()
+from food_img import get_food_image, prewarm_cache
+prewarm_cache(foodie['name'].tolist(), show_progress=False)
 
 # ---------------- SESSION STATE ----------------
 if 'recently_viewed' not in st.session_state:
@@ -55,12 +57,7 @@ FOOD_FACTS = [
 ]
 
 # ---------------- IMAGE FUNCTION ----------------
-@st.cache_data
-def get_food_image(food_name):
-    if food_name in FOOD_IMAGE_MAP:
-        return FOOD_IMAGE_MAP[food_name]
-    safe_name = food_name.replace(' ', '_')
-    return f"https://picsum.photos/seed/{safe_name}/300/300"
+
 
 # ---------------- RECOMMEND FUNCTION ----------------
 # Non-veg ingredient keywords
