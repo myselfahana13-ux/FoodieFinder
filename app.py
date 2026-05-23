@@ -417,8 +417,7 @@ if recommend_clicked:
                 try:
                     st.image(image_url, use_container_width=True)
                 except:
-                    from food_img import _placeholder
-                    st.image(_placeholder(food), use_container_width=True)
+                    st.image(FOOD_IMAGE_MAP.get(food, "https://via.placeholder.com/300x300?text=No+Image"), use_container_width=True)
 
                 # ✅ Clean card — no comments inside HTML string
                 st.markdown(f"""
