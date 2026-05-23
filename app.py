@@ -63,22 +63,88 @@ def get_food_image(food_name):
     return f"https://picsum.photos/seed/{safe_name}/300/300"
 
 # ---------------- RECOMMEND FUNCTION ----------------
-def recommend(food_name):
-    food_idx  = foodie[foodie['name'] == food_name].index[0]
-    dist      = similarity[food_idx]
-    food_list = sorted(list(enumerate(dist)), reverse=True, key=lambda x: x[1])[1:6]
-    results   = []
-    for i in food_list:
-        name        = foodie.iloc[i[0]]['name']
-        score       = round(float(i[1]) * 100, 1)
-        row         = recipes_df[recipes_df['name'] == name]
-        ingredients = row.iloc[0]['ingredients'] if not row.empty and 'ingredients' in row.columns else "Not available"
-        cook_time   = row.iloc[0]['cook_time']   if not row.empty and 'cook_time'   in row.columns else "Not available"
-        tags        = row.iloc[0]['tags']        if not row.empty and 'tags'        in row.columns else ""
-        results.append({'name': name, 'ingredients': ingredients,
-                        'cook_time': cook_time, 'score': score, 'tags': tags})
-    return results
+# Non-veg ingredient keywords
+NON_VEG_KEYWORDS = [
+    'chicken', 'mutton', 'fish', 'prawn', 'shrimp', 'lamb', 'beef',
+    'pork', 'crab', 'egg', 'keema', 'tuna', 'salmon', 'meat', 'liver'
+]
 
+DISH_FAMILIES = {
+    'south_indian': ['idli', 'idly', 'dosa', 'uttapam', 'vada', 'upma', 'sambhar', 'pongal', 'appam'],
+    'dal':          ['dal', 'daal', 'lentil', 'chana', 'rajma'],
+    'rice':         ['rice', 'pulao', 'biryani', 'khichdi'],
+    'bread':        ['roti', 'chapati', 'naan', 'paratha', 'puri', 'bhatura', 'kulcha'],
+    'curry':        ['curry', 'masala', 'korma', 'kadai', 'makhni', 'butter chicken'],
+    'kebab':        ['kebab', 'tikka', 'tandoori', 'seekh'],
+    'dessert':      ['halwa', 'kheer', 'gulab', 'ladoo', 'barfi', 'rasgulla', 'payasam', 'jalebi'],
+    'snack':        ['samosa', 'pakora', 'bhaji', 'chaat', 'tikki', 'papad', 'bhel'],
+    'seafood':      ['fish', 'prawn', 'shrimp', 'crab'],
+}
+
+def get_diet(row):
+    """Use existing diet tag if available, else derive from ingredients."""
+    tags = str(row.get('tags', '')).lower()
+    ingr = str(row.get('ingredients', '')).lower()
+    if 'non vegetarian' in tags or 'non-vegetarian' in tags:
+        return 'non-veg'
+    if 'vegetarian' in tags:
+        return 'veg'
+    for kw in NON_VEG_KEYWORDS:
+        if kw in ingr:
+            return 'non-veg'
+    return 'veg'
+
+def get_family(name):
+    n = name.lower()
+    for family, keywords in DISH_FAMILIES.items():
+        for kw in keywords:
+            if kw in n:
+                return family
+    return 'other'
+
+def recommend(food_name):
+    matches = foodie[foodie['name'] == food_name]
+    if matches.empty:
+        return []
+
+    food_idx    = matches.index[0]
+    food_row    = recipes_df[recipes_df['name'] == food_name]
+    food_diet   = get_diet(food_row.iloc[0] if not food_row.empty else {})
+    food_family = get_family(food_name)
+    dist        = similarity[food_idx]
+
+    candidates = []
+    for idx, score in enumerate(dist):
+        if idx == food_idx or score < 0.1:
+            continue
+
+        name     = foodie.iloc[idx]['name']
+        row      = recipes_df[recipes_df['name'] == name]
+        cand_row = row.iloc[0] if not row.empty else {}
+
+        cand_diet   = get_diet(cand_row)
+        cand_family = get_family(name)
+
+        # ✅ Rule 1: strict diet separation
+        if food_diet != cand_diet:
+            continue
+
+        # ✅ Rule 2: boost same dish family
+        family_bonus = 0.2 if cand_family == food_family else 0.0
+        final_score  = round((score + family_bonus) * 100, 1)
+
+        ingredients = cand_row.get('ingredients', 'Not available') if cand_row else 'Not available'
+        cook_time   = cand_row.get('cook_time', 'N/A') if cand_row else 'N/A'
+        tags        = cand_row.get('tags', '') if cand_row else ''
+
+        candidates.append({
+            'name': name, 'score': final_score,
+            'ingredients': ingredients,
+            'cook_time': cook_time, 'tags': tags
+        })
+
+    candidates = sorted(candidates, key=lambda x: x['score'], reverse=True)[:5]
+    return candidates
 # ================================================================
 # CUSTOM CSS
 # ================================================================

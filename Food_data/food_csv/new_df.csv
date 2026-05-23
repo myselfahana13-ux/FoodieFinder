@@ -1,257 +1,257 @@
-food_id,name,tags,ingredients,cook_time,img_url
-1,Balu shahi,sweet dessert West Bengal vegetarian,"Maida flour, yogurt, oil, sugar",25,
-2,Boondi,sweet dessert Rajasthan vegetarian,"Gram flour, ghee, sugar",30,
-3,Gajar ka halwa,sweet dessert Punjab vegetarian,"Carrots, milk, sugar, ghee, cashews, raisins",60,
-4,Ghevar,sweet dessert Rajasthan vegetarian,"Flour, ghee, kewra, milk, clarified butter, sugar, almonds, pistachio, saffron, green cardamom",30,
-5,Gulab jamun,sweet dessert West Bengal vegetarian,"Milk powder, plain flour, baking powder, ghee, milk, sugar, water, rose water",40,
-6,Imarti,sweet dessert West Bengal vegetarian,"Sugar syrup, lentil flour",50,
-7,Jalebi,sweet dessert Uttar Pradesh vegetarian,"Maida, corn flour, baking soda, vinegar, curd, water, turmeric, saffron, cardamom",50,
-8,Kaju katli,sweet dessert -1 vegetarian,"Cashews, ghee, cardamom, sugar",20,
-9,Kalakand,sweet dessert West Bengal vegetarian,"Milk, cottage cheese, sugar",30,
-10,Kheer,sweet dessert -1 vegetarian,"Milk, rice, sugar, dried fruits",40,
-11,Laddu,sweet dessert -1 vegetarian,"Gram flour, ghee, sugar",40,
-12,Lassi,sweet dessert Punjab vegetarian,"Yogurt, milk, nuts, sugar",5,
-13,Nankhatai,sweet dessert -1 vegetarian,"Refined flour, besan, ghee, powdered sugar, yoghurt, green cardamom",30,
-14,Petha,sweet dessert Uttar Pradesh vegetarian,"Firm white pumpkin, sugar, kitchen lime, alum powder",30,
-15,Phirni,sweet dessert Odisha vegetarian,"Rice, sugar, nuts",20,
-16,Rabri,sweet dessert Uttar Pradesh vegetarian,"Condensed milk, sugar, spices, nuts",45,
-17,Sheera,sweet dessert Maharashtra vegetarian,"Semolina, ghee, nuts, milk",25,
-18,Singori,sweet dessert Uttarakhand vegetarian,"Khoa, coconut, molu leaf",20,
-19,Sohan halwa,sweet dessert Uttar Pradesh vegetarian,"Corn flour, ghee, dry fruits",60,
-20,Sohan papdi,sweet dessert Maharashtra vegetarian,"Gram flour, ghee, sugar, milk, cardamom",60,
-21,Chhena jalebi,sweet dessert Odisha vegetarian,"Chhena, sugar, ghee",50,
-22,Chhena kheeri,sweet dessert Odisha vegetarian,"Chhena, sugar, milk",60,
-23,Chhena poda,sweet dessert Odisha vegetarian,"Sugar, chenna cheese",45,
-24,Cham cham,sweet dessert West Bengal vegetarian,"Flour, cream, sugar, saffron, lemon juice, coconut flakes",60,
-25,Kheer sagar,sweet dessert Odisha vegetarian,"Chenna, condensed milk, sugar, saffron, cardamom",60,
-26,Ledikeni,sweet dessert West Bengal vegetarian,"Chhena, sugar, ghee",45,
-27,Lyangcha,sweet dessert Assam vegetarian,"Flour, fried milk power, sugar syrup",30,
-28,Malapua,sweet dessert Bihar vegetarian,"Yoghurt, refined flour, ghee, fennel seeds",120,
-29,Mihidana,sweet dessert West Bengal vegetarian,"Besan flour, sugar, ghee",30,
-30,Misti doi,sweet dessert West Bengal vegetarian,"Milk, jaggery",30,
-31,Pantua,sweet dessert West Bengal vegetarian,"Chhena, sugar, ghee, flour",45,
-32,Pithe,sweet dessert Assam vegetarian,"Rice flour, wheat flour",35,
-33,Rasabali,sweet dessert Odisha vegetarian,"Chenna, sweetened milk",30,
-34,Ras malai,sweet dessert West Bengal vegetarian,"Chhena, reduced milk, pistachio",60,
-35,Rasgulla,sweet dessert West Bengal vegetarian,"Chhena, sugar, cardamom",90,
-36,Sandesh,sweet dessert West Bengal vegetarian,"Milk, sugar, saffron, cardamom",20,
-37,Adhirasam,sweet dessert West Bengal vegetarian,"Rice flour, jaggery, ghee, vegetable oil, elachi",50,
-38,Ariselu,sweet dessert Andhra Pradesh vegetarian,"Rice flour, jaggery, ghee",75,
-39,Bandar laddu,sweet dessert Andhra Pradesh vegetarian,"Besan, jaggery, cardamom powder, ghee, cashews and raisins, jaggery syrup, sugar",35,
-40,Chikki,sweet dessert Maharashtra vegetarian,"Peanuts, jaggery",20,
-41,Dharwad pedha,sweet dessert Karnataka vegetarian,"Milk, Sugar, Dharwadi buffalo milk",60,
-42,Double ka meetha,sweet dessert Telangana vegetarian,"Loaf bread, milk",30,
-43,Gavvalu,sweet dessert Andhra Pradesh vegetarian,"Rice flour, sugar, salt, ghee, semolina",30,
-44,Kakinada khaja,sweet dessert Andhra Pradesh vegetarian,"Wheat flour, sugar",30,
-45,Kuzhi paniyaram,sweet dessert Kerala vegetarian,"Black lentils, rice",20,
-46,Mysore pak,sweet dessert Karnataka vegetarian,"Besan flour, semolina, mung bean, jaggery, coconut, skimmed milk powder, sugar, ghee",20,
-47,Obbattu holige,sweet main course Karnataka vegetarian,"Maida flour, turmeric, coconut, chickpeas, jaggery, ghee, cardamom",60,
-48,Palathalikalu,sweet dessert Andhra Pradesh vegetarian,"Rice flour, milk",25,
-49,Poornalu,sweet dessert Andhra Pradesh vegetarian,"Chana dal, jaggery",60,
-50,Pongal,sweet dessert Tamil Nadu vegetarian,"Rice, jaggery, cashews, ghee",20,
-51,Pootharekulu,sweet dessert Andhra Pradesh vegetarian,"Rice flour, powdered sugar, ghee",60,
-52,Qubani ka meetha,sweet dessert Telangana vegetarian,"Apricots, sugar syrup",20,
-53,Sheer korma,sweet dessert Telangana vegetarian,"Vermicelli pudding, milk",20,
-54,Unni Appam,sweet dessert Tamil Nadu vegetarian,"Rice flour, banana, jaggery, coconut",20,
-55,Kajjikaya,sweet dessert Andhra Pradesh vegetarian,"Rice flour, jaggery, coconut",15,
-56,Anarsa,sweet dessert Maharashtra vegetarian,"Rice flour, jaggery, khus-khus seeds",50,
-57,Basundi,sweet dessert Gujarat vegetarian,"Sugar, milk, nuts",35,
-58,Dhondas,sweet dessert Maharashtra vegetarian,"Cucumber, rava",50,
-59,Doodhpak,sweet dessert Gujarat vegetarian,"Milk, rice, sugar, dry fruits",60,
-60,Mahim halwa,sweet dessert Maharashtra vegetarian,"Semolina, sugar",25,
-61,Modak,sweet dessert Maharashtra vegetarian,"Rice flour, coconut, jaggery ",15,
-62,Shankarpali,sweet dessert Maharashtra vegetarian,"Sugar, ghee, maida flour, semolina",35,
-63,Shrikhand,sweet dessert Maharashtra vegetarian,"Curd, sugar, saffron, cardamom",720,
-64,Sutar feni,sweet dessert Maharashtra vegetarian,"Maida, sugar, ghee",55,
-65,Maach Jhol,spicy main course Assam non vegetarian,"Fish, potol, tomato, chillies, ginger, garlic",40,
-66,Pork Bharta,spicy main course Tripura non vegetarian,"Boiled pork, onions, chillies, ginger and garlic",-1,
-67,Chak Hao Kheer,sweet dessert Manipur vegetarian,"Rice, milk, sugar, cardamom",45,
-68,Galho,spicy main course Nagaland non vegetarian,"Rice, axone, salt, water, chillies, pork",15,
-69,Aloo gobi,spicy main course Punjab vegetarian,"Cauliflower, potato, garam masala, turmeric, curry leaves",20,
-70,Aloo tikki,spicy main course Punjab vegetarian,"Rice flour, potato, bread crumbs, garam masala, salt",20,
-71,Aloo matar,spicy main course Punjab vegetarian,"Potato, peas, chillies, ginger, garam masala, garlic",40,
-72,Aloo methi,bitter main course Punjab vegetarian,"Potato, fenugreek leaves, chillies, salt, oil",40,
-73,Aloo shimla mirch,spicy main course Punjab vegetarian,"Potato, shimla mirch, garam masala, amchur powder, salt",40,
-74,Bhatura,spicy main course Punjab vegetarian,"Chole, rava, yogurt, plain flour, baking soda",20,
-75,Bhindi masala,spicy main course Punjab vegetarian,"Ladies finger, garam masala, kasuri methi, tomatoes, chili powder",30,
-76,Biryani,spicy main course Telangana non vegetarian,"Chicken thighs, basmati rice, star anise, sweet, green chillies",120,
-77,Butter chicken,spicy main course NCT of Delhi non vegetarian,"Chicken, greek yogurt, cream, garam masala powder, cashew nuts, butter",35,
-78,Chana masala,spicy main course Punjab vegetarian,"Chickpeas, tomato paste, garam masala, ginger, red onion, avocado oil",30,
-79,Chapati,-1 main course Maharashtra vegetarian,"Whole wheat flour, olive oil, hot water, all purpose flour",10,
-80,Chicken razala,spicy main course West Bengal non vegetarian,"Chicken, dahi, sesame seeds, garam masala powder, cashew nuts, saffron",35,
-81,Chicken Tikka masala,spicy main course Punjab non vegetarian,"Naan bread, tomato sauce, skinless chicken breasts, heavy cream, garam masala",50,
-82,Chicken Tikka,spicy starter Punjab non vegetarian,"Chicken, whole wheat bread, rice flour, garam masala powder, whole egg",45,
-83,Chole bhature,spicy main course Punjab vegetarian,"Chole, bhatura, garam masala, bay leaf, cinnamon stick",30,
-84,Daal baati churma,spicy main course Rajasthan vegetarian,"Moong dal, masoor dal, chana dal, wheat flour, almond",90,
-85,Daal puri,spicy main course West Bengal vegetarian,"Moong dal, garam masala powder, garlic, green chilli, all purpose flour",30,
-86,Dal makhani ,sweet main course Punjab vegetarian,"Red kidney beans, urad dal, cream, garam masala, chili powder",60,
-87,Dal tadka,spicy main course Punjab vegetarian,"Pigeon peas, garam masala, ginger, red onion, kasuri methi",30,
-88,Dum aloo,spicy main course Jammu & Kashmir vegetarian,"Baby potatoes, garam masala, cashew nuts, kasuri methi, tomatoes",50,
-89,Poha,spicy snack Maharashtra vegetarian,"Beaten rice flakes, potato, curry leaves, green chilies, lemon juice",30,
-90,Fara,spicy snack Chhattisgarh vegetarian,"Chana dal, whole wheat flour, arhar dal, white urad dal, garam masala powder",60,
-91,Kachori,spicy snack Uttar Pradesh vegetarian,"Moong dal, rava, garam masala, dough, fennel seeds",60,
-92,Kadai paneer,spicy main course Punjab vegetarian,"Cottage cheese, bell peppers, gravy, garam masala, cashew nuts",30,
-93,Kadhi pakoda,spicy main course Haryana vegetarian,"Besan, garam masala powder, gram flour, ginger, curry leaves",60,
-94,Karela bharta,bitter main course Punjab vegetarian,"Bitter gourd, fennel, garam masala powder, chili powder, amchur powder",50,
-95,Khichdi,spicy main course -1 vegetarian,"Moong dal, green peas, ginger, tomato, green chili",20,
-96,Kofta,spicy main course Uttar Pradesh vegetarian,"Paneer, potato, cream, corn flour, garam masala",40,
-97,Kulfi falooda,sweet dessert -1 vegetarian,"Rose syrup, falooda sev, mixed nuts, saffron, sugar",25,
-98,Lauki ke kofte,spicy main course Uttar Pradesh vegetarian,"Bottle gourd, garam masala powder, gram flour, ginger, chillies",40,
-99,Lauki ki subji,spicy main course -1 vegetarian,"Bottle gourd, coconut oil, garam masala, ginger, green chillies",20,
-100,Litti chokha,spicy main course Bihar vegetarian,"Wheat flour, roasted gram flour, tomato, nigella seeds, chilli",60,
-101,Makki di roti sarson da saag,spicy main course Punjab vegetarian,"Palak, makki atta, mustard green, garam masala, ginger",30,
-102,Misi roti,spicy main course Punjab vegetarian,"Whole wheat flour, chickpea flour, green chilies",30,
-103,Mushroom do pyaza,spicy main course Punjab vegetarian,"Mushroom, malai, garam masala, ginger, capsicum",30,
-104,Mushroom matar,spicy main course Punjab vegetarian,"Canned coconut milk, frozen green peas, wild mushrooms, garam masala, tomatoes",30,
-105,Naan,-1 main course Punjab vegetarian,"Whole wheat flour, honey, butter, garlic",30,
-106,Navrattan korma,spicy main course Uttar Pradesh vegetarian,"Green beans, potatoes, khus khus, low fat, garam masala powder",40,
-107,Palak paneer,spicy main course Punjab vegetarian,"Cottage cheese, palak, cream, garam masala, butter",40,
-108,Paneer butter masala,spicy main course Punjab vegetarian,"Paneer, whipping cream, garam masala, cashew nuts, butter",40,
-109,Paneer tikka masala,spicy main course Punjab vegetarian,"Paneer, greek yogurt, tandoori masala, cream, bell pepper",40,
-110,Pani puri,spicy snack -1 vegetarian,"Kala chana, mashed potato, boondi, sev, lemon",2,
-111,Panjeeri,sweet dessert Uttar Pradesh vegetarian,"Whole wheat flour, musk melon seeds, poppy seeds, edible gum, semolina",25,
-112,Papad,spicy snack -1 vegetarian,"Urad dal, sev, lemon juice, chopped tomatoes",5,
-113,Paratha,spicy main course Punjab vegetarian,"Wheat flour, butter, potato, coriander",45,
-114,Pattor,spicy main course Rajasthan vegetarian,"Arbi ke patte, sesame seeds, gur, bengal gram flour, imli",30,
-115,Pindi chana,spicy main course Punjab vegetarian,"Fennel, tea bags, tomato, kasuri methi, cinnamon",120,
-116,Rajma chaval,spicy main course -1 vegetarian,"Red kidney beans, garam masala powder, ginger, tomato, mustard oil",90,
-117,Rongi,-1 main course Punjab vegetarian,"Garam masala powder, tomato, kasuri methi, cinnamon, mustard oil",30,
-118,Samosa,spicy snack -1 vegetarian,"Potatoes, green peas, garam masala, ginger, dough",30,
-119,Sattu ki roti,spicy main course Bihar vegetarian,"Sattu, atta, dough, filling, mustard oil",20,
-120,Shahi paneer,spicy main course Punjab vegetarian,"Cottage cheese, malai, garam masala, ginger, tomato",40,
-121,Shahi tukra,sweet dessert Telangana vegetarian,"Rose water, milk, white bread slices, saffron, almonds",30,
-122,Vegetable jalfrezi,spicy main course Punjab vegetarian,"Baby corn, french beans, garam masala, ginger, carrot",30,
-123,Tandoori Chicken,spicy main course Punjab non vegetarian,"Greek yogurt, garam masala, kasuri methi, marinade, mustard oil",30,
-124,Tandoori Fish Tikka,spicy starter Punjab non vegetarian,"Chickpea flour, biryani masala powder, yogurt, fish fillets, green bell pepper",30,
-125,Attu,spicy snack Andhra Pradesh vegetarian,"Whole wheat flour, arhar dal, ginger, kala jeera, green chilli",25,
-126,Avial,spicy main course Kerala vegetarian,"Raw banana, elephant foot yam, long beans, tindora, urad dal",45,
-127,Bisi bele bath,spicy main course Karnataka vegetarian,"Split pigeon peas, chana dal, urad dal, green peas, french beans",45,
-128,Currivepillai sadam ,spicy main course Tamil Nadu vegetarian,"Chana dal, urad dal, fresh coconut, sesame seeds, curry leaves",20,
-129,Dosa,spicy snack -1 vegetarian,"Chana dal, urad dal, whole urad dal, blend rice, rock salt",90,
-130,Idiappam,spicy snack Tamil Nadu vegetarian,"Rice flour, hot water, grated coconut",30,
-131,Idli,spicy snack -1 vegetarian,"Split urad dal, urad dal, idli rice, thick poha, rock salt",90,
-132,Kanji,-1 snack Kerala vegetarian,"Carrot, yellow mustard, red chilli, black salt",45,
-133,Kaara kozhambu,spicy main course Tamil Nadu vegetarian,"Sesame oil, drumstick, tamarind paste, sambar powder, tomato",-1,
-134,Keerai kootu,spicy main course Tamil Nadu vegetarian,"Moong dal, chana dal, spinach, urad dal, coconut oil",30,
-135,Keerai masiyal,spicy main course Tamil Nadu vegetarian,"Urad dal, curry leaves, sugar, mustard seeds, spinach",-1,
-136,Keerai sadam,spicy main course Tamil Nadu vegetarian,"Greens, tomato, mustard seeds, fenugreek seeds",20,
-137,Keerai poriyal,spicy main course Tamil Nadu vegetarian,"Amaranth leaves, split urad dal, mustard seeds, grated coconut, red chili",30,
-138,Beef Fry,spicy main course Kerala non vegetarian,"Beef, coconut, garam masala, curry leaves, green chilies, chili powder",60,
-139,Kootu,spicy main course Tamil Nadu vegetarian,"Chana dal, urad dal, potato, beans, peas",15,
-140,Kos kootu,spicy main course Tamil Nadu vegetarian,"Moong dal, chana dal, cabbage, tamarind, curry leaves",20,
-141,Koshambri,spicy main course Karnataka vegetarian,"Moong dal, cucumber, curry leaves, green chili, lemon juice",20,
-142,Kothamali sadam,spicy main course Tamil Nadu vegetarian,"Chana dal, urad dal, gooseberry, raw rice, curry leaves",20,
-143,Kuzhakkattai,spicy main course Tamil Nadu vegetarian,"Sesame oil, raw rice, jaggery, grated coconut",90,
-144,Kuzhambu,spicy main course Tamil Nadu vegetarian,"Pearl onions, urad dal, drumsticks, tomato, curry leaves",30,
-145,Masala Dosa,spicy snack -1 vegetarian,"Chana dal, urad dal, potatoes, idli rice, thick poha",90,
-146,Pachadi,-1 main course -1 vegetarian,"Coconut oil, cucumber, curd, curry leaves, mustard seeds",25,
-147,Paniyaram,-1 main course Tamil Nadu vegetarian,"Yogurt, ginger, curry leaves, baking soda, green chilli",20,
-148,Papadum,spicy snack Kerala vegetarian,"Lentils, black pepper, vegetable oil",5,
-149,Paravannam,spicy main course Kerala vegetarian,"Raw rice,  jaggery, milk",-1,
-150,Payasam,sweet dessert -1 vegetarian,"Rice, cashew nuts, milk, raisins, sugar",30,
-151,Paruppu sadam,-1 main course Tamil Nadu vegetarian,"Arhar dal, sambar powder, tomato, curry leaves, fennel seeds",20,
-152,Pesarattu,spicy snack Andhra Pradesh vegetarian,"Green moong beans, rice flour",20,
-153,Poriyal,spicy main course Tamil Nadu vegetarian,"Chana dal, urad dal, beans, coconut, mustard",-1,
-154,Puli sadam,-1 main course Tamil Nadu vegetarian,"Urad dal, lemon, tamarind, cooked rice, curry leaves",20,
-155,Rasam,spicy main course -1 vegetarian,"Tomato, curry leaves, garlic, mustard seeds, hot water",35,
-156,Puttu,-1 main course Kerala vegetarian,"Brown rice flour, sugar, grated coconut",40,
-157,Sambar,spicy main course -1 vegetarian,"Pigeon peas, eggplant, drumsticks, sambar powder, tamarind",45,
-158,Sandige,-1 main course Karnataka vegetarian,"Thin rice flakes, black sesame seeds, curry leaves",60,
-159,Sevai,-1 main course -1 vegetarian,"Sevai, parboiled rice, steamer",30,
-160,Thayir sadam,-1 main course Tamil Nadu vegetarian,"Urad dal, curd, sesame oil, ginger, curry leaves, mustard seeds",20,
-161,Theeyal,-1 main course Kerala vegetarian,"Coconut, whole red beans, masala, sesame oil, tamarind",20,
-162,Uttapam,spicy snack -1 vegetarian,"Chana dal, urad dal, thick poha, tomato, butter",20,
-163,Vada,spicy snack -1 vegetarian,"Urad dal, ginger, curry leaves, green chilies, black pepper",20,
-164,Chicken Varuval,spicy main course Tamil Nadu non vegetarian,"Meat curry powder, chicken chunks, ginger, tomato, cinnamon",35,
-165,Upma,spicy snack -1 vegetarian,"Chana dal, urad dal, ginger, curry leaves, sugar",20,
-166,Amti,spicy main course Maharashtra vegetarian,"Kala masala, arhar dal, curry leaves, mustard seeds, hot water",45,
-167,Zunka,spicy main course Maharashtra vegetarian,"Gram flour, mustard, garlic, turmeric, red chilli",25,
-168,Kolim Jawla,spicy main course Maharashtra non vegetarian,"Baingan, fish, coconut oil, fresh coconut, ginger",-1,
-169,Saath,spicy main course Gujarat vegetarian,"Urad dal, potatoes, wheat flour, sooji",40,
-170,Bajri no rotlo,spicy main course Gujarat vegetarian,"Wheat flour, pearl millet flour, hot water",10,
-171,Coconut vadi,sweet dessert Maharashtra vegetarian,"Condensed milk, mawa, desiccated coconut, almonds, cashews",30,
-172,Bhakri,-1 main course Maharashtra vegetarian,"Jowar flour, sesame seeds",25,
-173,Bombil fry,spicy main course Maharashtra non vegetarian,"Bombay duck, malvani masala, rice flour, bombay rava, green chilies",-1,
-174,Chakali,spicy snack Maharashtra vegetarian,"Rice flour, sesame, plain flour, turmeric, red chilli",40,
-175,Chevdo,spicy snack Gujarat vegetarian,"Citric acid, fry, raisins, sugar, chana daal",30,
-176,Chorafali,spicy snack Gujarat vegetarian,"Urad dal, bengal gram flour, dried mango, baking soda, black salt",15,
-177,Copra paak,-1 main course Gujarat vegetarian,"Condensed milk, nestle cream, coconut ice, red food coloring, desiccated coconut",30,
-178,Daal Dhokli,spicy main course Gujarat vegetarian,"Whole wheat flour, dal, kokum, gur, bengal gram flour",30,
-179,Kutchi dabeli,spicy snack Gujarat vegetarian,"Pav, aloo, peanut, pomegranate, star anise",10,
-180,Dahi vada,-1 snack Maharashtra vegetarian,"Urad dal, bhuna chana, garam masala, dates, tamarind",30,
-181,Dalithoy,-1 main course Maharashtra vegetarian,"Arhar dal, coconut oil, curry leaves, mustard seeds, red chilli",20,
-182,Dhokla,spicy snack Gujarat vegetarian,"Rava, coconut, gram flour, mustard, sesame",20,
-183,Dudhi halwa,sweet dessert Gujarat vegetarian,"Bottle gourd, green, raisins, sugar, clarified butter",30,
-184,Gatta curry,spicy main course Rajasthan vegetarian,"Yogurt, besan, sauce, garam masala powder, gram flour",20,
-185,Gud papdi,sweet dessert Gujarat vegetarian,"Wheat flour, jaggery, clarified butter, sliced almonds",20,
-186,Ghooghra,spicy snack Gujarat vegetarian,"Dry fruits, semolina, all purpose flour",-1,
-187,Handwo,spicy snack Gujarat vegetarian,"Bottle gourd, chana dal, cabbage, urad dal, toor dal",30,
-188,Halvasan,sweet dessert Gujarat vegetarian,"Whole wheat rava, chia seed, lemon, edible gum, litre milk",-1,
-189,Jeera Aloo,spicy main course Gujarat vegetarian,"Green chilies, lemon juice, chili powder, boiled potatoes",30,
-190,Kansar,-1 main course Gujarat vegetarian,"Wheat flour, cashews, rapeseed oil",40,
-191,Keri no ras,sour main course Gujarat vegetarian,"Mango, sugar",10,
-192,Khakhra,spicy snack Gujarat vegetarian,"Whole wheat flour, low fat, bengal gram flour",40,
-193,Khandvi,spicy snack Gujarat vegetarian,"Green chili paste, white sesame seeds, gram flour, curry leaves, green chili",45,
-194,Kombdi vade,spicy snack Maharashtra vegetarian,"Rice flour, urad dal, wheat flour, gram flour, turmeric",25,
-195,Laapsi,spicy main course Madhya Pradesh vegetarian,"Cinnamon, jaggery, clarified butter, dry roasted",40,
-196,Koshimbir,spicy main course Maharashtra vegetarian,"Cucumber, carrot, tomatoes, cilantro",10,
-197,Methi na Gota,bitter main course Gujarat vegetarian,"Rava, gram flour, lemon juice, turmeric, fenugreek leaves",30,
-198,Mohanthal,sweet dessert Gujarat vegetarian,"Rose water, pistachio, badam, bengal gram flour, saffron",45,
-199,Muthiya,bitter snack Gujarat vegetarian,"Bottle gourd, whole wheat flour, rava, sesame seeds, bengal gram flour",30,
-200,Patra,spicy snack Gujarat vegetarian,"Arbi ke patte, sesame seeds, gur, bengal gram flour, imli",40,
-201,Pav Bhaji,spicy main course Maharashtra vegetarian,"Pav bhaji masala, gobi, potatoes, green peas, dinner rolls",40,
-202,Puri Bhaji,spicy main course Maharashtra vegetarian,"Aloo, urad dal, mustard, ginger, curry leaves",30,
-203,Sabudana Khichadi,spicy snack Maharashtra vegetarian,"Raw peanuts, sabudana, lemon, avocado oil, curry leaves, green chili",30,
-204,Sev khamani,spicy main course Gujarat vegetarian,"Khaman, pomegranate, sev, powdered sugar, garlic",30,
-205,Sev tameta,spicy main course Gujarat vegetarian,"Sev, ginger, tomato, sugar",30,
-206,Namakpara,spicy snack Gujarat vegetarian,"Wheat flour, baking soda, all purpose flour, black pepper, sunflower oil",35,
-207,Sukhdi,sweet dessert Maharashtra vegetarian,"Whole wheat flour, gur, clarified butter",20,
-208,Surnoli,spicy snack Maharashtra vegetarian,"Rice flakes, yogurt, raw rice, jaggery, grated coconut",10,
-209,Thalipeeth,spicy main course Maharashtra vegetarian,"Whole wheat flour, rice flour, pearl millet flour, sorghum flour, sesame seeds",30,
-210,Undhiyu,spicy main course Gujarat vegetarian,"Sweet potato, surti papdi, baby potatoes, valor papdi, green peas",60,
-211,Veg Kolhapuri,spicy main course Maharashtra vegetarian,"Gobi, potato, beans, khus khus, coconut",30,
-212,Vindaloo,spicy main course Goa non vegetarian,"Chicken, coconut oil, wine vinegar, ginger, green, cinnamon",40,
-213,Lilva Kachori,spicy snack Gujarat vegetarian,"Green garlic chutney, fresh green peas, ginger, lemon juice, plain flour",6,
-214,Mag Dhokli,spicy snack Gujarat vegetarian,"Moong beans, jaggery, red chillies, oil, salt",-1,
-215,Khichu,spicy snack Gujarat vegetarian,"Rice flour, sesame seeds, baking soda, peanut oil",10,
-216,Thepla,spicy snack Gujarat vegetarian,"Chickpea flour, methi leaves, jowar flour, wheat flour",30,
-217,Farsi Puri,-1 snack Gujarat vegetarian,"Semolina, clarified butter, oil, white flour, black pepper",-1,
-218,Khaman,spicy snack Gujarat vegetarian,"Yogurt, fresh coconut, sesame seeds, semolina, gram flour",20,
-219,Turiya Patra Vatana sabji,spicy main course Gujarat vegetarian,"Ridge gourd, baking soda, sugar, grated coconut, peas",40,
-220,Churma Ladoo,sweet dessert Rajasthan vegetarian,"Whole wheat flour, khus khus, sesame seeds, dry coconut, gur",40,
-221,Cheera Doi,sweet dessert West Bengal vegetarian,"Rice, mango, curd",-1,
-222,Gheela Pitha,sweet dessert Assam vegetarian,"Sticky rice, rice flour, jaggery, orange rind",30,
-223,Khar,-1 main course Assam vegetarian,"Raw papaya, panch phoran masala, nigella seeds, mustard oil, fennel seeds",20,
-224,Kumol Sawul,spicy main course Assam non vegetarian,"Rice, eggs, carrot, beetroot",-1,
-225,Luchi,-1 main course West Bengal vegetarian,"Maida, vegetable oil",30,
-226,Alu Pitika,spicy main course Assam non vegetarian,"Potatoes, mustard oil, fish, green chillies",20,
-227,Masor tenga,spicy main course Assam non vegetarian,"Ridge gourd, fish, lemon, tomatoes, mustard oil",25,
-228,Bengena Pitika,-1 main course Assam vegetarian,"Brinjal, onions, salt, sesame seeds, coriander",-1,
-229,Bilahi Maas,-1 main course Assam non vegetarian,"Potatoes, garam masala, tomatoes, mustard oil, bay leaf",20,
-230,Black rice,-1 main course Manipur non vegetarian,"Forbidden black rice, chicken, olive oil, slivered almonds, garlic powder",-1,
-231,Bora Sawul,spicy main course Assam vegetarian,"Biryani masala, mixed vegetables, yellow moong daal, whole red, mustard seeds",-1,
-232,Brown Rice,-1 main course -1 vegetarian,"Brown rice, soy sauce, olive oil",25,
-233,Chingri malai curry,spicy main course West Bengal non vegetarian,"Coconut milk, lobster, fresh green chilli, ginger, red onion",40,
-234,Goja,sweet dessert West Bengal vegetarian,"Baking soda, clarified butter, oil, all purpose flour",60,
-235,Hando Guri,sweet dessert Assam vegetarian,"Jaggery, raisins",-1,
-236,Haq Maas,spicy main course Assam non vegetarian,"Lamb, garam masala powder, curd, turmeric, bay leaf",40,
-237,Chingri Bhape,-1 main course West Bengal non vegetarian,"Coconut, prawns, curd, mustard seed, green chili",30,
-238,Kabiraji,spicy main course West Bengal non vegetarian,"Fish fillet, besan, lemon, mint, ginger",-1,
-239,Khorisa,spicy main course Assam vegetarian,"Fermented bamboo shoot, potato, ginger, green, mustard oil",-1,
-240,Koldil Chicken,spicy main course Assam non vegetarian,"Banana flower, chicken, green chili, mustard oil, lemon juice",-1,
-241,Konir Dom,spicy main course Assam non vegetarian,"Aloo, tomatoes, mustard oil, bay leaf, cinnamon stick",-1,
-242,Koldil Duck,spicy main course Assam non vegetarian,"Rice flour, mutton, banana, gram flour, olive oil, baking powder",-1,
-243,Masor Koni,spicy main course Assam non vegetarian,"Fish roe, pumpkin flowers, mustard oil, turmeric, tomato",-1,
-244,Mishti Chholar Dal,sweet main course West Bengal vegetarian,"Chana dal, fresh coconut, ginger, cinnamon, raisins",30,
-245,Pakhala,-1 main course Odisha vegetarian,"Curd, cooked rice, curry leaves, dry chilli",-1,
-246,Pani Pitha,-1 main course Assam vegetarian,"Tea leaves, white sesame seeds, dry coconut, soaked rice",20,
-247,Payokh,sweet dessert Assam vegetarian,"Basmati rice, rose water, sugar, clarified butter, cardamom pods",-1,
-248,Prawn malai curry,spicy main course West Bengal non vegetarian,"Coconut milk, prawns, garlic, turmeric, sugar",50,
-249,Red Rice,-1 main course -1 vegetarian,"Red pepper, red onion, butter, watercress, olive oil",-1,
-250,Shukto,spicy main course West Bengal vegetarian,"Green beans, bitter gourd, ridge gourd, banana, brinjal",20,
-251,Til Pitha,sweet dessert Assam vegetarian,"Glutinous rice, black sesame seeds, gur",30,
-252,Bebinca,sweet dessert Goa vegetarian,"Coconut milk, egg yolks, clarified butter, all purpose flour",60,
-253,Shufta,sweet dessert Jammu & Kashmir vegetarian,"Cottage cheese, dry dates, dried rose petals, pistachio, badam",-1,
-254,Mawa Bati,sweet dessert Madhya Pradesh vegetarian,"Milk powder, dry fruits, arrowroot powder, all purpose flour",45,
-255,Pinaca,sweet dessert Goa vegetarian,"Brown rice, fennel seeds, grated coconut, black pepper, ginger powder",-1,
-256,Baingan Fry,spicy main course Punjab vegetarian,"Beef, coconut, garam masala, curry leaves, green chilies, chili powder",60,https://www.vegrecipesofindia.com/wp-content/uploads/2021/06/baingan-bharta-1-500x500.jpg
+food_id,name,tags,ingredients,cook_time,img_url,diet,dish_family,soup
+1,Balu shahi,sweet dessert West Bengal vegetarian,"Maida flour, yogurt, oil, sugar",25,,veg,other,"balu_shahi balu_shahi balu_shahi Maida flour, yogurt, oil, sugar sweet dessert West Bengal vegetarian"
+2,Boondi,sweet dessert Rajasthan vegetarian,"Gram flour, ghee, sugar",30,,veg,other,"boondi boondi boondi Gram flour, ghee, sugar sweet dessert Rajasthan vegetarian"
+3,Gajar ka halwa,sweet dessert Punjab vegetarian,"Carrots, milk, sugar, ghee, cashews, raisins",60,,veg,dessert,"gajar_ka_halwa gajar_ka_halwa gajar_ka_halwa Carrots, milk, sugar, ghee, cashews, raisins sweet dessert Punjab vegetarian"
+4,Ghevar,sweet dessert Rajasthan vegetarian,"Flour, ghee, kewra, milk, clarified butter, sugar, almonds, pistachio, saffron, green cardamom",30,,veg,other,"ghevar ghevar ghevar Flour, ghee, kewra, milk, clarified butter, sugar, almonds, pistachio, saffron, green cardamom sweet dessert Rajasthan vegetarian"
+5,Gulab jamun,sweet dessert West Bengal vegetarian,"Milk powder, plain flour, baking powder, ghee, milk, sugar, water, rose water",40,,veg,dessert,"gulab_jamun gulab_jamun gulab_jamun Milk powder, plain flour, baking powder, ghee, milk, sugar, water, rose water sweet dessert West Bengal vegetarian"
+6,Imarti,sweet dessert West Bengal vegetarian,"Sugar syrup, lentil flour",50,,veg,other,"imarti imarti imarti Sugar syrup, lentil flour sweet dessert West Bengal vegetarian"
+7,Jalebi,sweet dessert Uttar Pradesh vegetarian,"Maida, corn flour, baking soda, vinegar, curd, water, turmeric, saffron, cardamom",50,,veg,other,"jalebi jalebi jalebi Maida, corn flour, baking soda, vinegar, curd, water, turmeric, saffron, cardamom sweet dessert Uttar Pradesh vegetarian"
+8,Kaju katli,sweet dessert -1 vegetarian,"Cashews, ghee, cardamom, sugar",20,,veg,other,"kaju_katli kaju_katli kaju_katli Cashews, ghee, cardamom, sugar sweet dessert  vegetarian"
+9,Kalakand,sweet dessert West Bengal vegetarian,"Milk, cottage cheese, sugar",30,,veg,other,"kalakand kalakand kalakand Milk, cottage cheese, sugar sweet dessert West Bengal vegetarian"
+10,Kheer,sweet dessert -1 vegetarian,"Milk, rice, sugar, dried fruits",40,,veg,dessert,"kheer kheer kheer Milk, rice, sugar, dried fruits sweet dessert  vegetarian"
+11,Laddu,sweet dessert -1 vegetarian,"Gram flour, ghee, sugar",40,,veg,other,"laddu laddu laddu Gram flour, ghee, sugar sweet dessert  vegetarian"
+12,Lassi,sweet dessert Punjab vegetarian,"Yogurt, milk, nuts, sugar",5,,veg,other,"lassi lassi lassi Yogurt, milk, nuts, sugar sweet dessert Punjab vegetarian"
+13,Nankhatai,sweet dessert -1 vegetarian,"Refined flour, besan, ghee, powdered sugar, yoghurt, green cardamom",30,,veg,other,"nankhatai nankhatai nankhatai Refined flour, besan, ghee, powdered sugar, yoghurt, green cardamom sweet dessert  vegetarian"
+14,Petha,sweet dessert Uttar Pradesh vegetarian,"Firm white pumpkin, sugar, kitchen lime, alum powder",30,,veg,other,"petha petha petha Firm white pumpkin, sugar, kitchen lime, alum powder sweet dessert Uttar Pradesh vegetarian"
+15,Phirni,sweet dessert Odisha vegetarian,"Rice, sugar, nuts",20,,veg,other,"phirni phirni phirni Rice, sugar, nuts sweet dessert Odisha vegetarian"
+16,Rabri,sweet dessert Uttar Pradesh vegetarian,"Condensed milk, sugar, spices, nuts",45,,veg,other,"rabri rabri rabri Condensed milk, sugar, spices, nuts sweet dessert Uttar Pradesh vegetarian"
+17,Sheera,sweet dessert Maharashtra vegetarian,"Semolina, ghee, nuts, milk",25,,veg,other,"sheera sheera sheera Semolina, ghee, nuts, milk sweet dessert Maharashtra vegetarian"
+18,Singori,sweet dessert Uttarakhand vegetarian,"Khoa, coconut, molu leaf",20,,veg,other,"singori singori singori Khoa, coconut, molu leaf sweet dessert Uttarakhand vegetarian"
+19,Sohan halwa,sweet dessert Uttar Pradesh vegetarian,"Corn flour, ghee, dry fruits",60,,veg,dessert,"sohan_halwa sohan_halwa sohan_halwa Corn flour, ghee, dry fruits sweet dessert Uttar Pradesh vegetarian"
+20,Sohan papdi,sweet dessert Maharashtra vegetarian,"Gram flour, ghee, sugar, milk, cardamom",60,,veg,other,"sohan_papdi sohan_papdi sohan_papdi Gram flour, ghee, sugar, milk, cardamom sweet dessert Maharashtra vegetarian"
+21,Chhena jalebi,sweet dessert Odisha vegetarian,"Chhena, sugar, ghee",50,,veg,other,"chhena_jalebi chhena_jalebi chhena_jalebi Chhena, sugar, ghee sweet dessert Odisha vegetarian"
+22,Chhena kheeri,sweet dessert Odisha vegetarian,"Chhena, sugar, milk",60,,veg,dessert,"chhena_kheeri chhena_kheeri chhena_kheeri Chhena, sugar, milk sweet dessert Odisha vegetarian"
+23,Chhena poda,sweet dessert Odisha vegetarian,"Sugar, chenna cheese",45,,veg,other,"chhena_poda chhena_poda chhena_poda Sugar, chenna cheese sweet dessert Odisha vegetarian"
+24,Cham cham,sweet dessert West Bengal vegetarian,"Flour, cream, sugar, saffron, lemon juice, coconut flakes",60,,veg,other,"cham_cham cham_cham cham_cham Flour, cream, sugar, saffron, lemon juice, coconut flakes sweet dessert West Bengal vegetarian"
+25,Kheer sagar,sweet dessert Odisha vegetarian,"Chenna, condensed milk, sugar, saffron, cardamom",60,,veg,dessert,"kheer_sagar kheer_sagar kheer_sagar Chenna, condensed milk, sugar, saffron, cardamom sweet dessert Odisha vegetarian"
+26,Ledikeni,sweet dessert West Bengal vegetarian,"Chhena, sugar, ghee",45,,veg,other,"ledikeni ledikeni ledikeni Chhena, sugar, ghee sweet dessert West Bengal vegetarian"
+27,Lyangcha,sweet dessert Assam vegetarian,"Flour, fried milk power, sugar syrup",30,,veg,other,"lyangcha lyangcha lyangcha Flour, fried milk power, sugar syrup sweet dessert Assam vegetarian"
+28,Malapua,sweet dessert Bihar vegetarian,"Yoghurt, refined flour, ghee, fennel seeds",120,,veg,other,"malapua malapua malapua Yoghurt, refined flour, ghee, fennel seeds sweet dessert Bihar vegetarian"
+29,Mihidana,sweet dessert West Bengal vegetarian,"Besan flour, sugar, ghee",30,,veg,other,"mihidana mihidana mihidana Besan flour, sugar, ghee sweet dessert West Bengal vegetarian"
+30,Misti doi,sweet dessert West Bengal vegetarian,"Milk, jaggery",30,,veg,other,"misti_doi misti_doi misti_doi Milk, jaggery sweet dessert West Bengal vegetarian"
+31,Pantua,sweet dessert West Bengal vegetarian,"Chhena, sugar, ghee, flour",45,,veg,other,"pantua pantua pantua Chhena, sugar, ghee, flour sweet dessert West Bengal vegetarian"
+32,Pithe,sweet dessert Assam vegetarian,"Rice flour, wheat flour",35,,veg,other,"pithe pithe pithe Rice flour, wheat flour sweet dessert Assam vegetarian"
+33,Rasabali,sweet dessert Odisha vegetarian,"Chenna, sweetened milk",30,,veg,other,"rasabali rasabali rasabali Chenna, sweetened milk sweet dessert Odisha vegetarian"
+34,Ras malai,sweet dessert West Bengal vegetarian,"Chhena, reduced milk, pistachio",60,,veg,other,"ras_malai ras_malai ras_malai Chhena, reduced milk, pistachio sweet dessert West Bengal vegetarian"
+35,Rasgulla,sweet dessert West Bengal vegetarian,"Chhena, sugar, cardamom",90,,veg,dessert,"rasgulla rasgulla rasgulla Chhena, sugar, cardamom sweet dessert West Bengal vegetarian"
+36,Sandesh,sweet dessert West Bengal vegetarian,"Milk, sugar, saffron, cardamom",20,,veg,other,"sandesh sandesh sandesh Milk, sugar, saffron, cardamom sweet dessert West Bengal vegetarian"
+37,Adhirasam,sweet dessert West Bengal vegetarian,"Rice flour, jaggery, ghee, vegetable oil, elachi",50,,veg,soup,"adhirasam adhirasam adhirasam Rice flour, jaggery, ghee, vegetable oil, elachi sweet dessert West Bengal vegetarian"
+38,Ariselu,sweet dessert Andhra Pradesh vegetarian,"Rice flour, jaggery, ghee",75,,veg,other,"ariselu ariselu ariselu Rice flour, jaggery, ghee sweet dessert Andhra Pradesh vegetarian"
+39,Bandar laddu,sweet dessert Andhra Pradesh vegetarian,"Besan, jaggery, cardamom powder, ghee, cashews and raisins, jaggery syrup, sugar",35,,veg,other,"bandar_laddu bandar_laddu bandar_laddu Besan, jaggery, cardamom powder, ghee, cashews and raisins, jaggery syrup, sugar sweet dessert Andhra Pradesh vegetarian"
+40,Chikki,sweet dessert Maharashtra vegetarian,"Peanuts, jaggery",20,,veg,other,"chikki chikki chikki Peanuts, jaggery sweet dessert Maharashtra vegetarian"
+41,Dharwad pedha,sweet dessert Karnataka vegetarian,"Milk, Sugar, Dharwadi buffalo milk",60,,veg,other,"dharwad_pedha dharwad_pedha dharwad_pedha Milk, Sugar, Dharwadi buffalo milk sweet dessert Karnataka vegetarian"
+42,Double ka meetha,sweet dessert Telangana vegetarian,"Loaf bread, milk",30,,veg,other,"double_ka_meetha double_ka_meetha double_ka_meetha Loaf bread, milk sweet dessert Telangana vegetarian"
+43,Gavvalu,sweet dessert Andhra Pradesh vegetarian,"Rice flour, sugar, salt, ghee, semolina",30,,veg,other,"gavvalu gavvalu gavvalu Rice flour, sugar, salt, ghee, semolina sweet dessert Andhra Pradesh vegetarian"
+44,Kakinada khaja,sweet dessert Andhra Pradesh vegetarian,"Wheat flour, sugar",30,,veg,other,"kakinada_khaja kakinada_khaja kakinada_khaja Wheat flour, sugar sweet dessert Andhra Pradesh vegetarian"
+45,Kuzhi paniyaram,sweet dessert Kerala vegetarian,"Black lentils, rice",20,,veg,other,"kuzhi_paniyaram kuzhi_paniyaram kuzhi_paniyaram Black lentils, rice sweet dessert Kerala vegetarian"
+46,Mysore pak,sweet dessert Karnataka vegetarian,"Besan flour, semolina, mung bean, jaggery, coconut, skimmed milk powder, sugar, ghee",20,,veg,other,"mysore_pak mysore_pak mysore_pak Besan flour, semolina, mung bean, jaggery, coconut, skimmed milk powder, sugar, ghee sweet dessert Karnataka vegetarian"
+47,Obbattu holige,sweet main course Karnataka vegetarian,"Maida flour, turmeric, coconut, chickpeas, jaggery, ghee, cardamom",60,,veg,other,"obbattu_holige obbattu_holige obbattu_holige Maida flour, turmeric, coconut, chickpeas, jaggery, ghee, cardamom sweet main course Karnataka vegetarian"
+48,Palathalikalu,sweet dessert Andhra Pradesh vegetarian,"Rice flour, milk",25,,veg,other,"palathalikalu palathalikalu palathalikalu Rice flour, milk sweet dessert Andhra Pradesh vegetarian"
+49,Poornalu,sweet dessert Andhra Pradesh vegetarian,"Chana dal, jaggery",60,,veg,other,"poornalu poornalu poornalu Chana dal, jaggery sweet dessert Andhra Pradesh vegetarian"
+50,Pongal,sweet dessert Tamil Nadu vegetarian,"Rice, jaggery, cashews, ghee",20,,veg,south_indian,"pongal pongal pongal Rice, jaggery, cashews, ghee sweet dessert Tamil Nadu vegetarian"
+51,Pootharekulu,sweet dessert Andhra Pradesh vegetarian,"Rice flour, powdered sugar, ghee",60,,veg,other,"pootharekulu pootharekulu pootharekulu Rice flour, powdered sugar, ghee sweet dessert Andhra Pradesh vegetarian"
+52,Qubani ka meetha,sweet dessert Telangana vegetarian,"Apricots, sugar syrup",20,,veg,other,"qubani_ka_meetha qubani_ka_meetha qubani_ka_meetha Apricots, sugar syrup sweet dessert Telangana vegetarian"
+53,Sheer korma,sweet dessert Telangana vegetarian,"Vermicelli pudding, milk",20,,veg,curry,"sheer_korma sheer_korma sheer_korma Vermicelli pudding, milk sweet dessert Telangana vegetarian"
+54,Unni Appam,sweet dessert Tamil Nadu vegetarian,"Rice flour, banana, jaggery, coconut",20,,veg,other,"unni_appam unni_appam unni_appam Rice flour, banana, jaggery, coconut sweet dessert Tamil Nadu vegetarian"
+55,Kajjikaya,sweet dessert Andhra Pradesh vegetarian,"Rice flour, jaggery, coconut",15,,veg,other,"kajjikaya kajjikaya kajjikaya Rice flour, jaggery, coconut sweet dessert Andhra Pradesh vegetarian"
+56,Anarsa,sweet dessert Maharashtra vegetarian,"Rice flour, jaggery, khus-khus seeds",50,,veg,other,"anarsa anarsa anarsa Rice flour, jaggery, khuskhus seeds sweet dessert Maharashtra vegetarian"
+57,Basundi,sweet dessert Gujarat vegetarian,"Sugar, milk, nuts",35,,veg,other,"basundi basundi basundi Sugar, milk, nuts sweet dessert Gujarat vegetarian"
+58,Dhondas,sweet dessert Maharashtra vegetarian,"Cucumber, rava",50,,veg,other,"dhondas dhondas dhondas Cucumber, rava sweet dessert Maharashtra vegetarian"
+59,Doodhpak,sweet dessert Gujarat vegetarian,"Milk, rice, sugar, dry fruits",60,,veg,other,"doodhpak doodhpak doodhpak Milk, rice, sugar, dry fruits sweet dessert Gujarat vegetarian"
+60,Mahim halwa,sweet dessert Maharashtra vegetarian,"Semolina, sugar",25,,veg,dessert,"mahim_halwa mahim_halwa mahim_halwa Semolina, sugar sweet dessert Maharashtra vegetarian"
+61,Modak,sweet dessert Maharashtra vegetarian,"Rice flour, coconut, jaggery ",15,,veg,other,"modak modak modak Rice flour, coconut, jaggery  sweet dessert Maharashtra vegetarian"
+62,Shankarpali,sweet dessert Maharashtra vegetarian,"Sugar, ghee, maida flour, semolina",35,,veg,other,"shankarpali shankarpali shankarpali Sugar, ghee, maida flour, semolina sweet dessert Maharashtra vegetarian"
+63,Shrikhand,sweet dessert Maharashtra vegetarian,"Curd, sugar, saffron, cardamom",720,,veg,other,"shrikhand shrikhand shrikhand Curd, sugar, saffron, cardamom sweet dessert Maharashtra vegetarian"
+64,Sutar feni,sweet dessert Maharashtra vegetarian,"Maida, sugar, ghee",55,,veg,other,"sutar_feni sutar_feni sutar_feni Maida, sugar, ghee sweet dessert Maharashtra vegetarian"
+65,Maach Jhol,spicy main course Assam non vegetarian,"Fish, potol, tomato, chillies, ginger, garlic",40,,veg,other,"maach_jhol maach_jhol maach_jhol Fish, potol, tomato, chillies, ginger, garlic spicy main course Assam non vegetarian"
+66,Pork Bharta,spicy main course Tripura non vegetarian,"Boiled pork, onions, chillies, ginger and garlic",-1,,non-veg,other,"pork_bharta pork_bharta pork_bharta Boiled pork, onions, chillies, ginger and garlic spicy main course Tripura non vegetarian"
+67,Chak Hao Kheer,sweet dessert Manipur vegetarian,"Rice, milk, sugar, cardamom",45,,veg,dessert,"chak_hao_kheer chak_hao_kheer chak_hao_kheer Rice, milk, sugar, cardamom sweet dessert Manipur vegetarian"
+68,Galho,spicy main course Nagaland non vegetarian,"Rice, axone, salt, water, chillies, pork",15,,veg,other,"galho galho galho Rice, axone, salt, water, chillies, pork spicy main course Nagaland non vegetarian"
+69,Aloo gobi,spicy main course Punjab vegetarian,"Cauliflower, potato, garam masala, turmeric, curry leaves",20,,veg,other,"aloo_gobi aloo_gobi aloo_gobi Cauliflower, potato, garam masala, turmeric, curry leaves spicy main course Punjab vegetarian"
+70,Aloo tikki,spicy main course Punjab vegetarian,"Rice flour, potato, bread crumbs, garam masala, salt",20,,veg,snack,"aloo_tikki aloo_tikki aloo_tikki Rice flour, potato, bread crumbs, garam masala, salt spicy main course Punjab vegetarian"
+71,Aloo matar,spicy main course Punjab vegetarian,"Potato, peas, chillies, ginger, garam masala, garlic",40,,veg,other,"aloo_matar aloo_matar aloo_matar Potato, peas, chillies, ginger, garam masala, garlic spicy main course Punjab vegetarian"
+72,Aloo methi,bitter main course Punjab vegetarian,"Potato, fenugreek leaves, chillies, salt, oil",40,,veg,other,"aloo_methi aloo_methi aloo_methi Potato, fenugreek leaves, chillies, salt, oil bitter main course Punjab vegetarian"
+73,Aloo shimla mirch,spicy main course Punjab vegetarian,"Potato, shimla mirch, garam masala, amchur powder, salt",40,,veg,other,"aloo_shimla_mirch aloo_shimla_mirch aloo_shimla_mirch Potato, shimla mirch, garam masala, amchur powder, salt spicy main course Punjab vegetarian"
+74,Bhatura,spicy main course Punjab vegetarian,"Chole, rava, yogurt, plain flour, baking soda",20,,veg,bread,"bhatura bhatura bhatura Chole, rava, yogurt, plain flour, baking soda spicy main course Punjab vegetarian"
+75,Bhindi masala,spicy main course Punjab vegetarian,"Ladies finger, garam masala, kasuri methi, tomatoes, chili powder",30,,veg,curry,"bhindi_masala bhindi_masala bhindi_masala Ladies finger, garam masala, kasuri methi, tomatoes, chili powder spicy main course Punjab vegetarian"
+76,Biryani,spicy main course Telangana non vegetarian,"Chicken thighs, basmati rice, star anise, sweet, green chillies",120,,non-veg,rice,"biryani biryani biryani Chicken thighs, basmati rice, star anise, sweet, green chillies spicy main course Telangana non vegetarian"
+77,Butter chicken,spicy main course NCT of Delhi non vegetarian,"Chicken, greek yogurt, cream, garam masala powder, cashew nuts, butter",35,,non-veg,curry,"butter_chicken butter_chicken butter_chicken Chicken, greek yogurt, cream, garam masala powder, cashew nuts, butter spicy main course NCT of Delhi non vegetarian"
+78,Chana masala,spicy main course Punjab vegetarian,"Chickpeas, tomato paste, garam masala, ginger, red onion, avocado oil",30,,veg,curry,"chana_masala chana_masala chana_masala Chickpeas, tomato paste, garam masala, ginger, red onion, avocado oil spicy main course Punjab vegetarian"
+79,Chapati,-1 main course Maharashtra vegetarian,"Whole wheat flour, olive oil, hot water, all purpose flour",10,,veg,bread,"chapati chapati chapati Whole wheat flour, olive oil, hot water, all purpose flour main course Maharashtra vegetarian"
+80,Chicken razala,spicy main course West Bengal non vegetarian,"Chicken, dahi, sesame seeds, garam masala powder, cashew nuts, saffron",35,,non-veg,chicken,"chicken_razala chicken_razala chicken_razala Chicken, dahi, sesame seeds, garam masala powder, cashew nuts, saffron spicy main course West Bengal non vegetarian"
+81,Chicken Tikka masala,spicy main course Punjab non vegetarian,"Naan bread, tomato sauce, skinless chicken breasts, heavy cream, garam masala",50,,non-veg,curry,"chicken_tikka_masala chicken_tikka_masala chicken_tikka_masala Naan bread, tomato sauce, skinless chicken breasts, heavy cream, garam masala spicy main course Punjab non vegetarian"
+82,Chicken Tikka,spicy starter Punjab non vegetarian,"Chicken, whole wheat bread, rice flour, garam masala powder, whole egg",45,,non-veg,kebab,"chicken_tikka chicken_tikka chicken_tikka Chicken, whole wheat bread, rice flour, garam masala powder, whole egg spicy starter Punjab non vegetarian"
+83,Chole bhature,spicy main course Punjab vegetarian,"Chole, bhatura, garam masala, bay leaf, cinnamon stick",30,,veg,other,"chole_bhature chole_bhature chole_bhature Chole, bhatura, garam masala, bay leaf, cinnamon stick spicy main course Punjab vegetarian"
+84,Daal baati churma,spicy main course Rajasthan vegetarian,"Moong dal, masoor dal, chana dal, wheat flour, almond",90,,veg,dal,"daal_baati_churma daal_baati_churma daal_baati_churma Moong dal, masoor dal, chana dal, wheat flour, almond spicy main course Rajasthan vegetarian"
+85,Daal puri,spicy main course West Bengal vegetarian,"Moong dal, garam masala powder, garlic, green chilli, all purpose flour",30,,veg,dal,"daal_puri daal_puri daal_puri Moong dal, garam masala powder, garlic, green chilli, all purpose flour spicy main course West Bengal vegetarian"
+86,Dal makhani ,sweet main course Punjab vegetarian,"Red kidney beans, urad dal, cream, garam masala, chili powder",60,,veg,dal,"dal_makhani_ dal_makhani_ dal_makhani_ Red kidney beans, urad dal, cream, garam masala, chili powder sweet main course Punjab vegetarian"
+87,Dal tadka,spicy main course Punjab vegetarian,"Pigeon peas, garam masala, ginger, red onion, kasuri methi",30,,veg,dal,"dal_tadka dal_tadka dal_tadka Pigeon peas, garam masala, ginger, red onion, kasuri methi spicy main course Punjab vegetarian"
+88,Dum aloo,spicy main course Jammu & Kashmir vegetarian,"Baby potatoes, garam masala, cashew nuts, kasuri methi, tomatoes",50,,veg,other,"dum_aloo dum_aloo dum_aloo Baby potatoes, garam masala, cashew nuts, kasuri methi, tomatoes spicy main course Jammu & Kashmir vegetarian"
+89,Poha,spicy snack Maharashtra vegetarian,"Beaten rice flakes, potato, curry leaves, green chilies, lemon juice",30,,veg,other,"poha poha poha Beaten rice flakes, potato, curry leaves, green chilies, lemon juice spicy snack Maharashtra vegetarian"
+90,Fara,spicy snack Chhattisgarh vegetarian,"Chana dal, whole wheat flour, arhar dal, white urad dal, garam masala powder",60,,veg,other,"fara fara fara Chana dal, whole wheat flour, arhar dal, white urad dal, garam masala powder spicy snack Chhattisgarh vegetarian"
+91,Kachori,spicy snack Uttar Pradesh vegetarian,"Moong dal, rava, garam masala, dough, fennel seeds",60,,veg,other,"kachori kachori kachori Moong dal, rava, garam masala, dough, fennel seeds spicy snack Uttar Pradesh vegetarian"
+92,Kadai paneer,spicy main course Punjab vegetarian,"Cottage cheese, bell peppers, gravy, garam masala, cashew nuts",30,,veg,curry,"kadai_paneer kadai_paneer kadai_paneer Cottage cheese, bell peppers, gravy, garam masala, cashew nuts spicy main course Punjab vegetarian"
+93,Kadhi pakoda,spicy main course Haryana vegetarian,"Besan, garam masala powder, gram flour, ginger, curry leaves",60,,veg,other,"kadhi_pakoda kadhi_pakoda kadhi_pakoda Besan, garam masala powder, gram flour, ginger, curry leaves spicy main course Haryana vegetarian"
+94,Karela bharta,bitter main course Punjab vegetarian,"Bitter gourd, fennel, garam masala powder, chili powder, amchur powder",50,,veg,other,"karela_bharta karela_bharta karela_bharta Bitter gourd, fennel, garam masala powder, chili powder, amchur powder bitter main course Punjab vegetarian"
+95,Khichdi,spicy main course -1 vegetarian,"Moong dal, green peas, ginger, tomato, green chili",20,,veg,rice,"khichdi khichdi khichdi Moong dal, green peas, ginger, tomato, green chili spicy main course  vegetarian"
+96,Kofta,spicy main course Uttar Pradesh vegetarian,"Paneer, potato, cream, corn flour, garam masala",40,,veg,other,"kofta kofta kofta Paneer, potato, cream, corn flour, garam masala spicy main course Uttar Pradesh vegetarian"
+97,Kulfi falooda,sweet dessert -1 vegetarian,"Rose syrup, falooda sev, mixed nuts, saffron, sugar",25,,veg,other,"kulfi_falooda kulfi_falooda kulfi_falooda Rose syrup, falooda sev, mixed nuts, saffron, sugar sweet dessert  vegetarian"
+98,Lauki ke kofte,spicy main course Uttar Pradesh vegetarian,"Bottle gourd, garam masala powder, gram flour, ginger, chillies",40,,veg,other,"lauki_ke_kofte lauki_ke_kofte lauki_ke_kofte Bottle gourd, garam masala powder, gram flour, ginger, chillies spicy main course Uttar Pradesh vegetarian"
+99,Lauki ki subji,spicy main course -1 vegetarian,"Bottle gourd, coconut oil, garam masala, ginger, green chillies",20,,veg,other,"lauki_ki_subji lauki_ki_subji lauki_ki_subji Bottle gourd, coconut oil, garam masala, ginger, green chillies spicy main course  vegetarian"
+100,Litti chokha,spicy main course Bihar vegetarian,"Wheat flour, roasted gram flour, tomato, nigella seeds, chilli",60,,veg,other,"litti_chokha litti_chokha litti_chokha Wheat flour, roasted gram flour, tomato, nigella seeds, chilli spicy main course Bihar vegetarian"
+101,Makki di roti sarson da saag,spicy main course Punjab vegetarian,"Palak, makki atta, mustard green, garam masala, ginger",30,,veg,bread,"makki_di_roti_sarson_da_saag makki_di_roti_sarson_da_saag makki_di_roti_sarson_da_saag Palak, makki atta, mustard green, garam masala, ginger spicy main course Punjab vegetarian"
+102,Misi roti,spicy main course Punjab vegetarian,"Whole wheat flour, chickpea flour, green chilies",30,,veg,bread,"misi_roti misi_roti misi_roti Whole wheat flour, chickpea flour, green chilies spicy main course Punjab vegetarian"
+103,Mushroom do pyaza,spicy main course Punjab vegetarian,"Mushroom, malai, garam masala, ginger, capsicum",30,,veg,other,"mushroom_do_pyaza mushroom_do_pyaza mushroom_do_pyaza Mushroom, malai, garam masala, ginger, capsicum spicy main course Punjab vegetarian"
+104,Mushroom matar,spicy main course Punjab vegetarian,"Canned coconut milk, frozen green peas, wild mushrooms, garam masala, tomatoes",30,,veg,other,"mushroom_matar mushroom_matar mushroom_matar Canned coconut milk, frozen green peas, wild mushrooms, garam masala, tomatoes spicy main course Punjab vegetarian"
+105,Naan,-1 main course Punjab vegetarian,"Whole wheat flour, honey, butter, garlic",30,,veg,bread,"naan naan naan Whole wheat flour, honey, butter, garlic main course Punjab vegetarian"
+106,Navrattan korma,spicy main course Uttar Pradesh vegetarian,"Green beans, potatoes, khus khus, low fat, garam masala powder",40,,veg,curry,"navrattan_korma navrattan_korma navrattan_korma Green beans, potatoes, khus khus, low fat, garam masala powder spicy main course Uttar Pradesh vegetarian"
+107,Palak paneer,spicy main course Punjab vegetarian,"Cottage cheese, palak, cream, garam masala, butter",40,,veg,other,"palak_paneer palak_paneer palak_paneer Cottage cheese, palak, cream, garam masala, butter spicy main course Punjab vegetarian"
+108,Paneer butter masala,spicy main course Punjab vegetarian,"Paneer, whipping cream, garam masala, cashew nuts, butter",40,,veg,curry,"paneer_butter_masala paneer_butter_masala paneer_butter_masala Paneer, whipping cream, garam masala, cashew nuts, butter spicy main course Punjab vegetarian"
+109,Paneer tikka masala,spicy main course Punjab vegetarian,"Paneer, greek yogurt, tandoori masala, cream, bell pepper",40,,veg,curry,"paneer_tikka_masala paneer_tikka_masala paneer_tikka_masala Paneer, greek yogurt, tandoori masala, cream, bell pepper spicy main course Punjab vegetarian"
+110,Pani puri,spicy snack -1 vegetarian,"Kala chana, mashed potato, boondi, sev, lemon",2,,veg,bread,"pani_puri pani_puri pani_puri Kala chana, mashed potato, boondi, sev, lemon spicy snack  vegetarian"
+111,Panjeeri,sweet dessert Uttar Pradesh vegetarian,"Whole wheat flour, musk melon seeds, poppy seeds, edible gum, semolina",25,,veg,other,"panjeeri panjeeri panjeeri Whole wheat flour, musk melon seeds, poppy seeds, edible gum, semolina sweet dessert Uttar Pradesh vegetarian"
+112,Papad,spicy snack -1 vegetarian,"Urad dal, sev, lemon juice, chopped tomatoes",5,,veg,other,"papad papad papad Urad dal, sev, lemon juice, chopped tomatoes spicy snack  vegetarian"
+113,Paratha,spicy main course Punjab vegetarian,"Wheat flour, butter, potato, coriander",45,,veg,bread,"paratha paratha paratha Wheat flour, butter, potato, coriander spicy main course Punjab vegetarian"
+114,Pattor,spicy main course Rajasthan vegetarian,"Arbi ke patte, sesame seeds, gur, bengal gram flour, imli",30,,veg,other,"pattor pattor pattor Arbi ke patte, sesame seeds, gur, bengal gram flour, imli spicy main course Rajasthan vegetarian"
+115,Pindi chana,spicy main course Punjab vegetarian,"Fennel, tea bags, tomato, kasuri methi, cinnamon",120,,veg,other,"pindi_chana pindi_chana pindi_chana Fennel, tea bags, tomato, kasuri methi, cinnamon spicy main course Punjab vegetarian"
+116,Rajma chaval,spicy main course -1 vegetarian,"Red kidney beans, garam masala powder, ginger, tomato, mustard oil",90,,veg,other,"rajma_chaval rajma_chaval rajma_chaval Red kidney beans, garam masala powder, ginger, tomato, mustard oil spicy main course  vegetarian"
+117,Rongi,-1 main course Punjab vegetarian,"Garam masala powder, tomato, kasuri methi, cinnamon, mustard oil",30,,veg,other,"rongi rongi rongi Garam masala powder, tomato, kasuri methi, cinnamon, mustard oil main course Punjab vegetarian"
+118,Samosa,spicy snack -1 vegetarian,"Potatoes, green peas, garam masala, ginger, dough",30,,veg,snack,"samosa samosa samosa Potatoes, green peas, garam masala, ginger, dough spicy snack  vegetarian"
+119,Sattu ki roti,spicy main course Bihar vegetarian,"Sattu, atta, dough, filling, mustard oil",20,,veg,bread,"sattu_ki_roti sattu_ki_roti sattu_ki_roti Sattu, atta, dough, filling, mustard oil spicy main course Bihar vegetarian"
+120,Shahi paneer,spicy main course Punjab vegetarian,"Cottage cheese, malai, garam masala, ginger, tomato",40,,veg,other,"shahi_paneer shahi_paneer shahi_paneer Cottage cheese, malai, garam masala, ginger, tomato spicy main course Punjab vegetarian"
+121,Shahi tukra,sweet dessert Telangana vegetarian,"Rose water, milk, white bread slices, saffron, almonds",30,,veg,other,"shahi_tukra shahi_tukra shahi_tukra Rose water, milk, white bread slices, saffron, almonds sweet dessert Telangana vegetarian"
+122,Vegetable jalfrezi,spicy main course Punjab vegetarian,"Baby corn, french beans, garam masala, ginger, carrot",30,,veg,other,"vegetable_jalfrezi vegetable_jalfrezi vegetable_jalfrezi Baby corn, french beans, garam masala, ginger, carrot spicy main course Punjab vegetarian"
+123,Tandoori Chicken,spicy main course Punjab non vegetarian,"Greek yogurt, garam masala, kasuri methi, marinade, mustard oil",30,,non-veg,kebab,"tandoori_chicken tandoori_chicken tandoori_chicken Greek yogurt, garam masala, kasuri methi, marinade, mustard oil spicy main course Punjab non vegetarian"
+124,Tandoori Fish Tikka,spicy starter Punjab non vegetarian,"Chickpea flour, biryani masala powder, yogurt, fish fillets, green bell pepper",30,,non-veg,kebab,"tandoori_fish_tikka tandoori_fish_tikka tandoori_fish_tikka Chickpea flour, biryani masala powder, yogurt, fish fillets, green bell pepper spicy starter Punjab non vegetarian"
+125,Attu,spicy snack Andhra Pradesh vegetarian,"Whole wheat flour, arhar dal, ginger, kala jeera, green chilli",25,,veg,other,"attu attu attu Whole wheat flour, arhar dal, ginger, kala jeera, green chilli spicy snack Andhra Pradesh vegetarian"
+126,Avial,spicy main course Kerala vegetarian,"Raw banana, elephant foot yam, long beans, tindora, urad dal",45,,veg,other,"avial avial avial Raw banana, elephant foot yam, long beans, tindora, urad dal spicy main course Kerala vegetarian"
+127,Bisi bele bath,spicy main course Karnataka vegetarian,"Split pigeon peas, chana dal, urad dal, green peas, french beans",45,,veg,other,"bisi_bele_bath bisi_bele_bath bisi_bele_bath Split pigeon peas, chana dal, urad dal, green peas, french beans spicy main course Karnataka vegetarian"
+128,Currivepillai sadam ,spicy main course Tamil Nadu vegetarian,"Chana dal, urad dal, fresh coconut, sesame seeds, curry leaves",20,,veg,other,"currivepillai_sadam_ currivepillai_sadam_ currivepillai_sadam_ Chana dal, urad dal, fresh coconut, sesame seeds, curry leaves spicy main course Tamil Nadu vegetarian"
+129,Dosa,spicy snack -1 vegetarian,"Chana dal, urad dal, whole urad dal, blend rice, rock salt",90,,veg,south_indian,"dosa dosa dosa Chana dal, urad dal, whole urad dal, blend rice, rock salt spicy snack  vegetarian"
+130,Idiappam,spicy snack Tamil Nadu vegetarian,"Rice flour, hot water, grated coconut",30,,veg,other,"idiappam idiappam idiappam Rice flour, hot water, grated coconut spicy snack Tamil Nadu vegetarian"
+131,Idli,spicy snack -1 vegetarian,"Split urad dal, urad dal, idli rice, thick poha, rock salt",90,,veg,south_indian,"idli idli idli Split urad dal, urad dal, idli rice, thick poha, rock salt spicy snack  vegetarian"
+132,Kanji,-1 snack Kerala vegetarian,"Carrot, yellow mustard, red chilli, black salt",45,,veg,other,"kanji kanji kanji Carrot, yellow mustard, red chilli, black salt snack Kerala vegetarian"
+133,Kaara kozhambu,spicy main course Tamil Nadu vegetarian,"Sesame oil, drumstick, tamarind paste, sambar powder, tomato",-1,,veg,other,"kaara_kozhambu kaara_kozhambu kaara_kozhambu Sesame oil, drumstick, tamarind paste, sambar powder, tomato spicy main course Tamil Nadu vegetarian"
+134,Keerai kootu,spicy main course Tamil Nadu vegetarian,"Moong dal, chana dal, spinach, urad dal, coconut oil",30,,veg,other,"keerai_kootu keerai_kootu keerai_kootu Moong dal, chana dal, spinach, urad dal, coconut oil spicy main course Tamil Nadu vegetarian"
+135,Keerai masiyal,spicy main course Tamil Nadu vegetarian,"Urad dal, curry leaves, sugar, mustard seeds, spinach",-1,,veg,other,"keerai_masiyal keerai_masiyal keerai_masiyal Urad dal, curry leaves, sugar, mustard seeds, spinach spicy main course Tamil Nadu vegetarian"
+136,Keerai sadam,spicy main course Tamil Nadu vegetarian,"Greens, tomato, mustard seeds, fenugreek seeds",20,,veg,other,"keerai_sadam keerai_sadam keerai_sadam Greens, tomato, mustard seeds, fenugreek seeds spicy main course Tamil Nadu vegetarian"
+137,Keerai poriyal,spicy main course Tamil Nadu vegetarian,"Amaranth leaves, split urad dal, mustard seeds, grated coconut, red chili",30,,veg,other,"keerai_poriyal keerai_poriyal keerai_poriyal Amaranth leaves, split urad dal, mustard seeds, grated coconut, red chili spicy main course Tamil Nadu vegetarian"
+138,Beef Fry,spicy main course Kerala non vegetarian,"Beef, coconut, garam masala, curry leaves, green chilies, chili powder",60,,non-veg,other,"beef_fry beef_fry beef_fry Beef, coconut, garam masala, curry leaves, green chilies, chili powder spicy main course Kerala non vegetarian"
+139,Kootu,spicy main course Tamil Nadu vegetarian,"Chana dal, urad dal, potato, beans, peas",15,,veg,other,"kootu kootu kootu Chana dal, urad dal, potato, beans, peas spicy main course Tamil Nadu vegetarian"
+140,Kos kootu,spicy main course Tamil Nadu vegetarian,"Moong dal, chana dal, cabbage, tamarind, curry leaves",20,,veg,other,"kos_kootu kos_kootu kos_kootu Moong dal, chana dal, cabbage, tamarind, curry leaves spicy main course Tamil Nadu vegetarian"
+141,Koshambri,spicy main course Karnataka vegetarian,"Moong dal, cucumber, curry leaves, green chili, lemon juice",20,,non-veg,other,"koshambri koshambri koshambri Moong dal, cucumber, curry leaves, green chili, lemon juice spicy main course Karnataka vegetarian"
+142,Kothamali sadam,spicy main course Tamil Nadu vegetarian,"Chana dal, urad dal, gooseberry, raw rice, curry leaves",20,,veg,other,"kothamali_sadam kothamali_sadam kothamali_sadam Chana dal, urad dal, gooseberry, raw rice, curry leaves spicy main course Tamil Nadu vegetarian"
+143,Kuzhakkattai,spicy main course Tamil Nadu vegetarian,"Sesame oil, raw rice, jaggery, grated coconut",90,,veg,other,"kuzhakkattai kuzhakkattai kuzhakkattai Sesame oil, raw rice, jaggery, grated coconut spicy main course Tamil Nadu vegetarian"
+144,Kuzhambu,spicy main course Tamil Nadu vegetarian,"Pearl onions, urad dal, drumsticks, tomato, curry leaves",30,,veg,other,"kuzhambu kuzhambu kuzhambu Pearl onions, urad dal, drumsticks, tomato, curry leaves spicy main course Tamil Nadu vegetarian"
+145,Masala Dosa,spicy snack -1 vegetarian,"Chana dal, urad dal, potatoes, idli rice, thick poha",90,,veg,south_indian,"masala_dosa masala_dosa masala_dosa Chana dal, urad dal, potatoes, idli rice, thick poha spicy snack  vegetarian"
+146,Pachadi,-1 main course -1 vegetarian,"Coconut oil, cucumber, curd, curry leaves, mustard seeds",25,,veg,other,"pachadi pachadi pachadi Coconut oil, cucumber, curd, curry leaves, mustard seeds main course  vegetarian"
+147,Paniyaram,-1 main course Tamil Nadu vegetarian,"Yogurt, ginger, curry leaves, baking soda, green chilli",20,,veg,other,"paniyaram paniyaram paniyaram Yogurt, ginger, curry leaves, baking soda, green chilli main course Tamil Nadu vegetarian"
+148,Papadum,spicy snack Kerala vegetarian,"Lentils, black pepper, vegetable oil",5,,veg,other,"papadum papadum papadum Lentils, black pepper, vegetable oil spicy snack Kerala vegetarian"
+149,Paravannam,spicy main course Kerala vegetarian,"Raw rice,  jaggery, milk",-1,,veg,other,"paravannam paravannam paravannam Raw rice,  jaggery, milk spicy main course Kerala vegetarian"
+150,Payasam,sweet dessert -1 vegetarian,"Rice, cashew nuts, milk, raisins, sugar",30,,veg,dessert,"payasam payasam payasam Rice, cashew nuts, milk, raisins, sugar sweet dessert  vegetarian"
+151,Paruppu sadam,-1 main course Tamil Nadu vegetarian,"Arhar dal, sambar powder, tomato, curry leaves, fennel seeds",20,,veg,other,"paruppu_sadam paruppu_sadam paruppu_sadam Arhar dal, sambar powder, tomato, curry leaves, fennel seeds main course Tamil Nadu vegetarian"
+152,Pesarattu,spicy snack Andhra Pradesh vegetarian,"Green moong beans, rice flour",20,,veg,other,"pesarattu pesarattu pesarattu Green moong beans, rice flour spicy snack Andhra Pradesh vegetarian"
+153,Poriyal,spicy main course Tamil Nadu vegetarian,"Chana dal, urad dal, beans, coconut, mustard",-1,,veg,other,"poriyal poriyal poriyal Chana dal, urad dal, beans, coconut, mustard spicy main course Tamil Nadu vegetarian"
+154,Puli sadam,-1 main course Tamil Nadu vegetarian,"Urad dal, lemon, tamarind, cooked rice, curry leaves",20,,veg,other,"puli_sadam puli_sadam puli_sadam Urad dal, lemon, tamarind, cooked rice, curry leaves main course Tamil Nadu vegetarian"
+155,Rasam,spicy main course -1 vegetarian,"Tomato, curry leaves, garlic, mustard seeds, hot water",35,,veg,soup,"rasam rasam rasam Tomato, curry leaves, garlic, mustard seeds, hot water spicy main course  vegetarian"
+156,Puttu,-1 main course Kerala vegetarian,"Brown rice flour, sugar, grated coconut",40,,veg,other,"puttu puttu puttu Brown rice flour, sugar, grated coconut main course Kerala vegetarian"
+157,Sambar,spicy main course -1 vegetarian,"Pigeon peas, eggplant, drumsticks, sambar powder, tamarind",45,,veg,other,"sambar sambar sambar Pigeon peas, eggplant, drumsticks, sambar powder, tamarind spicy main course  vegetarian"
+158,Sandige,-1 main course Karnataka vegetarian,"Thin rice flakes, black sesame seeds, curry leaves",60,,veg,other,"sandige sandige sandige Thin rice flakes, black sesame seeds, curry leaves main course Karnataka vegetarian"
+159,Sevai,-1 main course -1 vegetarian,"Sevai, parboiled rice, steamer",30,,veg,other,"sevai sevai sevai Sevai, parboiled rice, steamer main course  vegetarian"
+160,Thayir sadam,-1 main course Tamil Nadu vegetarian,"Urad dal, curd, sesame oil, ginger, curry leaves, mustard seeds",20,,veg,other,"thayir_sadam thayir_sadam thayir_sadam Urad dal, curd, sesame oil, ginger, curry leaves, mustard seeds main course Tamil Nadu vegetarian"
+161,Theeyal,-1 main course Kerala vegetarian,"Coconut, whole red beans, masala, sesame oil, tamarind",20,,veg,other,"theeyal theeyal theeyal Coconut, whole red beans, masala, sesame oil, tamarind main course Kerala vegetarian"
+162,Uttapam,spicy snack -1 vegetarian,"Chana dal, urad dal, thick poha, tomato, butter",20,,veg,south_indian,"uttapam uttapam uttapam Chana dal, urad dal, thick poha, tomato, butter spicy snack  vegetarian"
+163,Vada,spicy snack -1 vegetarian,"Urad dal, ginger, curry leaves, green chilies, black pepper",20,,veg,south_indian,"vada vada vada Urad dal, ginger, curry leaves, green chilies, black pepper spicy snack  vegetarian"
+164,Chicken Varuval,spicy main course Tamil Nadu non vegetarian,"Meat curry powder, chicken chunks, ginger, tomato, cinnamon",35,,non-veg,chicken,"chicken_varuval chicken_varuval chicken_varuval Meat curry powder, chicken chunks, ginger, tomato, cinnamon spicy main course Tamil Nadu non vegetarian"
+165,Upma,spicy snack -1 vegetarian,"Chana dal, urad dal, ginger, curry leaves, sugar",20,,veg,south_indian,"upma upma upma Chana dal, urad dal, ginger, curry leaves, sugar spicy snack  vegetarian"
+166,Amti,spicy main course Maharashtra vegetarian,"Kala masala, arhar dal, curry leaves, mustard seeds, hot water",45,,veg,other,"amti amti amti Kala masala, arhar dal, curry leaves, mustard seeds, hot water spicy main course Maharashtra vegetarian"
+167,Zunka,spicy main course Maharashtra vegetarian,"Gram flour, mustard, garlic, turmeric, red chilli",25,,veg,other,"zunka zunka zunka Gram flour, mustard, garlic, turmeric, red chilli spicy main course Maharashtra vegetarian"
+168,Kolim Jawla,spicy main course Maharashtra non vegetarian,"Baingan, fish, coconut oil, fresh coconut, ginger",-1,,veg,other,"kolim_jawla kolim_jawla kolim_jawla Baingan, fish, coconut oil, fresh coconut, ginger spicy main course Maharashtra non vegetarian"
+169,Saath,spicy main course Gujarat vegetarian,"Urad dal, potatoes, wheat flour, sooji",40,,veg,other,"saath saath saath Urad dal, potatoes, wheat flour, sooji spicy main course Gujarat vegetarian"
+170,Bajri no rotlo,spicy main course Gujarat vegetarian,"Wheat flour, pearl millet flour, hot water",10,,veg,other,"bajri_no_rotlo bajri_no_rotlo bajri_no_rotlo Wheat flour, pearl millet flour, hot water spicy main course Gujarat vegetarian"
+171,Coconut vadi,sweet dessert Maharashtra vegetarian,"Condensed milk, mawa, desiccated coconut, almonds, cashews",30,,veg,other,"coconut_vadi coconut_vadi coconut_vadi Condensed milk, mawa, desiccated coconut, almonds, cashews sweet dessert Maharashtra vegetarian"
+172,Bhakri,-1 main course Maharashtra vegetarian,"Jowar flour, sesame seeds",25,,veg,other,"bhakri bhakri bhakri Jowar flour, sesame seeds main course Maharashtra vegetarian"
+173,Bombil fry,spicy main course Maharashtra non vegetarian,"Bombay duck, malvani masala, rice flour, bombay rava, green chilies",-1,,veg,other,"bombil_fry bombil_fry bombil_fry Bombay duck, malvani masala, rice flour, bombay rava, green chilies spicy main course Maharashtra non vegetarian"
+174,Chakali,spicy snack Maharashtra vegetarian,"Rice flour, sesame, plain flour, turmeric, red chilli",40,,veg,other,"chakali chakali chakali Rice flour, sesame, plain flour, turmeric, red chilli spicy snack Maharashtra vegetarian"
+175,Chevdo,spicy snack Gujarat vegetarian,"Citric acid, fry, raisins, sugar, chana daal",30,,veg,other,"chevdo chevdo chevdo Citric acid, fry, raisins, sugar, chana daal spicy snack Gujarat vegetarian"
+176,Chorafali,spicy snack Gujarat vegetarian,"Urad dal, bengal gram flour, dried mango, baking soda, black salt",15,,veg,other,"chorafali chorafali chorafali Urad dal, bengal gram flour, dried mango, baking soda, black salt spicy snack Gujarat vegetarian"
+177,Copra paak,-1 main course Gujarat vegetarian,"Condensed milk, nestle cream, coconut ice, red food coloring, desiccated coconut",30,,veg,other,"copra_paak copra_paak copra_paak Condensed milk, nestle cream, coconut ice, red food coloring, desiccated coconut main course Gujarat vegetarian"
+178,Daal Dhokli,spicy main course Gujarat vegetarian,"Whole wheat flour, dal, kokum, gur, bengal gram flour",30,,veg,dal,"daal_dhokli daal_dhokli daal_dhokli Whole wheat flour, dal, kokum, gur, bengal gram flour spicy main course Gujarat vegetarian"
+179,Kutchi dabeli,spicy snack Gujarat vegetarian,"Pav, aloo, peanut, pomegranate, star anise",10,,veg,other,"kutchi_dabeli kutchi_dabeli kutchi_dabeli Pav, aloo, peanut, pomegranate, star anise spicy snack Gujarat vegetarian"
+180,Dahi vada,-1 snack Maharashtra vegetarian,"Urad dal, bhuna chana, garam masala, dates, tamarind",30,,veg,south_indian,"dahi_vada dahi_vada dahi_vada Urad dal, bhuna chana, garam masala, dates, tamarind snack Maharashtra vegetarian"
+181,Dalithoy,-1 main course Maharashtra vegetarian,"Arhar dal, coconut oil, curry leaves, mustard seeds, red chilli",20,,veg,dal,"dalithoy dalithoy dalithoy Arhar dal, coconut oil, curry leaves, mustard seeds, red chilli main course Maharashtra vegetarian"
+182,Dhokla,spicy snack Gujarat vegetarian,"Rava, coconut, gram flour, mustard, sesame",20,,veg,other,"dhokla dhokla dhokla Rava, coconut, gram flour, mustard, sesame spicy snack Gujarat vegetarian"
+183,Dudhi halwa,sweet dessert Gujarat vegetarian,"Bottle gourd, green, raisins, sugar, clarified butter",30,,veg,dessert,"dudhi_halwa dudhi_halwa dudhi_halwa Bottle gourd, green, raisins, sugar, clarified butter sweet dessert Gujarat vegetarian"
+184,Gatta curry,spicy main course Rajasthan vegetarian,"Yogurt, besan, sauce, garam masala powder, gram flour",20,,veg,curry,"gatta_curry gatta_curry gatta_curry Yogurt, besan, sauce, garam masala powder, gram flour spicy main course Rajasthan vegetarian"
+185,Gud papdi,sweet dessert Gujarat vegetarian,"Wheat flour, jaggery, clarified butter, sliced almonds",20,,veg,other,"gud_papdi gud_papdi gud_papdi Wheat flour, jaggery, clarified butter, sliced almonds sweet dessert Gujarat vegetarian"
+186,Ghooghra,spicy snack Gujarat vegetarian,"Dry fruits, semolina, all purpose flour",-1,,veg,other,"ghooghra ghooghra ghooghra Dry fruits, semolina, all purpose flour spicy snack Gujarat vegetarian"
+187,Handwo,spicy snack Gujarat vegetarian,"Bottle gourd, chana dal, cabbage, urad dal, toor dal",30,,veg,other,"handwo handwo handwo Bottle gourd, chana dal, cabbage, urad dal, toor dal spicy snack Gujarat vegetarian"
+188,Halvasan,sweet dessert Gujarat vegetarian,"Whole wheat rava, chia seed, lemon, edible gum, litre milk",-1,,veg,other,"halvasan halvasan halvasan Whole wheat rava, chia seed, lemon, edible gum, litre milk sweet dessert Gujarat vegetarian"
+189,Jeera Aloo,spicy main course Gujarat vegetarian,"Green chilies, lemon juice, chili powder, boiled potatoes",30,,veg,other,"jeera_aloo jeera_aloo jeera_aloo Green chilies, lemon juice, chili powder, boiled potatoes spicy main course Gujarat vegetarian"
+190,Kansar,-1 main course Gujarat vegetarian,"Wheat flour, cashews, rapeseed oil",40,,veg,other,"kansar kansar kansar Wheat flour, cashews, rapeseed oil main course Gujarat vegetarian"
+191,Keri no ras,sour main course Gujarat vegetarian,"Mango, sugar",10,,veg,other,"keri_no_ras keri_no_ras keri_no_ras Mango, sugar sour main course Gujarat vegetarian"
+192,Khakhra,spicy snack Gujarat vegetarian,"Whole wheat flour, low fat, bengal gram flour",40,,veg,other,"khakhra khakhra khakhra Whole wheat flour, low fat, bengal gram flour spicy snack Gujarat vegetarian"
+193,Khandvi,spicy snack Gujarat vegetarian,"Green chili paste, white sesame seeds, gram flour, curry leaves, green chili",45,,veg,other,"khandvi khandvi khandvi Green chili paste, white sesame seeds, gram flour, curry leaves, green chili spicy snack Gujarat vegetarian"
+194,Kombdi vade,spicy snack Maharashtra vegetarian,"Rice flour, urad dal, wheat flour, gram flour, turmeric",25,,veg,other,"kombdi_vade kombdi_vade kombdi_vade Rice flour, urad dal, wheat flour, gram flour, turmeric spicy snack Maharashtra vegetarian"
+195,Laapsi,spicy main course Madhya Pradesh vegetarian,"Cinnamon, jaggery, clarified butter, dry roasted",40,,veg,other,"laapsi laapsi laapsi Cinnamon, jaggery, clarified butter, dry roasted spicy main course Madhya Pradesh vegetarian"
+196,Koshimbir,spicy main course Maharashtra vegetarian,"Cucumber, carrot, tomatoes, cilantro",10,,veg,other,"koshimbir koshimbir koshimbir Cucumber, carrot, tomatoes, cilantro spicy main course Maharashtra vegetarian"
+197,Methi na Gota,bitter main course Gujarat vegetarian,"Rava, gram flour, lemon juice, turmeric, fenugreek leaves",30,,veg,other,"methi_na_gota methi_na_gota methi_na_gota Rava, gram flour, lemon juice, turmeric, fenugreek leaves bitter main course Gujarat vegetarian"
+198,Mohanthal,sweet dessert Gujarat vegetarian,"Rose water, pistachio, badam, bengal gram flour, saffron",45,,veg,other,"mohanthal mohanthal mohanthal Rose water, pistachio, badam, bengal gram flour, saffron sweet dessert Gujarat vegetarian"
+199,Muthiya,bitter snack Gujarat vegetarian,"Bottle gourd, whole wheat flour, rava, sesame seeds, bengal gram flour",30,,veg,other,"muthiya muthiya muthiya Bottle gourd, whole wheat flour, rava, sesame seeds, bengal gram flour bitter snack Gujarat vegetarian"
+200,Patra,spicy snack Gujarat vegetarian,"Arbi ke patte, sesame seeds, gur, bengal gram flour, imli",40,,veg,other,"patra patra patra Arbi ke patte, sesame seeds, gur, bengal gram flour, imli spicy snack Gujarat vegetarian"
+201,Pav Bhaji,spicy main course Maharashtra vegetarian,"Pav bhaji masala, gobi, potatoes, green peas, dinner rolls",40,,veg,snack,"pav_bhaji pav_bhaji pav_bhaji Pav bhaji masala, gobi, potatoes, green peas, dinner rolls spicy main course Maharashtra vegetarian"
+202,Puri Bhaji,spicy main course Maharashtra vegetarian,"Aloo, urad dal, mustard, ginger, curry leaves",30,,veg,bread,"puri_bhaji puri_bhaji puri_bhaji Aloo, urad dal, mustard, ginger, curry leaves spicy main course Maharashtra vegetarian"
+203,Sabudana Khichadi,spicy snack Maharashtra vegetarian,"Raw peanuts, sabudana, lemon, avocado oil, curry leaves, green chili",30,,veg,other,"sabudana_khichadi sabudana_khichadi sabudana_khichadi Raw peanuts, sabudana, lemon, avocado oil, curry leaves, green chili spicy snack Maharashtra vegetarian"
+204,Sev khamani,spicy main course Gujarat vegetarian,"Khaman, pomegranate, sev, powdered sugar, garlic",30,,veg,other,"sev_khamani sev_khamani sev_khamani Khaman, pomegranate, sev, powdered sugar, garlic spicy main course Gujarat vegetarian"
+205,Sev tameta,spicy main course Gujarat vegetarian,"Sev, ginger, tomato, sugar",30,,veg,other,"sev_tameta sev_tameta sev_tameta Sev, ginger, tomato, sugar spicy main course Gujarat vegetarian"
+206,Namakpara,spicy snack Gujarat vegetarian,"Wheat flour, baking soda, all purpose flour, black pepper, sunflower oil",35,,veg,other,"namakpara namakpara namakpara Wheat flour, baking soda, all purpose flour, black pepper, sunflower oil spicy snack Gujarat vegetarian"
+207,Sukhdi,sweet dessert Maharashtra vegetarian,"Whole wheat flour, gur, clarified butter",20,,veg,other,"sukhdi sukhdi sukhdi Whole wheat flour, gur, clarified butter sweet dessert Maharashtra vegetarian"
+208,Surnoli,spicy snack Maharashtra vegetarian,"Rice flakes, yogurt, raw rice, jaggery, grated coconut",10,,veg,other,"surnoli surnoli surnoli Rice flakes, yogurt, raw rice, jaggery, grated coconut spicy snack Maharashtra vegetarian"
+209,Thalipeeth,spicy main course Maharashtra vegetarian,"Whole wheat flour, rice flour, pearl millet flour, sorghum flour, sesame seeds",30,,veg,other,"thalipeeth thalipeeth thalipeeth Whole wheat flour, rice flour, pearl millet flour, sorghum flour, sesame seeds spicy main course Maharashtra vegetarian"
+210,Undhiyu,spicy main course Gujarat vegetarian,"Sweet potato, surti papdi, baby potatoes, valor papdi, green peas",60,,veg,other,"undhiyu undhiyu undhiyu Sweet potato, surti papdi, baby potatoes, valor papdi, green peas spicy main course Gujarat vegetarian"
+211,Veg Kolhapuri,spicy main course Maharashtra vegetarian,"Gobi, potato, beans, khus khus, coconut",30,,veg,bread,"veg_kolhapuri veg_kolhapuri veg_kolhapuri Gobi, potato, beans, khus khus, coconut spicy main course Maharashtra vegetarian"
+212,Vindaloo,spicy main course Goa non vegetarian,"Chicken, coconut oil, wine vinegar, ginger, green, cinnamon",40,,veg,dal,"vindaloo vindaloo vindaloo Chicken, coconut oil, wine vinegar, ginger, green, cinnamon spicy main course Goa non vegetarian"
+213,Lilva Kachori,spicy snack Gujarat vegetarian,"Green garlic chutney, fresh green peas, ginger, lemon juice, plain flour",6,,veg,other,"lilva_kachori lilva_kachori lilva_kachori Green garlic chutney, fresh green peas, ginger, lemon juice, plain flour spicy snack Gujarat vegetarian"
+214,Mag Dhokli,spicy snack Gujarat vegetarian,"Moong beans, jaggery, red chillies, oil, salt",-1,,veg,other,"mag_dhokli mag_dhokli mag_dhokli Moong beans, jaggery, red chillies, oil, salt spicy snack Gujarat vegetarian"
+215,Khichu,spicy snack Gujarat vegetarian,"Rice flour, sesame seeds, baking soda, peanut oil",10,,veg,other,"khichu khichu khichu Rice flour, sesame seeds, baking soda, peanut oil spicy snack Gujarat vegetarian"
+216,Thepla,spicy snack Gujarat vegetarian,"Chickpea flour, methi leaves, jowar flour, wheat flour",30,,veg,other,"thepla thepla thepla Chickpea flour, methi leaves, jowar flour, wheat flour spicy snack Gujarat vegetarian"
+217,Farsi Puri,-1 snack Gujarat vegetarian,"Semolina, clarified butter, oil, white flour, black pepper",-1,,veg,bread,"farsi_puri farsi_puri farsi_puri Semolina, clarified butter, oil, white flour, black pepper snack Gujarat vegetarian"
+218,Khaman,spicy snack Gujarat vegetarian,"Yogurt, fresh coconut, sesame seeds, semolina, gram flour",20,,veg,other,"khaman khaman khaman Yogurt, fresh coconut, sesame seeds, semolina, gram flour spicy snack Gujarat vegetarian"
+219,Turiya Patra Vatana sabji,spicy main course Gujarat vegetarian,"Ridge gourd, baking soda, sugar, grated coconut, peas",40,,veg,other,"turiya_patra_vatana_sabji turiya_patra_vatana_sabji turiya_patra_vatana_sabji Ridge gourd, baking soda, sugar, grated coconut, peas spicy main course Gujarat vegetarian"
+220,Churma Ladoo,sweet dessert Rajasthan vegetarian,"Whole wheat flour, khus khus, sesame seeds, dry coconut, gur",40,,veg,dessert,"churma_ladoo churma_ladoo churma_ladoo Whole wheat flour, khus khus, sesame seeds, dry coconut, gur sweet dessert Rajasthan vegetarian"
+221,Cheera Doi,sweet dessert West Bengal vegetarian,"Rice, mango, curd",-1,,veg,other,"cheera_doi cheera_doi cheera_doi Rice, mango, curd sweet dessert West Bengal vegetarian"
+222,Gheela Pitha,sweet dessert Assam vegetarian,"Sticky rice, rice flour, jaggery, orange rind",30,,veg,other,"gheela_pitha gheela_pitha gheela_pitha Sticky rice, rice flour, jaggery, orange rind sweet dessert Assam vegetarian"
+223,Khar,-1 main course Assam vegetarian,"Raw papaya, panch phoran masala, nigella seeds, mustard oil, fennel seeds",20,,veg,other,"khar khar khar Raw papaya, panch phoran masala, nigella seeds, mustard oil, fennel seeds main course Assam vegetarian"
+224,Kumol Sawul,spicy main course Assam non vegetarian,"Rice, eggs, carrot, beetroot",-1,,veg,other,"kumol_sawul kumol_sawul kumol_sawul Rice, eggs, carrot, beetroot spicy main course Assam non vegetarian"
+225,Luchi,-1 main course West Bengal vegetarian,"Maida, vegetable oil",30,,veg,other,"luchi luchi luchi Maida, vegetable oil main course West Bengal vegetarian"
+226,Alu Pitika,spicy main course Assam non vegetarian,"Potatoes, mustard oil, fish, green chillies",20,,veg,other,"alu_pitika alu_pitika alu_pitika Potatoes, mustard oil, fish, green chillies spicy main course Assam non vegetarian"
+227,Masor tenga,spicy main course Assam non vegetarian,"Ridge gourd, fish, lemon, tomatoes, mustard oil",25,,veg,other,"masor_tenga masor_tenga masor_tenga Ridge gourd, fish, lemon, tomatoes, mustard oil spicy main course Assam non vegetarian"
+228,Bengena Pitika,-1 main course Assam vegetarian,"Brinjal, onions, salt, sesame seeds, coriander",-1,,veg,other,"bengena_pitika bengena_pitika bengena_pitika Brinjal, onions, salt, sesame seeds, coriander main course Assam vegetarian"
+229,Bilahi Maas,-1 main course Assam non vegetarian,"Potatoes, garam masala, tomatoes, mustard oil, bay leaf",20,,veg,other,"bilahi_maas bilahi_maas bilahi_maas Potatoes, garam masala, tomatoes, mustard oil, bay leaf main course Assam non vegetarian"
+230,Black rice,-1 main course Manipur non vegetarian,"Forbidden black rice, chicken, olive oil, slivered almonds, garlic powder",-1,,veg,rice,"black_rice black_rice black_rice Forbidden black rice, chicken, olive oil, slivered almonds, garlic powder main course Manipur non vegetarian"
+231,Bora Sawul,spicy main course Assam vegetarian,"Biryani masala, mixed vegetables, yellow moong daal, whole red, mustard seeds",-1,,veg,other,"bora_sawul bora_sawul bora_sawul Biryani masala, mixed vegetables, yellow moong daal, whole red, mustard seeds spicy main course Assam vegetarian"
+232,Brown Rice,-1 main course -1 vegetarian,"Brown rice, soy sauce, olive oil",25,,veg,rice,"brown_rice brown_rice brown_rice Brown rice, soy sauce, olive oil main course  vegetarian"
+233,Chingri malai curry,spicy main course West Bengal non vegetarian,"Coconut milk, lobster, fresh green chilli, ginger, red onion",40,,veg,curry,"chingri_malai_curry chingri_malai_curry chingri_malai_curry Coconut milk, lobster, fresh green chilli, ginger, red onion spicy main course West Bengal non vegetarian"
+234,Goja,sweet dessert West Bengal vegetarian,"Baking soda, clarified butter, oil, all purpose flour",60,,veg,other,"goja goja goja Baking soda, clarified butter, oil, all purpose flour sweet dessert West Bengal vegetarian"
+235,Hando Guri,sweet dessert Assam vegetarian,"Jaggery, raisins",-1,,veg,other,"hando_guri hando_guri hando_guri Jaggery, raisins sweet dessert Assam vegetarian"
+236,Haq Maas,spicy main course Assam non vegetarian,"Lamb, garam masala powder, curd, turmeric, bay leaf",40,,veg,other,"haq_maas haq_maas haq_maas Lamb, garam masala powder, curd, turmeric, bay leaf spicy main course Assam non vegetarian"
+237,Chingri Bhape,-1 main course West Bengal non vegetarian,"Coconut, prawns, curd, mustard seed, green chili",30,,veg,other,"chingri_bhape chingri_bhape chingri_bhape Coconut, prawns, curd, mustard seed, green chili main course West Bengal non vegetarian"
+238,Kabiraji,spicy main course West Bengal non vegetarian,"Fish fillet, besan, lemon, mint, ginger",-1,,veg,other,"kabiraji kabiraji kabiraji Fish fillet, besan, lemon, mint, ginger spicy main course West Bengal non vegetarian"
+239,Khorisa,spicy main course Assam vegetarian,"Fermented bamboo shoot, potato, ginger, green, mustard oil",-1,,veg,other,"khorisa khorisa khorisa Fermented bamboo shoot, potato, ginger, green, mustard oil spicy main course Assam vegetarian"
+240,Koldil Chicken,spicy main course Assam non vegetarian,"Banana flower, chicken, green chili, mustard oil, lemon juice",-1,,non-veg,chicken,"koldil_chicken koldil_chicken koldil_chicken Banana flower, chicken, green chili, mustard oil, lemon juice spicy main course Assam non vegetarian"
+241,Konir Dom,spicy main course Assam non vegetarian,"Aloo, tomatoes, mustard oil, bay leaf, cinnamon stick",-1,,veg,other,"konir_dom konir_dom konir_dom Aloo, tomatoes, mustard oil, bay leaf, cinnamon stick spicy main course Assam non vegetarian"
+242,Koldil Duck,spicy main course Assam non vegetarian,"Rice flour, mutton, banana, gram flour, olive oil, baking powder",-1,,non-veg,other,"koldil_duck koldil_duck koldil_duck Rice flour, mutton, banana, gram flour, olive oil, baking powder spicy main course Assam non vegetarian"
+243,Masor Koni,spicy main course Assam non vegetarian,"Fish roe, pumpkin flowers, mustard oil, turmeric, tomato",-1,,veg,other,"masor_koni masor_koni masor_koni Fish roe, pumpkin flowers, mustard oil, turmeric, tomato spicy main course Assam non vegetarian"
+244,Mishti Chholar Dal,sweet main course West Bengal vegetarian,"Chana dal, fresh coconut, ginger, cinnamon, raisins",30,,veg,dal,"mishti_chholar_dal mishti_chholar_dal mishti_chholar_dal Chana dal, fresh coconut, ginger, cinnamon, raisins sweet main course West Bengal vegetarian"
+245,Pakhala,-1 main course Odisha vegetarian,"Curd, cooked rice, curry leaves, dry chilli",-1,,veg,other,"pakhala pakhala pakhala Curd, cooked rice, curry leaves, dry chilli main course Odisha vegetarian"
+246,Pani Pitha,-1 main course Assam vegetarian,"Tea leaves, white sesame seeds, dry coconut, soaked rice",20,,veg,other,"pani_pitha pani_pitha pani_pitha Tea leaves, white sesame seeds, dry coconut, soaked rice main course Assam vegetarian"
+247,Payokh,sweet dessert Assam vegetarian,"Basmati rice, rose water, sugar, clarified butter, cardamom pods",-1,,veg,other,"payokh payokh payokh Basmati rice, rose water, sugar, clarified butter, cardamom pods sweet dessert Assam vegetarian"
+248,Prawn malai curry,spicy main course West Bengal non vegetarian,"Coconut milk, prawns, garlic, turmeric, sugar",50,,non-veg,curry,"prawn_malai_curry prawn_malai_curry prawn_malai_curry Coconut milk, prawns, garlic, turmeric, sugar spicy main course West Bengal non vegetarian"
+249,Red Rice,-1 main course -1 vegetarian,"Red pepper, red onion, butter, watercress, olive oil",-1,,veg,rice,"red_rice red_rice red_rice Red pepper, red onion, butter, watercress, olive oil main course  vegetarian"
+250,Shukto,spicy main course West Bengal vegetarian,"Green beans, bitter gourd, ridge gourd, banana, brinjal",20,,veg,other,"shukto shukto shukto Green beans, bitter gourd, ridge gourd, banana, brinjal spicy main course West Bengal vegetarian"
+251,Til Pitha,sweet dessert Assam vegetarian,"Glutinous rice, black sesame seeds, gur",30,,veg,other,"til_pitha til_pitha til_pitha Glutinous rice, black sesame seeds, gur sweet dessert Assam vegetarian"
+252,Bebinca,sweet dessert Goa vegetarian,"Coconut milk, egg yolks, clarified butter, all purpose flour",60,,veg,other,"bebinca bebinca bebinca Coconut milk, egg yolks, clarified butter, all purpose flour sweet dessert Goa vegetarian"
+253,Shufta,sweet dessert Jammu & Kashmir vegetarian,"Cottage cheese, dry dates, dried rose petals, pistachio, badam",-1,,veg,other,"shufta shufta shufta Cottage cheese, dry dates, dried rose petals, pistachio, badam sweet dessert Jammu & Kashmir vegetarian"
+254,Mawa Bati,sweet dessert Madhya Pradesh vegetarian,"Milk powder, dry fruits, arrowroot powder, all purpose flour",45,,veg,other,"mawa_bati mawa_bati mawa_bati Milk powder, dry fruits, arrowroot powder, all purpose flour sweet dessert Madhya Pradesh vegetarian"
+255,Pinaca,sweet dessert Goa vegetarian,"Brown rice, fennel seeds, grated coconut, black pepper, ginger powder",-1,,veg,other,"pinaca pinaca pinaca Brown rice, fennel seeds, grated coconut, black pepper, ginger powder sweet dessert Goa vegetarian"
+256,Baingan Fry,spicy main course Punjab vegetarian,"Beef, coconut, garam masala, curry leaves, green chilies, chili powder",60,https://www.vegrecipesofindia.com/wp-content/uploads/2021/06/baingan-bharta-1-500x500.jpg,veg,other,"baingan_fry baingan_fry baingan_fry Beef, coconut, garam masala, curry leaves, green chilies, chili powder spicy main course Punjab vegetarian"
