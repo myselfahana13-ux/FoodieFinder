@@ -2,19 +2,22 @@ import streamlit as st
 import pandas as pd
 import pickle
 import os
-import requests
 import random
 import datetime
 from food_img import FOOD_IMAGE_MAP
 
-# ---------------- PAGE CONFIG ----------------
+# ================================================================
+# PAGE CONFIG
+# ================================================================
 st.set_page_config(
     page_title="FoodieFinder",
     page_icon="🍕",
     layout="wide"
 )
 
-# ---------------- LOAD DATA ----------------
+# ================================================================
+# LOAD DATA
+# ================================================================
 base_dir = os.path.dirname(os.path.abspath(__file__))
 
 @st.cache_resource
@@ -23,11 +26,16 @@ def load_data():
     similarity = pickle.load(open(os.path.join(base_dir, 'models', 'similarity.pkl'), 'rb'))
     foodie     = pd.DataFrame(food_dict)
     recipes_df = pd.read_csv(os.path.join(base_dir, 'Food_data', 'food_csv', 'new_df.csv'))
+    # Reset indexes so they always align 0..N
+    foodie     = foodie.reset_index(drop=True)
+    recipes_df = recipes_df.reset_index(drop=True)
     return foodie, similarity, recipes_df
 
 foodie, similarity, recipes_df = load_data()
 
-# ---------------- SESSION STATE ----------------
+# ================================================================
+# SESSION STATE
+# ================================================================
 if 'recently_viewed' not in st.session_state:
     st.session_state.recently_viewed = []
 if 'food_of_day' not in st.session_state:
@@ -38,7 +46,9 @@ if 'food_of_day' not in st.session_state:
 if 'mood' not in st.session_state:
     st.session_state.mood = "All 🍽️"
 
-# ---------------- FOOD FACTS ----------------
+# ================================================================
+# CONSTANTS
+# ================================================================
 FOOD_FACTS = [
     "🍛 Biryani was introduced to India by Persian traders in the 15th century.",
     "🍩 Gulab Jamun is inspired by a Persian dish called Luqmat al-Qadi.",
@@ -54,39 +64,30 @@ FOOD_FACTS = [
     "🍛 There are over 30 regional varieties of curry across India.",
 ]
 
-# ---------------- IMAGE FUNCTION ----------------
-# get_food_image(food_name) is imported directly from food_img.py
-
-
-# ---------------- RECOMMEND FUNCTION ----------------
-# Non-veg ingredient keywords
 NON_VEG_KEYWORDS = [
     'chicken', 'mutton', 'fish', 'prawn', 'shrimp', 'lamb', 'beef',
-    'pork', 'crab', 'egg', 'keema', 'tuna', 'salmon', 'meat', 'liver'
+    'pork', 'crab', 'egg', 'keema', 'tuna', 'salmon', 'meat', 'liver', 'duck'
 ]
 
 DISH_FAMILIES = {
-    'south_indian': ['idli', 'idly', 'dosa', 'uttapam', 'vada', 'upma', 'sambhar', 'pongal', 'appam'],
-    'dal':          ['dal', 'daal', 'lentil', 'chana', 'rajma'],
-    'rice':         ['rice', 'pulao', 'biryani', 'khichdi'],
-    'bread':        ['roti', 'chapati', 'naan', 'paratha', 'puri', 'bhatura', 'kulcha'],
-    'curry':        ['curry', 'masala', 'korma', 'kadai', 'makhni', 'butter chicken'],
-    'kebab':        ['kebab', 'tikka', 'tandoori', 'seekh'],
-    'dessert':      ['halwa', 'kheer', 'gulab', 'ladoo', 'barfi', 'rasgulla', 'payasam', 'jalebi'],
-    'snack':        ['samosa', 'pakora', 'bhaji', 'chaat', 'tikki', 'papad', 'bhel'],
-    'seafood':      ['fish', 'prawn', 'shrimp', 'crab'],
+    'south_indian': ['idli', 'idly', 'dosa', 'uttapam', 'vada', 'upma', 'sambhar', 'pongal', 'appam', 'pesarattu', 'sevai', 'puttu', 'idiappam'],
+    'dal':          ['dal', 'daal', 'lentil', 'chana', 'rajma', 'sambar', 'rasam', 'amti'],
+    'rice':         ['rice', 'pulao', 'biryani', 'khichdi', 'pakhala'],
+    'bread':        ['roti', 'chapati', 'naan', 'paratha', 'puri', 'bhatura', 'kulcha', 'luchi', 'thepla', 'bhakri'],
+    'curry':        ['curry', 'masala', 'korma', 'kadai', 'makhni', 'makhani', 'kuzhambu', 'kootu', 'theeyal'],
+    'kebab':        ['kebab', 'tikka', 'tandoori', 'seekh', 'varuval'],
+    'dessert':      ['halwa', 'kheer', 'gulab', 'ladoo', 'barfi', 'rasgulla', 'payasam', 'jalebi', 'modak', 'pedha', 'sandesh', 'basundi', 'rabri', 'phirni', 'shrikhand'],
+    'snack':        ['samosa', 'pakora', 'bhaji', 'chaat', 'tikki', 'papad', 'bhel', 'kachori', 'dhokla', 'khaman', 'chakali', 'namakpara', 'chevdo'],
+    'seafood':      ['fish', 'prawn', 'shrimp', 'crab', 'maas', 'maach'],
 }
 
+# ================================================================
+# HELPERS
+# ================================================================
 def get_diet(row):
-    """Works safely with both pandas Series and dict."""
-    try:
-        tags = str(row['tags']).lower()
-    except:
-        tags = ''
-    try:
-        ingr = str(row['ingredients']).lower()
-    except:
-        ingr = ''
+    """Detect veg / non-veg from a pandas Series."""
+    tags = str(row.get('tags', '')).lower() if isinstance(row, dict) else str(row['tags']).lower()
+    ingr = str(row.get('ingredients', '')).lower() if isinstance(row, dict) else str(row['ingredients']).lower()
     if 'non vegetarian' in tags or 'non-vegetarian' in tags:
         return 'non-veg'
     if 'vegetarian' in tags:
@@ -96,18 +97,6 @@ def get_diet(row):
             return 'non-veg'
     return 'veg'
 
-DISH_FAMILIES = {
-    'south_indian': ['idli', 'idly', 'dosa', 'uttapam', 'vada', 'upma', 'sambhar', 'pongal', 'appam'],
-    'dal':          ['dal', 'daal', 'lentil', 'chana', 'rajma'],
-    'rice':         ['rice', 'pulao', 'biryani', 'khichdi'],
-    'bread':        ['roti', 'chapati', 'naan', 'paratha', 'puri', 'bhatura', 'kulcha'],
-    'curry':        ['curry', 'masala', 'korma', 'kadai', 'makhni', 'makhani'],
-    'kebab':        ['kebab', 'tikka', 'tandoori', 'seekh'],
-    'dessert':      ['halwa', 'kheer', 'gulab', 'ladoo', 'barfi', 'rasgulla', 'payasam', 'jalebi'],
-    'snack':        ['samosa', 'pakora', 'bhaji', 'chaat', 'tikki', 'papad', 'bhel', 'kachori'],
-    'seafood':      ['fish', 'prawn', 'shrimp', 'crab'],
-}
-
 def get_family(name):
     n = name.lower()
     for family, keywords in DISH_FAMILIES.items():
@@ -116,14 +105,38 @@ def get_family(name):
                 return family
     return 'other'
 
+def fmt_cook_time(val):
+    """Convert cook_time int to a readable string."""
+    try:
+        v = int(val)
+        if v <= 0:
+            return 'N/A'
+        if v >= 60:
+            h = v // 60
+            m = v % 60
+            return f"{h}h {m}m" if m else f"{h}h"
+        return f"{v} min"
+    except Exception:
+        return str(val)
+
+# ================================================================
+# RECOMMEND FUNCTION
+# ================================================================
 def recommend(food_name):
-    matches = foodie[foodie['name'].str.strip().str.lower() == food_name.strip().lower()]
+    """
+    Returns up to 5 recommendations for food_name.
+    Uses foodie (food_dict.pkl) index to look up similarity,
+    and recipes_df (new_df.csv) for metadata.
+    Both DataFrames share the same index after reset_index().
+    """
+    # Match against foodie (same index as similarity matrix)
+    mask    = foodie['name'].str.strip().str.lower() == food_name.strip().lower()
+    matches = foodie[mask]
     if matches.empty:
         return []
 
     food_idx    = matches.index[0]
-    food_row    = recipes_df[recipes_df['name'].str.strip() == foodie.iloc[food_idx]['name'].strip()]
-    food_diet   = get_diet(food_row.iloc[0]) if not food_row.empty else 'veg'
+    food_diet   = get_diet(recipes_df.iloc[food_idx])   # same row in recipes_df
     food_family = get_family(food_name)
     dist        = similarity[food_idx]
 
@@ -132,33 +145,27 @@ def recommend(food_name):
         if idx == food_idx or score < 0.1:
             continue
 
-        name     = foodie.iloc[idx]['name']
-        cand_row = recipes_df[recipes_df['name'].str.strip() == name.strip()]
-
-        # ✅ Safe diet check — pass iloc[0] only if row exists
-        cand_diet   = get_diet(cand_row.iloc[0]) if not cand_row.empty else 'veg'
-        cand_family = get_family(name)
-
+        cand_diet   = get_diet(recipes_df.iloc[idx])
         if food_diet != cand_diet:
             continue
 
+        name        = foodie.iloc[idx]['name']
+        cand_family = get_family(name)
         family_bonus = 0.2 if cand_family == food_family else 0.0
         final_score  = round((score + family_bonus) * 100, 1)
 
-        ingredients = str(cand_row.iloc[0]['ingredients']) if not cand_row.empty else 'Not available'
-        cook_time   = str(cand_row.iloc[0]['cook_time'])   if not cand_row.empty else 'N/A'
-        tags        = str(cand_row.iloc[0]['tags'])        if not cand_row.empty else ''
-
+        row = recipes_df.iloc[idx]
         candidates.append({
             'name':        name.strip(),
             'score':       final_score,
-            'ingredients': ingredients,
-            'cook_time':   cook_time,
-            'tags':        tags
+            'ingredients': str(row['ingredients']),
+            'cook_time':   fmt_cook_time(row['cook_time']),
+            'tags':        str(row['tags']),
         })
 
-    candidates = sorted(candidates, key=lambda x: x['score'], reverse=True)[:5]
-    return candidates
+    candidates.sort(key=lambda x: x['score'], reverse=True)
+    return candidates[:5]
+
 # ================================================================
 # CUSTOM CSS
 # ================================================================
@@ -249,6 +256,12 @@ st.markdown("""
     font-weight:600; margin:4px;
 }
 
+.no-results {
+    background: #FFF3E0; border: 1.5px solid #D4B896; border-radius: 16px;
+    padding: 24px; text-align: center; color: #7A4F2E;
+    font-family: 'Nunito', sans-serif; font-size: 16px;
+}
+
 .stSelectbox label { color:#5C3D2E!important; font-size:16px!important; font-weight:600!important; font-family:'Nunito',sans-serif!important; }
 .stSelectbox > div > div { background-color:#FFF3E0!important; border:2px solid #C4956A!important; border-radius:14px!important; color:#3B2A1A!important; }
 
@@ -286,8 +299,10 @@ st.markdown("<hr>", unsafe_allow_html=True)
 # FOOD OF THE DAY
 # ================================================================
 fotd     = st.session_state.food_of_day
-fotd_row = recipes_df[recipes_df['name'] == fotd]
-fotd_tags = fotd_row.iloc[0]['tags'] if not fotd_row.empty and 'tags' in fotd_row.columns else "Try something new today!"
+fotd_idx = foodie[foodie['name'] == fotd].index
+fotd_tags = ''
+if len(fotd_idx) > 0:
+    fotd_tags = str(recipes_df.iloc[fotd_idx[0]]['tags'])
 
 cl, cm, cr = st.columns([1, 3, 1])
 with cm:
@@ -297,7 +312,7 @@ with cm:
         <div>
             <p style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;opacity:0.7;margin:0;">Food of the Day</p>
             <h3>{fotd}</h3>
-            <p>{str(fotd_tags)[:60]}</p>
+            <p>{fotd_tags[:60]}</p>
         </div>
     </div>""", unsafe_allow_html=True)
 
@@ -339,7 +354,7 @@ st.markdown(f"<p style='text-align:center;color:#9A7B5E;font-size:13px;margin-to
 
 selected_mood_tag = moods[st.session_state.mood]
 if selected_mood_tag:
-    filtered = recipes_df[recipes_df['tags'].str.contains(selected_mood_tag, case=False, na=False)]['name']
+    filtered     = recipes_df[recipes_df['tags'].str.contains(selected_mood_tag, case=False, na=False)]['name']
     food_options = foodie[foodie['name'].isin(filtered)]['name'].values
     if len(food_options) == 0:
         food_options = foodie['name'].values
@@ -349,7 +364,7 @@ else:
 st.write("")
 
 # ================================================================
-# SEARCH + SELECTBOX
+# SELECTBOX
 # ================================================================
 cl, cm, cr = st.columns([1, 2, 1])
 with cm:
@@ -358,7 +373,7 @@ with cm:
 st.write("")
 
 # ================================================================
-# BUTTONS — Find Similar + Surprise Me
+# BUTTONS
 # ================================================================
 cl, cm, cr = st.columns([1, 2, 1])
 with cm:
@@ -373,7 +388,7 @@ if surprise_clicked:
     st.markdown(f"<p style='text-align:center;color:#7A4F2E;font-size:14px;'>🎲 Picked <strong>{selected_food_name}</strong> for you!</p>", unsafe_allow_html=True)
     recommend_clicked = True
 
-# recently viewed
+# Recently viewed
 if st.session_state.recently_viewed:
     pills = "".join([f'<span class="rv-pill">{f}</span>' for f in st.session_state.recently_viewed[-5:]])
     st.markdown(f"<p style='text-align:center;color:#9A7B5E;font-size:13px;font-weight:700;margin-top:10px;'>🕐 Recently viewed:</p><div style='text-align:center;'>{pills}</div>", unsafe_allow_html=True)
@@ -384,42 +399,47 @@ st.write("")
 # RESULTS
 # ================================================================
 if recommend_clicked:
-    try:
-        if selected_food_name not in st.session_state.recently_viewed:
-            st.session_state.recently_viewed.append(selected_food_name)
+    if selected_food_name not in st.session_state.recently_viewed:
+        st.session_state.recently_viewed.append(selected_food_name)
 
-        recommendations = recommend(selected_food_name)
+    recommendations = recommend(selected_food_name)
 
-        st.markdown("<h2 style='color:#3B1F0E;text-align:center;font-family:Playfair Display,serif;margin-top:20px;'>Recommended for you 🌿</h2>", unsafe_allow_html=True)
-        st.markdown(f"<p style='text-align:center;color:#9A7B5E;font-size:15px;'>Because you liked <strong>{selected_food_name}</strong></p>", unsafe_allow_html=True)
-        st.write("")
+    st.markdown("<h2 style='color:#3B1F0E;text-align:center;font-family:Playfair Display,serif;margin-top:20px;'>Recommended for you 🌿</h2>", unsafe_allow_html=True)
+    st.markdown(f"<p style='text-align:center;color:#9A7B5E;font-size:15px;'>Because you liked <strong>{selected_food_name}</strong></p>", unsafe_allow_html=True)
+    st.write("")
 
+    if not recommendations:
+        st.markdown(f"""
+        <div class="no-results">
+            😕 No close matches found for <strong>{selected_food_name}</strong>.<br>
+            <span style="font-size:13px;opacity:0.8;">Try a different food or change the mood filter.</span>
+        </div>""", unsafe_allow_html=True)
+    else:
         cols = st.columns(5)
         for idx, food_data in enumerate(recommendations):
             food      = food_data['name']
-            ingr      = str(food_data['ingredients'])
+            ingr      = food_data['ingredients']
             cook_time = food_data['cook_time']
             score     = food_data['score']
-            tags      = str(food_data['tags'])
-            image_url = FOOD_IMAGE_MAP.get(food, f"https://via.placeholder.com/300x300?text={food.replace(' ', '+')}")
+            tags      = food_data['tags']
+
+            image_url = FOOD_IMAGE_MAP.get(food, f"https://placehold.co/300x300/F5DEB3/5C3D2E?text={food.replace(' ', '+')}")
             maps_url  = f"https://www.google.com/maps/search/{food.replace(' ', '+')}+restaurant+near+me"
 
-            # build tag pills safely
             tag_pills = ""
-            if tags and tags != "nan":
+            if tags and tags.lower() != 'nan':
                 for t in tags.split(",")[:3]:
                     tag_pills += f'<span class="tag-pill">{t.strip()}</span>'
 
-            bar_width = min(score, 100)
+            bar_width  = min(score, 100)
             ingr_short = ingr[:55] + "..." if len(ingr) > 55 else ingr
 
             with cols[idx]:
                 try:
                     st.image(image_url, use_container_width=True)
-                except:
-                    st.image(FOOD_IMAGE_MAP.get(food, "https://via.placeholder.com/300x300?text=No+Image"), use_container_width=True)
+                except Exception:
+                    st.image(f"https://placehold.co/300x300/F5DEB3/5C3D2E?text={food.replace(' ', '+')}", use_container_width=True)
 
-                # ✅ Clean card — no comments inside HTML string
                 st.markdown(f"""
                 <div class="food-card">
                     <h3>{food}</h3>
@@ -434,11 +454,8 @@ if recommend_clicked:
                 </div>
                 """, unsafe_allow_html=True)
 
-        st.write("")
-        st.markdown("<div style='text-align:center;font-size:28px;margin-top:10px;letter-spacing:6px;opacity:0.5;'>🥘 &nbsp; 🍱 &nbsp; 🥗 &nbsp; 🍲 &nbsp; 🧆</div>", unsafe_allow_html=True)
-
-    except Exception as e:
-        st.error(f"Something went wrong: {e}. Please try another food.")
+    st.write("")
+    st.markdown("<div style='text-align:center;font-size:28px;margin-top:10px;letter-spacing:6px;opacity:0.5;'>🥘 &nbsp; 🍱 &nbsp; 🥗 &nbsp; 🍲 &nbsp; 🧆</div>", unsafe_allow_html=True)
 
 # ================================================================
 # FOOTER
