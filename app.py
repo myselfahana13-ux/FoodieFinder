@@ -416,7 +416,8 @@ if recommend_clicked:
                 try:
                     st.image(image_url, use_container_width=True)
                 except:
-                    st.image(f"https://picsum.photos/seed/{idx}/300/300", use_container_width=True)
+                    from food_img import _placeholder
+                    st.image(_placeholder(food), use_container_width=True)
 
                 # ✅ Clean card — no comments inside HTML string
                 st.markdown(f"""
